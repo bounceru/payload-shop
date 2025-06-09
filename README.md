@@ -1,4 +1,4 @@
-# StagePass Core – Multi-Tenant Ticketing Platform
+# – Multi-Tenant Ticketing Platform
 
 This project is the backend core for **StagePass**, a multi-tenant event ticketing system built with [Payload CMS](https://payloadcms.com), [Next.js](https://nextjs.org), and MongoDB. It allows each tenant (organization) to manage their own ticket shop, events, reservations, and settings, all within a scalable and customizable system.
 
@@ -116,6 +116,3 @@ update the order status.
 - MongoDB Atlas recommended for database hosting
 - Make sure to configure SMTP and secret keys in your `.env`
 
----
-
-### ✨ Built with love by Jonas 

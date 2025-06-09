@@ -1,0 +1,17 @@
+{
+  "dashboard": {
+    "welcome": "Welcome to your dashboard",
+    "profileCompletion": "Profile completion: {{percent}}%",
+    "onboarding": {
+      "shop": "Create your first shop",
+      "event": "Create your first event",
+      "ticketTypes": "Link ticket types to your event",
+      "addons": "(Optional) Add optional add-ons",
+      "seatmap": "Add a seat map (optionally from templates)"
+    },
+    "getStarted": "Get started by completing the steps below"
+  },
+  "mollieCheck": {
+    "checking_payment": "Checking payment status..."
+  }
+}

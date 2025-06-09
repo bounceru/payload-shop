@@ -1,0 +1,17 @@
+{
+  "dashboard": {
+    "welcome": "Welkom bij Stagepass!",
+    "profileCompletion": "Profiel voltooid: {{percent}}%",
+    "onboarding": {
+      "shop": "Maak je eerste shop aan",
+      "event": "Maak je eerste evenement aan",
+      "ticketTypes": "Voeg tickettypes toe aan je evenement",
+      "addons": "(Optioneel) Voeg optionele add-ons toe",
+      "seatmap": "Voeg een zaalplan toe (kies eventueel uit templates)"
+    },
+    "getStarted": "Begin met de onderstaande stappen om je evenementen te publiceren"
+  },
+  "mollieCheck": {
+    "checking_payment": "Betaling wordt gecontroleerd..."
+  }
+}

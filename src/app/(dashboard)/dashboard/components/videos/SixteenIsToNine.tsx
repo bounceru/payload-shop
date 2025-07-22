@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 
 export default function SixteenIsToNine() {
   return (
@@ -12,5 +12,5 @@ export default function SixteenIsToNine() {
         className="w-full h-full"
       ></iframe>
     </div>
-  );
+  )
 }

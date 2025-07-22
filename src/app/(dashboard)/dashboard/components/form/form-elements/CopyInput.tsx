@@ -1,18 +1,18 @@
-"use client";
+'use client'
 
-import type React from "react";
-import { useState } from "react";
+import type React from 'react'
+import { useState } from 'react'
 
 const CopyInput: React.FC = () => {
-  const [website, setWebsite] = useState("www.tailadmin.com");
-  const [copyText, setCopyText] = useState("Copy");
+  const [website, setWebsite] = useState('www.tailadmin.com')
+  const [copyText, setCopyText] = useState('Copy')
 
   const copyWebsite = () => {
     navigator.clipboard.writeText(website).then(() => {
-      setCopyText("Copied!");
-      setTimeout(() => setCopyText("Copy"), 2000);
-    });
-  };
+      setCopyText('Copied!')
+      setTimeout(() => setCopyText('Copy'), 2000)
+    })
+  }
 
   return (
     <div className="relative">
@@ -45,7 +45,7 @@ const CopyInput: React.FC = () => {
         placeholder="Enter website URL"
       />
     </div>
-  );
-};
+  )
+}
 
-export default CopyInput;
+export default CopyInput

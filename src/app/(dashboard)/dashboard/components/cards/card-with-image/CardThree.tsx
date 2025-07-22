@@ -1,7 +1,7 @@
-import React from "react";
-import { CardDescription, CardTitle } from "../../ui/card";
-import Link from "next/link";
-import Image from "next/image";
+import React from 'react'
+import { CardDescription, CardTitle } from '../../ui/card'
+import Link from 'next/link'
+import Image from 'next/image'
 
 export default function CardThree() {
   return (
@@ -46,5 +46,5 @@ export default function CardThree() {
         </Link>
       </div>
     </div>
-  );
+  )
 }

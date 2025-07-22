@@ -2,15 +2,23 @@
   "extends": "expo/tsconfig.base",
   "compilerOptions": {
     "jsx": "react",
-    "lib": ["esnext"],
+    "lib": [
+      "esnext"
+    ],
     "moduleResolution": "node",
     "allowJs": true,
     "skipLibCheck": true,
     "noEmit": true,
     "strict": true,
     "esModuleInterop": true,
-    "types": ["expo", "node"],
+    "types": [
+      "expo",
+      "node"
+    ],
     "target": "esnext"
   },
-  "include": ["**/*.tsx", "**/*.ts"]
+  "include": [
+    "**/*.tsx",
+    "**/*.ts"
+  ]
 }

@@ -1,18 +1,19 @@
-"use client";
-import { Dropdown } from "../../ui/dropdown/Dropdown";
-import { DropdownItem } from "../../ui/dropdown/DropdownItem";
-import React, { useState } from "react";
+'use client'
+import { Dropdown } from '../../ui/dropdown/Dropdown'
+import { DropdownItem } from '../../ui/dropdown/DropdownItem'
+import React, { useState } from 'react'
 
 export default function DropdownWithIconAndDivider() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false)
 
   function toggleDropdown() {
-    setIsOpen(!isOpen);
+    setIsOpen(!isOpen)
   }
 
   function closeDropdown() {
-    setIsOpen(false);
+    setIsOpen(false)
   }
+
   return (
     <div className="relative inline-block">
       <button
@@ -21,8 +22,8 @@ export default function DropdownWithIconAndDivider() {
       >
         Account Menu
         <svg
-          className={`duration-200 ease-in-out stroke-current ${isOpen ? "rotate-180" : ""
-            }`}
+          className={`duration-200 ease-in-out stroke-current ${isOpen ? 'rotate-180' : ''
+          }`}
           width="20"
           height="20"
           viewBox="0 0 20 20"
@@ -190,5 +191,5 @@ export default function DropdownWithIconAndDivider() {
         </ul>
       </Dropdown>
     </div>
-  );
+  )
 }

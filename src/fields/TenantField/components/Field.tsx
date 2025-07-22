@@ -16,7 +16,7 @@ export const TenantFieldComponent: React.FC<{
   const { user } = await args.payload.auth({ headers })
 
   // 1) Narrow the user to a "User" if collection === 'users'
-  const userDoc = user?.collection === 'users' ? user : null;
+  const userDoc = user?.collection === 'users' ? user : null
 
   // 2) Then do your check:
   if (
@@ -32,7 +32,7 @@ export const TenantFieldComponent: React.FC<{
         path={args.path}
         readOnly={args.readOnly}
       />
-    );
+    )
   }
 
   return null

@@ -1,7 +1,7 @@
-import React from "react";
-import { Card, CardDescription, CardTitle } from "../../ui/card";
-import Link from "next/link";
-import Image from "next/image";
+import React from 'react'
+import { Card, CardDescription, CardTitle } from '../../ui/card'
+import Link from 'next/link'
+import Image from 'next/image'
 
 export default function CardOne() {
   return (
@@ -32,5 +32,5 @@ export default function CardOne() {
         </div>
       </div>
     </Card>
-  );
+  )
 }

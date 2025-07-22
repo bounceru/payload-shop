@@ -1,13 +1,14 @@
-"use client";
-import Image from "next/image";
-import React from "react";
-import SimpleBar from "simplebar-react";
-import EmailDetailsHeader from "./EmailDetailsHeader";
-import EmailDetailsBottom from "./EmailDetailsBottom";
+'use client'
+import Image from 'next/image'
+import React from 'react'
+import SimpleBar from 'simplebar-react'
+import EmailDetailsHeader from './EmailDetailsHeader'
+import EmailDetailsBottom from './EmailDetailsBottom'
 
 export default function EmailWrapper() {
   return (
-    <div className="flex flex-col justify-between overflow-hidden rounded-2xl border border-gray-200 bg-white dark:border-gray-800 dark:bg-white/[0.03] xl:h-full">
+    <div
+      className="flex flex-col justify-between overflow-hidden rounded-2xl border border-gray-200 bg-white dark:border-gray-800 dark:bg-white/[0.03] xl:h-full">
       <EmailDetailsHeader />
       <SimpleBar className="custom-scrollbar max-h-[500px] 2xl:max-h-[780px]">
         <div className=" p-5  xl:p-6">
@@ -96,7 +97,8 @@ export default function EmailWrapper() {
             </div>
 
             <div className="flex flex-col items-center gap-3 sm:flex-row">
-              <div className="relative hover:border-gray-300 dark:hover:border-white/[0.05] flex w-full cursor-pointer items-center gap-3 rounded-xl border border-gray-200 bg-white py-2.5 pl-3 pr-5 dark:border-gray-800 dark:bg-white/5 sm:w-auto">
+              <div
+                className="relative hover:border-gray-300 dark:hover:border-white/[0.05] flex w-full cursor-pointer items-center gap-3 rounded-xl border border-gray-200 bg-white py-2.5 pl-3 pr-5 dark:border-gray-800 dark:bg-white/5 sm:w-auto">
                 <div className="w-full h-10 max-w-10">
                   <Image
                     src="./images/task/pdf.svg"
@@ -122,7 +124,8 @@ export default function EmailWrapper() {
                 </div>
               </div>
 
-              <div className="relative hover:border-gray-300 dark:hover:border-white/[0.05] flex w-full cursor-pointer items-center gap-3 rounded-xl border border-gray-200 bg-white py-2.5 pl-3 pr-5 dark:border-gray-800 dark:bg-white/5 sm:w-auto">
+              <div
+                className="relative hover:border-gray-300 dark:hover:border-white/[0.05] flex w-full cursor-pointer items-center gap-3 rounded-xl border border-gray-200 bg-white py-2.5 pl-3 pr-5 dark:border-gray-800 dark:bg-white/5 sm:w-auto">
                 <div className="w-full h-10 max-w-10">
                   <Image
                     width={40}
@@ -152,5 +155,5 @@ export default function EmailWrapper() {
       </SimpleBar>
       <EmailDetailsBottom />
     </div>
-  );
+  )
 }

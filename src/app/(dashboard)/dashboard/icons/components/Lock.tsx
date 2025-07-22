@@ -1,5 +1,6 @@
-import * as React from 'react'
 import type { SVGProps } from 'react'
+import * as React from 'react'
+
 const SvgLock = (props: SVGProps<SVGSVGElement>) => (
   <svg xmlns="http://www.w3.org/2000/svg" width={20} height={20} fill="none" {...props}>
     <path fill="#667085" d="M10.625 13.958a.625.625 0 0 0-1.25 0v1.25a.625.625 0 0 0 1.25 0z" />

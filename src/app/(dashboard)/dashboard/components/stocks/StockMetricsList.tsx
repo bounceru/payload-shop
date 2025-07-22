@@ -1,4 +1,4 @@
-import StockCard from "./StockMetricCard";
+import StockCard from './StockMetricCard'
 
 type StockCardProps = {
   imgUrl: string;
@@ -6,44 +6,44 @@ type StockCardProps = {
   companyName: string;
   price: string;
   change: string;
-  changeDirection: "up" | "down"; // Direction of the price change
+  changeDirection: 'up' | 'down'; // Direction of the price change
 };
 
 const stockData: StockCardProps[] = [
   {
-    imgUrl: "/images/brand/brand-07.svg",
-    symbol: "APPL",
-    companyName: "Apple, Inc",
-    price: "$1,232.00",
-    change: "11.01%",
-    changeDirection: "up",
+    imgUrl: '/images/brand/brand-07.svg',
+    symbol: 'APPL',
+    companyName: 'Apple, Inc',
+    price: '$1,232.00',
+    change: '11.01%',
+    changeDirection: 'up',
   },
 
   {
-    imgUrl: "/images/brand/brand-08.svg",
-    symbol: "PYPL",
-    companyName: "Paypal, Inc",
-    price: "$965.00",
-    change: "9.05%",
-    changeDirection: "down",
+    imgUrl: '/images/brand/brand-08.svg',
+    symbol: 'PYPL',
+    companyName: 'Paypal, Inc',
+    price: '$965.00',
+    change: '9.05%',
+    changeDirection: 'down',
   },
   {
-    imgUrl: "/images/brand/brand-09.svg",
-    symbol: "TSLA",
-    companyName: "Tesla, Inc",
-    price: "$1,232.00",
-    change: "11.01%",
-    changeDirection: "up",
+    imgUrl: '/images/brand/brand-09.svg',
+    symbol: 'TSLA',
+    companyName: 'Tesla, Inc',
+    price: '$1,232.00',
+    change: '11.01%',
+    changeDirection: 'up',
   },
   {
-    imgUrl: "/images/brand/brand-10.svg",
-    symbol: "AMZN",
-    companyName: "Amazon.com, Inc",
-    price: "$2,567.00",
-    change: "11.01%",
-    changeDirection: "up",
+    imgUrl: '/images/brand/brand-10.svg',
+    symbol: 'AMZN',
+    companyName: 'Amazon.com, Inc',
+    price: '$2,567.00',
+    change: '11.01%',
+    changeDirection: 'up',
   },
-];
+]
 
 export default function StockMetricsList() {
   return (
@@ -52,5 +52,5 @@ export default function StockMetricsList() {
         <StockCard key={i + 1} {...stock} />
       ))}
     </div>
-  );
+  )
 }

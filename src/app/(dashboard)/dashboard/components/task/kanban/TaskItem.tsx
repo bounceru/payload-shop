@@ -1,7 +1,7 @@
-import React, { useRef } from "react";
-import { useDrag, useDrop } from "react-dnd";
-import { Task, DropResult } from "./types/types";
-import Image from "next/image";
+import React, { useRef } from 'react'
+import { useDrag, useDrop } from 'react-dnd'
+import { DropResult, Task } from './types/types'
+import Image from 'next/image'
 
 interface TaskItemProps {
   task: Task;
@@ -11,12 +11,12 @@ interface TaskItemProps {
 }
 
 const TaskItem: React.FC<TaskItemProps> = ({
-  task,
-  index,
-  moveTask,
-  changeTaskStatus,
-}) => {
-  const ref = useRef<HTMLDivElement>(null);
+                                             task,
+                                             index,
+                                             moveTask,
+                                             changeTaskStatus,
+                                           }) => {
+  const ref = useRef<HTMLDivElement>(null)
 
   // TaskItem.tsx
   const [{ handlerId }, drop] = useDrop<
@@ -28,30 +28,30 @@ const TaskItem: React.FC<TaskItemProps> = ({
     collect(monitor) {
       return {
         handlerId: monitor.getHandlerId(),
-      };
+      }
     },
     drop: () => ({ name: task.status }),
     hover(item, monitor) {
-      if (!ref.current) return;
+      if (!ref.current) return
 
-      const dragIndex = item.index;
-      const hoverIndex = index;
+      const dragIndex = item.index
+      const hoverIndex = index
 
-      if (dragIndex === hoverIndex) return;
+      if (dragIndex === hoverIndex) return
 
-      const hoverBoundingRect = ref.current?.getBoundingClientRect();
+      const hoverBoundingRect = ref.current?.getBoundingClientRect()
       const hoverMiddleY =
-        (hoverBoundingRect.bottom - hoverBoundingRect.top) / 2;
-      const clientOffset = monitor.getClientOffset();
-      const hoverClientY = clientOffset!.y - hoverBoundingRect.top;
+        (hoverBoundingRect.bottom - hoverBoundingRect.top) / 2
+      const clientOffset = monitor.getClientOffset()
+      const hoverClientY = clientOffset!.y - hoverBoundingRect.top
 
-      if (dragIndex < hoverIndex && hoverClientY < hoverMiddleY) return;
-      if (dragIndex > hoverIndex && hoverClientY > hoverMiddleY) return;
+      if (dragIndex < hoverIndex && hoverClientY < hoverMiddleY) return
+      if (dragIndex > hoverIndex && hoverClientY > hoverMiddleY) return
 
-      moveTask(dragIndex, hoverIndex);
-      item.index = hoverIndex;
+      moveTask(dragIndex, hoverIndex)
+      item.index = hoverIndex
     },
-  });
+  })
 
   const [{ isDragging }, drag] = useDrag<
     Task,
@@ -64,14 +64,14 @@ const TaskItem: React.FC<TaskItemProps> = ({
       isDragging: monitor.isDragging(),
     }),
     end: (item, monitor) => {
-      const dropResult = monitor.getDropResult();
+      const dropResult = monitor.getDropResult()
       if (dropResult) {
-        changeTaskStatus(item.id, dropResult.name);
+        changeTaskStatus(item.id, dropResult.name)
       }
     },
-  });
-  const opacity = isDragging ? 0.3 : 0.8;
-  drag(drop(ref));
+  })
+  const opacity = isDragging ? 0.3 : 0.8
+  drag(drop(ref))
 
   return (
     <div
@@ -161,35 +161,36 @@ const TaskItem: React.FC<TaskItemProps> = ({
           </div>
           <span
             className={`mt-3 inline-flex rounded-full px-2 py-0.5 text-theme-xs font-medium ${getCategoryStyles(
-              task.category.color
+              task.category.color,
             )}`}
           >
             {task.category.name}
           </span>
         </div>
       </div>
-      <div className="h-6 absolute top-5 right-5 top w-full max-w-6 overflow-hidden rounded-full border-[0.5px] border-gray-200 dark:border-gray-800">
+      <div
+        className="h-6 absolute top-5 right-5 top w-full max-w-6 overflow-hidden rounded-full border-[0.5px] border-gray-200 dark:border-gray-800">
         <Image width={24} height={24} src={task.assignee} alt="user" />
       </div>
     </div>
-  );
-};
+  )
+}
 
 const getCategoryStyles = (color: string) => {
   switch (color) {
-    case "error":
-      return "bg-error-50 text-error-700 dark:bg-error-500/15 dark:text-error-400";
-    case "success":
-      return "bg-success-50 text-success-700 dark:bg-success-500/15 dark:text-success-400";
-    case "brand":
-      return "bg-brand-50 text-brand-700 dark:bg-brand-500/15 dark:text-brand-400";
-    case "orange":
-      return "bg-orange-50 text-orange-700 dark:bg-orange-500/15 dark:text-orange-400";
-    case "purple":
-      return "bg-purple-50 text-purple-700 dark:bg-purple-500/15 dark:text-purple-400";
+    case 'error':
+      return 'bg-error-50 text-error-700 dark:bg-error-500/15 dark:text-error-400'
+    case 'success':
+      return 'bg-success-50 text-success-700 dark:bg-success-500/15 dark:text-success-400'
+    case 'brand':
+      return 'bg-brand-50 text-brand-700 dark:bg-brand-500/15 dark:text-brand-400'
+    case 'orange':
+      return 'bg-orange-50 text-orange-700 dark:bg-orange-500/15 dark:text-orange-400'
+    case 'purple':
+      return 'bg-purple-50 text-purple-700 dark:bg-purple-500/15 dark:text-purple-400'
     default:
-      return "bg-gray-100 text-gray-700 dark:bg-gray-500/15 dark:text-gray-400";
+      return 'bg-gray-100 text-gray-700 dark:bg-gray-500/15 dark:text-gray-400'
   }
-};
+}
 
-export default TaskItem;
+export default TaskItem

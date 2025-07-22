@@ -1,5 +1,5 @@
-import Image from "next/image";
-import React from "react";
+import Image from 'next/image'
+import React from 'react'
 
 export default function GridShape() {
   return (
@@ -21,5 +21,5 @@ export default function GridShape() {
         />
       </div>
     </>
-  );
+  )
 }

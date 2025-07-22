@@ -1,9 +1,9 @@
-import React from "react";
-import ComponentCard from "../../common/ComponentCard";
-import RoundedRibbon from "./RoundedRibbon";
-import RibbonWithHover from "./RibbonWithHover";
-import RibbonWithShape from "./RibbonWithShape";
-import FilledRibbon from "./FilledRibbon";
+import React from 'react'
+import ComponentCard from '../../common/ComponentCard'
+import RoundedRibbon from './RoundedRibbon'
+import RibbonWithHover from './RibbonWithHover'
+import RibbonWithShape from './RibbonWithShape'
+import FilledRibbon from './FilledRibbon'
 
 export default function RibbonExample() {
   return (
@@ -21,5 +21,5 @@ export default function RibbonExample() {
         <RibbonWithHover />
       </ComponentCard>
     </div>
-  );
+  )
 }

@@ -1,5 +1,5 @@
-import React from "react";
-import ProgressBar from "./ProgressBar";
+import React from 'react'
+import ProgressBar from './ProgressBar'
 
 export default function DefaultProgressbarExample() {
   return (
@@ -8,5 +8,5 @@ export default function DefaultProgressbarExample() {
       <ProgressBar progress={85} />
       <ProgressBar progress={35} />
     </div>
-  );
+  )
 }

@@ -1,24 +1,24 @@
-import Link from "next/link"
-import type { Metadata } from "next"
-import { fetchShopContext } from "@/lib/fetchShopContext"
-import NavBar from "../components/NavBar"
-import Footer from "../components/Footer"
-import { getS3Url } from "@/utils/media"
-import { Calendar, Users, BarChart3, Megaphone, Shield, Headphones, CheckCircle, Star, ArrowRight } from "lucide-react"
+import Link from 'next/link'
+import type { Metadata } from 'next'
+import { fetchShopContext } from '@/lib/fetchShopContext'
+import NavBar from '../components/NavBar'
+import Footer from '../components/Footer'
+import { getS3Url } from '@/utils/media'
+import { ArrowRight, BarChart3, Calendar, CheckCircle, Headphones, Megaphone, Shield, Star, Users } from 'lucide-react'
 
-export const dynamic = "force-dynamic"
+export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
-  title: "Evenementen organiseren in Vlaanderen | Stagepass",
+  title: 'Evenementen organiseren in Vlaanderen | Stagepass',
   description:
-    "Ontdek hoe je als organisator eenvoudig evenementen in Vlaanderen kunt beheren en promoten met Stagepass.",
+    'Ontdek hoe je als organisator eenvoudig evenementen in Vlaanderen kunt beheren en promoten met Stagepass.',
 }
 
 export default async function EvenementenPage() {
   const { isShop, shop, branding } = await fetchShopContext({})
 
-  const logoUrl = getS3Url(branding?.siteLogo) || "/static/stagepass-logo.png"
-  const headerBgColor = branding?.headerBackgroundColor || "#ED6D38"
+  const logoUrl = getS3Url(branding?.siteLogo) || '/static/stagepass-logo.png'
+  const headerBgColor = branding?.headerBackgroundColor || '#ED6D38'
 
   return (
     <>
@@ -111,8 +111,10 @@ export default async function EvenementenPage() {
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <div className="group bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-                <div className="w-16 h-16 bg-orange-100 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-orange-200 transition-colors">
+              <div
+                className="group bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+                <div
+                  className="w-16 h-16 bg-orange-100 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-orange-200 transition-colors">
                   <Calendar className="w-8 h-8 text-orange-600" />
                 </div>
                 <h3 className="text-2xl font-semibold text-gray-900 mb-4">Eenvoudig beheer</h3>
@@ -122,8 +124,10 @@ export default async function EvenementenPage() {
                 </p>
               </div>
 
-              <div className="group bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-                <div className="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-blue-200 transition-colors">
+              <div
+                className="group bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+                <div
+                  className="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-blue-200 transition-colors">
                   <Megaphone className="w-8 h-8 text-blue-600" />
                 </div>
                 <h3 className="text-2xl font-semibold text-gray-900 mb-4">Promotie op maat</h3>
@@ -133,8 +137,10 @@ export default async function EvenementenPage() {
                 </p>
               </div>
 
-              <div className="group bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-                <div className="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-green-200 transition-colors">
+              <div
+                className="group bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+                <div
+                  className="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-green-200 transition-colors">
                   <Headphones className="w-8 h-8 text-green-600" />
                 </div>
                 <h3 className="text-2xl font-semibold text-gray-900 mb-4">Lokale support</h3>
@@ -144,8 +150,10 @@ export default async function EvenementenPage() {
                 </p>
               </div>
 
-              <div className="group bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-                <div className="w-16 h-16 bg-purple-100 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-purple-200 transition-colors">
+              <div
+                className="group bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+                <div
+                  className="w-16 h-16 bg-purple-100 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-purple-200 transition-colors">
                   <BarChart3 className="w-8 h-8 text-purple-600" />
                 </div>
                 <h3 className="text-2xl font-semibold text-gray-900 mb-4">Realtime analytics</h3>
@@ -154,8 +162,10 @@ export default async function EvenementenPage() {
                 </p>
               </div>
 
-              <div className="group bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-                <div className="w-16 h-16 bg-red-100 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-red-200 transition-colors">
+              <div
+                className="group bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+                <div
+                  className="w-16 h-16 bg-red-100 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-red-200 transition-colors">
                   <Shield className="w-8 h-8 text-red-600" />
                 </div>
                 <h3 className="text-2xl font-semibold text-gray-900 mb-4">Veilige betalingen</h3>
@@ -165,8 +175,10 @@ export default async function EvenementenPage() {
                 </p>
               </div>
 
-              <div className="group bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-                <div className="w-16 h-16 bg-yellow-100 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-yellow-200 transition-colors">
+              <div
+                className="group bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+                <div
+                  className="w-16 h-16 bg-yellow-100 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-yellow-200 transition-colors">
                   <Users className="w-8 h-8 text-yellow-600" />
                 </div>
                 <h3 className="text-2xl font-semibold text-gray-900 mb-4">Toegangsbeheer</h3>
@@ -191,7 +203,8 @@ export default async function EvenementenPage() {
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               <div className="text-center">
-                <div className="w-20 h-20 bg-orange-500 rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-6">
+                <div
+                  className="w-20 h-20 bg-orange-500 rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-6">
                   1
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-4">Account aanmaken</h3>
@@ -201,7 +214,8 @@ export default async function EvenementenPage() {
               </div>
 
               <div className="text-center">
-                <div className="w-20 h-20 bg-blue-500 rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-6">
+                <div
+                  className="w-20 h-20 bg-blue-500 rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-6">
                   2
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-4">Evenement instellen</h3>
@@ -211,7 +225,8 @@ export default async function EvenementenPage() {
               </div>
 
               <div className="text-center">
-                <div className="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-6">
+                <div
+                  className="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-6">
                   3
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-4">Promoten & verkopen</h3>
@@ -221,7 +236,8 @@ export default async function EvenementenPage() {
               </div>
 
               <div className="text-center">
-                <div className="w-20 h-20 bg-purple-500 rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-6">
+                <div
+                  className="w-20 h-20 bg-purple-500 rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-6">
                   4
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-4">Evenement uitvoeren</h3>
@@ -393,7 +409,7 @@ export default async function EvenementenPage() {
             ? {
               ...branding,
               siteLogo:
-                typeof branding.siteLogo === "object" && branding.siteLogo !== null
+                typeof branding.siteLogo === 'object' && branding.siteLogo !== null
                   ? (branding.siteLogo.s3_url ?? undefined)
                   : branding.siteLogo,
               primaryColorCTA: branding.primaryColorCTA ?? undefined,

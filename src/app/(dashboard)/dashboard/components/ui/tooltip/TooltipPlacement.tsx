@@ -1,6 +1,6 @@
-import React from "react";
-import { Tooltip } from "./Tooltip";
-import Button from "../button/Button";
+import React from 'react'
+import { Tooltip } from './Tooltip'
+import Button from '../button/Button'
 
 export default function TooltipPlacement() {
   return (
@@ -21,5 +21,5 @@ export default function TooltipPlacement() {
         <Button size="sm">Tooltip Left</Button>
       </Tooltip>
     </div>
-  );
+  )
 }

@@ -1,6 +1,6 @@
-"use client"
-import DOMPurify from "dompurify"
-import parse from "html-react-parser"
+'use client'
+import DOMPurify from 'dompurify'
+import parse from 'html-react-parser'
 
 type Props = { html: string }
 

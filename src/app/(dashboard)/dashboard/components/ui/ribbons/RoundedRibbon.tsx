@@ -1,9 +1,11 @@
-import React from "react";
+import React from 'react'
 
 export default function RoundedRibbon() {
   return (
-    <div className="relative overflow-hidden rounded-xl border border-gray-200 dark:border-gray-800 dark:bg-white/[0.03]">
-      <span className="absolute -left-px mt-3 inline-block rounded-r-full bg-brand-500 px-4 py-1.5 text-sm font-medium text-white">
+    <div
+      className="relative overflow-hidden rounded-xl border border-gray-200 dark:border-gray-800 dark:bg-white/[0.03]">
+      <span
+        className="absolute -left-px mt-3 inline-block rounded-r-full bg-brand-500 px-4 py-1.5 text-sm font-medium text-white">
         Popular
       </span>
       <div className="p-5 pt-16">
@@ -15,5 +17,5 @@ export default function RoundedRibbon() {
         </p>
       </div>
     </div>
-  );
+  )
 }

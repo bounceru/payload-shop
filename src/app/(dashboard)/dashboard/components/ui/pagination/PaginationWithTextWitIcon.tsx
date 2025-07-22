@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from 'react'
 
 interface PaginationProps {
   totalPages: number;
@@ -7,65 +7,65 @@ interface PaginationProps {
 }
 
 export default function PaginationWithTextIcon({
-  totalPages,
-  initialPage = 1,
-  onPageChange,
-}: PaginationProps) {
-  const [currentPage, setCurrentPage] = useState(initialPage);
+                                                 totalPages,
+                                                 initialPage = 1,
+                                                 onPageChange,
+                                               }: PaginationProps) {
+  const [currentPage, setCurrentPage] = useState(initialPage)
 
   const handlePageChange = (page: number) => {
-    if (page < 1 || page > totalPages) return;
-    setCurrentPage(page);
-    onPageChange?.(page);
-  };
+    if (page < 1 || page > totalPages) return
+    setCurrentPage(page)
+    onPageChange?.(page)
+  }
 
   const renderPageNumbers = () => {
-    const pageNumbers = [];
-    const maxVisiblePages = 7;
+    const pageNumbers = []
+    const maxVisiblePages = 7
 
     if (totalPages <= maxVisiblePages) {
       for (let i = 1; i <= totalPages; i++) {
-        pageNumbers.push(renderPageButton(i));
+        pageNumbers.push(renderPageButton(i))
       }
     } else {
-      pageNumbers.push(renderPageButton(1));
-      if (currentPage > 3) pageNumbers.push(renderEllipsis());
+      pageNumbers.push(renderPageButton(1))
+      if (currentPage > 3) pageNumbers.push(renderEllipsis())
 
-      let start = Math.max(2, currentPage - 1);
-      let end = Math.min(totalPages - 1, currentPage + 1);
+      let start = Math.max(2, currentPage - 1)
+      let end = Math.min(totalPages - 1, currentPage + 1)
 
-      if (currentPage <= 3) end = 5;
-      if (currentPage >= totalPages - 2) start = totalPages - 4;
+      if (currentPage <= 3) end = 5
+      if (currentPage >= totalPages - 2) start = totalPages - 4
 
       for (let i = start; i <= end; i++) {
-        pageNumbers.push(renderPageButton(i));
+        pageNumbers.push(renderPageButton(i))
       }
 
-      if (currentPage < totalPages - 2) pageNumbers.push(renderEllipsisTwo());
-      pageNumbers.push(renderPageButton(totalPages));
+      if (currentPage < totalPages - 2) pageNumbers.push(renderEllipsisTwo())
+      pageNumbers.push(renderPageButton(totalPages))
     }
 
-    return pageNumbers;
-  };
+    return pageNumbers
+  }
 
   const renderPageButton = (page: number) => (
     <li key={page}>
       <a
         href="#"
         onClick={(e) => {
-          e.preventDefault();
-          handlePageChange(page);
+          e.preventDefault()
+          handlePageChange(page)
         }}
         className={`flex items-center justify-center w-10 h-10 text-sm font-medium rounded-lg ${
           currentPage === page
-            ? "text-white bg-brand-500 hover:bg-brand-600"
-            : "text-gray-700 hover:bg-brand-500 hover:text-white dark:text-gray-400 dark:hover:text-white"
+            ? 'text-white bg-brand-500 hover:bg-brand-600'
+            : 'text-gray-700 hover:bg-brand-500 hover:text-white dark:text-gray-400 dark:hover:text-white'
         }`}
       >
         {page}
       </a>
     </li>
-  );
+  )
 
   const renderEllipsis = () => (
     <li key="ellipsis">
@@ -73,14 +73,14 @@ export default function PaginationWithTextIcon({
         ...
       </span>
     </li>
-  );
+  )
   const renderEllipsisTwo = () => (
     <li key="ellipsisTwo">
       <span className="flex items-center justify-center w-10 h-10 text-sm font-medium text-gray-700 dark:text-gray-400">
         ...
       </span>
     </li>
-  );
+  )
 
   return (
     <div className="flex items-center justify-between gap-8 px-6 py-4 sm:justify-normal">
@@ -142,5 +142,5 @@ export default function PaginationWithTextIcon({
         </span>
       </button>
     </div>
-  );
+  )
 }

@@ -1,8 +1,8 @@
 'use client'
 
-import React, { useState, useMemo, useEffect } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import Image from 'next/image'
-import { FaTrash, FaPlus } from 'react-icons/fa'
+import { FaPlus, FaTrash } from 'react-icons/fa'
 
 interface Seat {
   id: string
@@ -29,12 +29,12 @@ interface SeatAssignmentEditorProps {
 }
 
 export default function SeatAssignmentEditor({
-  seatMap,
-  ticketTypes,
-  assignments,
-  onChange,
-  onTicketTypesChange,
-}: SeatAssignmentEditorProps) {
+                                               seatMap,
+                                               ticketTypes,
+                                               assignments,
+                                               onChange,
+                                               onTicketTypesChange,
+                                             }: SeatAssignmentEditorProps) {
   const [selected, setSelected] = useState<string>('')
   const [ticketTypesState, setTicketTypesState] = useState<TicketType[]>(ticketTypes)
   const [newName, setNewName] = useState('')
@@ -162,6 +162,7 @@ export default function SeatAssignmentEditor({
     const rows = seatMap?.rows || 0
     const cols = seatMap?.columns || 0
     const out: Seat[][] = []
+
     interface SeatMap {
       rows: number
       columns: number
@@ -186,7 +187,7 @@ export default function SeatAssignmentEditor({
             pinnedRow: r,
             pinnedCol: c,
             status: 'Empty',
-          }
+          },
         )
       }
       out.push(rowSeats)

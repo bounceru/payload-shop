@@ -1,18 +1,18 @@
-import type { FieldHook } from 'payload';
-import { ValidationError } from 'payload';
-import { getTenantAccessIDs } from '../../../utilities/getTenantAccessIDs';
+import type { FieldHook } from 'payload'
+import { ValidationError } from 'payload'
+import { getTenantAccessIDs } from '../../../utilities/getTenantAccessIDs'
 
 export const ensureUniqueUsername: FieldHook = async ({ data, originalDoc, req, value }) => {
   // 1) If username is unchanged, skip validation
   if (originalDoc.username === value) {
-    return value;
+    return value
   }
 
   // 2) Determine which tenant ID to use
-  const incomingTenantID = typeof data?.tenant === 'object' ? data.tenant.id : data?.tenant;
+  const incomingTenantID = typeof data?.tenant === 'object' ? data.tenant.id : data?.tenant
   const currentTenantID =
-    typeof originalDoc?.tenant === 'object' ? originalDoc.tenant.id : originalDoc?.tenant;
-  const tenantIDToMatch = incomingTenantID || currentTenantID;
+    typeof originalDoc?.tenant === 'object' ? originalDoc.tenant.id : originalDoc?.tenant
+  const tenantIDToMatch = incomingTenantID || currentTenantID
 
   // 3) Check for an existing user with same username under same tenant
   const findDuplicateUsers = await req.payload.find({
@@ -23,15 +23,15 @@ export const ensureUniqueUsername: FieldHook = async ({ data, originalDoc, req, 
         { username: { equals: value } },
       ],
     },
-  });
+  })
 
   // 4) If duplicate found and we have a logged-in user
   if (findDuplicateUsers.docs.length > 0 && req.user) {
     // Narrow to 'User' if collection='users'
-    const userDoc = req.user.collection === 'users' ? req.user : null;
+    const userDoc = req.user.collection === 'users' ? req.user : null
 
     // Only get tenant IDs if userDoc is truly a user
-    const tenantIDs = userDoc ? getTenantAccessIDs(userDoc) : [];
+    const tenantIDs = userDoc ? getTenantAccessIDs(userDoc) : []
 
     // Check if userDoc has 'super-admin' role OR has more than 1 tenant
     if (
@@ -41,7 +41,7 @@ export const ensureUniqueUsername: FieldHook = async ({ data, originalDoc, req, 
       const attemptedTenantChange = await req.payload.findByID({
         collection: 'tenants',
         id: tenantIDToMatch,
-      });
+      })
 
       throw new ValidationError({
         errors: [
@@ -50,7 +50,7 @@ export const ensureUniqueUsername: FieldHook = async ({ data, originalDoc, req, 
             path: 'username',
           },
         ],
-      });
+      })
     }
 
     // Otherwise show a generic error
@@ -61,8 +61,8 @@ export const ensureUniqueUsername: FieldHook = async ({ data, originalDoc, req, 
           path: 'username',
         },
       ],
-    });
+    })
   }
 
-  return value;
-};
+  return value
+}

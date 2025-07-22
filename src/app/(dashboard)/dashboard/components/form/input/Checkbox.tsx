@@ -1,4 +1,4 @@
-import type React from "react";
+import type React from 'react'
 
 interface CheckboxProps {
   label?: string;
@@ -10,17 +10,17 @@ interface CheckboxProps {
 }
 
 const Checkbox: React.FC<CheckboxProps> = ({
-  label,
-  checked,
-  id,
-  onChange,
-  className = "",
-  disabled = false,
-}) => {
+                                             label,
+                                             checked,
+                                             id,
+                                             onChange,
+                                             className = '',
+                                             disabled = false,
+                                           }) => {
   return (
     <label
       className={`flex items-center space-x-3 group cursor-pointer ${
-        disabled ? "cursor-not-allowed opacity-60" : ""
+        disabled ? 'cursor-not-allowed opacity-60' : ''
       }`}
     >
       <div className={`relative w-5 h-5`}>
@@ -76,7 +76,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
         </span>
       )}
     </label>
-  );
-};
+  )
+}
 
-export default Checkbox;
+export default Checkbox

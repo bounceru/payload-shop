@@ -1,11 +1,11 @@
 // File: src/collections/Users/index.ts
 
-import type { CollectionConfig } from 'payload';
-import { externalUsersLogin } from './endpoints/externalUsersLogin';
-import { setCookieBasedOnDomain } from './hooks/setCookieBasedOnDomain';
-import { hasPermission, hasFieldPermission } from '@/access/permissionChecker';
-import { baseListFilter } from './access/baseListFilter';
-import { meEndpoint } from './endpoints/me';
+import type { CollectionConfig } from 'payload'
+import { externalUsersLogin } from './endpoints/externalUsersLogin'
+import { setCookieBasedOnDomain } from './hooks/setCookieBasedOnDomain'
+import { hasPermission, hasFieldPermission } from '@/access/permissionChecker'
+import { baseListFilter } from './access/baseListFilter'
+import { meEndpoint } from './endpoints/me'
 
 const Users: CollectionConfig = {
   slug: 'users',
@@ -210,8 +210,8 @@ const Users: CollectionConfig = {
         read: hasFieldPermission('users', 'phoneNumber', 'read'),
         update: hasFieldPermission('users', 'phoneNumber', 'update'),
       },
-    }
+    },
   ],
-};
+}
 
-export default Users;
+export default Users

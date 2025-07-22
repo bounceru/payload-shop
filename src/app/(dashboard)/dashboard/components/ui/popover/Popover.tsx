@@ -1,8 +1,8 @@
-"use client";
+'use client'
 
-import React, { useState, useRef, useEffect, ReactNode } from "react";
+import React, { ReactNode, useEffect, useRef, useState } from 'react'
 
-type Position = "top" | "right" | "bottom" | "left";
+type Position = 'top' | 'right' | 'bottom' | 'left';
 
 interface PopoverProps {
   position: Position;
@@ -11,9 +11,9 @@ interface PopoverProps {
 }
 
 export default function Popover({ position, trigger, children }: PopoverProps) {
-  const [isOpen, setIsOpen] = useState(false);
-  const popoverRef = useRef<HTMLDivElement>(null);
-  const triggerRef = useRef<HTMLDivElement>(null);
+  const [isOpen, setIsOpen] = useState(false)
+  const popoverRef = useRef<HTMLDivElement>(null)
+  const triggerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -23,33 +23,33 @@ export default function Popover({ position, trigger, children }: PopoverProps) {
         triggerRef.current &&
         !triggerRef.current.contains(event.target as Node)
       ) {
-        setIsOpen(false);
+        setIsOpen(false)
       }
     }
 
-    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener('mousedown', handleClickOutside)
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [])
 
-  const togglePopover = () => setIsOpen(!isOpen);
+  const togglePopover = () => setIsOpen(!isOpen)
 
   const positionClasses = {
-    top: "bottom-full left-1/2 transform -translate-x-1/2 mb-2",
-    right: "left-full top-1/2 transform -translate-y-1/2 ml-2",
-    bottom: "top-full left-1/2 transform -translate-x-1/2 mt-2",
-    left: "right-full top-1/2 transform -translate-y-1/2 mr-2",
-  };
+    top: 'bottom-full left-1/2 transform -translate-x-1/2 mb-2',
+    right: 'left-full top-1/2 transform -translate-y-1/2 ml-2',
+    bottom: 'top-full left-1/2 transform -translate-x-1/2 mt-2',
+    left: 'right-full top-1/2 transform -translate-y-1/2 mr-2',
+  }
 
   const arrowClasses = {
-    top: "bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 rotate-45",
+    top: 'bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 rotate-45',
     right:
-      "left-0 top-1/2 transform -translate-y-1/2 -translate-x-1/2 rotate-45",
+      'left-0 top-1/2 transform -translate-y-1/2 -translate-x-1/2 rotate-45',
     bottom:
-      "top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rotate-45",
-    left: "right-0 top-1/2 transform -translate-y-1/2 translate-x-1/2 rotate-45",
-  };
+      'top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rotate-45',
+    left: 'right-0 top-1/2 transform -translate-y-1/2 translate-x-1/2 rotate-45',
+  }
 
   return (
     <div className="relative inline-block">
@@ -70,5 +70,5 @@ export default function Popover({ position, trigger, children }: PopoverProps) {
         </div>
       )}
     </div>
-  );
+  )
 }

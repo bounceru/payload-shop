@@ -1,15 +1,15 @@
-"use client";
-import React from "react";
-import ComponentCard from "../../common/ComponentCard";
-import Form from "../Form";
-import Input from "../input/InputField";
-import Button from "../../ui/button/Button";
+'use client'
+import React from 'react'
+import ComponentCard from '../../common/ComponentCard'
+import Form from '../Form'
+import Input from '../input/InputField'
+import Button from '../../ui/button/Button'
 
 export default function BasicForm() {
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log("Form submitted:");
-  };
+    e.preventDefault()
+    console.log('Form submitted:')
+  }
   return (
     <ComponentCard title="Basic Form">
       <Form onSubmit={handleSubmit}>
@@ -34,5 +34,5 @@ export default function BasicForm() {
         </div>
       </Form>
     </ComponentCard>
-  );
+  )
 }

@@ -1,9 +1,9 @@
 import { getPayload } from 'payload'
 import config from '@payload-config'
 import { cookies } from 'next/headers'
+import type { OnboardingStep } from './components/onboarding/OnboardingProgress'
 import OnboardingProgress from './components/onboarding/OnboardingProgress'
 import DashboardStats from './components/overview/DashboardStats'
-import type { OnboardingStep } from './components/onboarding/OnboardingProgress'
 
 export const dynamic = 'force-dynamic'
 
@@ -12,16 +12,16 @@ export default async function DashboardHome() {
   const cookiesStore = await cookies()
   const cookieHeader = cookiesStore.toString()
 
-  const tenantId = cookiesStore.get("payload-tenant")?.value || ""
+  const tenantId = cookiesStore.get('payload-tenant')?.value || ''
   const where: any = tenantId ? { tenant: { equals: tenantId } } : {}
 
   const [shopsRes, ordersRes, eventsRes, ticketTypesRes, addonsRes, seatmapsRes] = await Promise.all([
-    payload.find({ collection: "shops", where, limit: 1 }),
-    payload.find({ collection: "orders", where }),
-    payload.find({ collection: "events", where, limit: 1 }),
-    payload.find({ collection: "event-ticket-types", where }),
-    payload.find({ collection: "addons", where, limit: 1 }),
-    payload.find({ collection: "seatMaps", where, limit: 1 }),
+    payload.find({ collection: 'shops', where, limit: 1 }),
+    payload.find({ collection: 'orders', where }),
+    payload.find({ collection: 'events', where, limit: 1 }),
+    payload.find({ collection: 'event-ticket-types', where }),
+    payload.find({ collection: 'addons', where, limit: 1 }),
+    payload.find({ collection: 'seatMaps', where, limit: 1 }),
   ])
 
   const steps: OnboardingStep[] = [

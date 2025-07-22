@@ -1,14 +1,14 @@
-"use client";
-import React from "react";
+'use client'
+import React from 'react'
 // import Chart from "react-apexcharts";
-import { ApexOptions } from "apexcharts";
-import ChartTab from "../common/ChartTab";
-import dynamic from "next/dynamic";
+import { ApexOptions } from 'apexcharts'
+import ChartTab from '../common/ChartTab'
+import dynamic from 'next/dynamic'
 
 // Dynamically import the ReactApexChart component
-const ReactApexChart = dynamic(() => import("react-apexcharts"), {
+const ReactApexChart = dynamic(() => import('react-apexcharts'), {
   ssr: false,
-});
+})
 
 export default function PortfolioPerformance() {
   const data = [
@@ -242,25 +242,25 @@ export default function PortfolioPerformance() {
     [1774579200000, 37.49],
     [1774665600000, 38.09],
     [1774752000000, 37.87],
-  ];
+  ]
   const options: ApexOptions = {
     legend: {
       show: false,
-      position: "top",
-      horizontalAlign: "left",
+      position: 'top',
+      horizontalAlign: 'left',
     },
-    colors: ["#465FFF"],
+    colors: ['#465FFF'],
     chart: {
-      fontFamily: "Outfit, sans-serif",
+      fontFamily: 'Outfit, sans-serif',
       height: 335,
-      id: "area-datetime",
-      type: "area",
+      id: 'area-datetime',
+      type: 'area',
       toolbar: {
         show: false,
       },
     },
     stroke: {
-      curve: "straight",
+      curve: 'straight',
       width: [1], // Fixed width array
     },
     dataLabels: {
@@ -270,7 +270,7 @@ export default function PortfolioPerformance() {
       size: 0,
     },
     xaxis: {
-      type: "datetime",
+      type: 'datetime',
       tickAmount: 10,
       axisBorder: {
         show: false,
@@ -284,11 +284,11 @@ export default function PortfolioPerformance() {
     },
     tooltip: {
       x: {
-        format: "dd MMM yyyy",
+        format: 'dd MMM yyyy',
       },
     },
     fill: {
-      type: "gradient", // Explicitly set the type for gradient
+      type: 'gradient', // Explicitly set the type for gradient
       gradient: {
         opacityFrom: 0.55,
         opacityTo: 0,
@@ -308,22 +308,23 @@ export default function PortfolioPerformance() {
     },
     yaxis: {
       title: {
-        text: "", // Ensure no title text
+        text: '', // Ensure no title text
         style: {
-          fontSize: "0px", // Correct style application
+          fontSize: '0px', // Correct style application
         },
       },
     },
-  };
+  }
 
   const series = [
     {
-      name: "Portfolio Performance",
+      name: 'Portfolio Performance',
       data: data,
     },
-  ];
+  ]
   return (
-    <div className="rounded-2xl border border-gray-200 bg-white px-5 pb-5 pt-5 dark:border-gray-800 dark:bg-white/[0.03] sm:px-6 sm:pt-5">
+    <div
+      className="rounded-2xl border border-gray-200 bg-white px-5 pb-5 pt-5 dark:border-gray-800 dark:bg-white/[0.03] sm:px-6 sm:pt-5">
       <div className="flex flex-col gap-5 mb-6 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <h3 className="text-lg font-semibold text-gray-800 dark:text-white/90">
@@ -351,5 +352,5 @@ export default function PortfolioPerformance() {
         </div>
       </div>
     </div>
-  );
+  )
 }

@@ -1,9 +1,10 @@
-"use client";
-import React, { useState } from "react";
+'use client'
+import React, { useState } from 'react'
 
-import { Dropdown } from "../ui/dropdown/Dropdown";
-import { DropdownItem } from "../ui/dropdown/DropdownItem";
-import { MoreDotIcon } from "@/app/(dashboard)/dashboard/icons";
+import { Dropdown } from '../ui/dropdown/Dropdown'
+import { DropdownItem } from '../ui/dropdown/DropdownItem'
+import { MoreDotIcon } from '@/app/(dashboard)/dashboard/icons'
+
 interface FolderCardProps {
   title: string;
   fileCount: string;
@@ -11,17 +12,19 @@ interface FolderCardProps {
 }
 
 const FolderCard: React.FC<FolderCardProps> = ({ title, fileCount, size }) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false)
 
   function toggleDropdown() {
-    setIsOpen(!isOpen);
+    setIsOpen(!isOpen)
   }
 
   function closeDropdown() {
-    setIsOpen(false);
+    setIsOpen(false)
   }
+
   return (
-    <div className="rounded-2xl border border-gray-100 bg-gray-50 px-6 py-6 dark:border-gray-800 dark:bg-white/[0.03] xl:py-[27px]">
+    <div
+      className="rounded-2xl border border-gray-100 bg-gray-50 px-6 py-6 dark:border-gray-800 dark:bg-white/[0.03] xl:py-[27px]">
       <div className="flex justify-between mb-6">
         <div>
           <svg
@@ -88,7 +91,7 @@ const FolderCard: React.FC<FolderCardProps> = ({ title, fileCount, size }) => {
         </span>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default FolderCard;
+export default FolderCard

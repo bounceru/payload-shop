@@ -1,18 +1,18 @@
-"use client";
-import React from "react";
-import { useModal } from "../../hooks/useModal";
-import { Modal } from "../ui/modal";
-import Button from "../ui/button/Button";
-import Input from "../form/input/InputField";
-import Label from "../form/Label";
+'use client'
+import React from 'react'
+import { useModal } from '../../hooks/useModal'
+import { Modal } from '../ui/modal'
+import Button from '../ui/button/Button'
+import Input from '../form/input/InputField'
+import Label from '../form/Label'
 
 export default function UserInfoCard() {
-  const { isOpen, openModal, closeModal } = useModal();
+  const { isOpen, openModal, closeModal } = useModal()
   const handleSave = () => {
     // Handle save logic here
-    console.log("Saving changes...");
-    closeModal();
-  };
+    console.log('Saving changes...')
+    closeModal()
+  }
   return (
     <div className="p-5 border border-gray-200 rounded-2xl dark:border-gray-800 lg:p-6">
       <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
@@ -93,7 +93,8 @@ export default function UserInfoCard() {
       </div>
 
       <Modal isOpen={isOpen} onClose={closeModal} className="max-w-[700px] m-4">
-        <div className="no-scrollbar relative w-full max-w-[700px] overflow-y-auto rounded-3xl bg-white p-4 dark:bg-gray-900 lg:p-11">
+        <div
+          className="no-scrollbar relative w-full max-w-[700px] overflow-y-auto rounded-3xl bg-white p-4 dark:bg-gray-900 lg:p-11">
           <div className="px-2 pr-14">
             <h4 className="mb-2 text-2xl font-semibold text-gray-800 dark:text-white/90">
               Edit Personal Information
@@ -185,5 +186,5 @@ export default function UserInfoCard() {
         </div>
       </Modal>
     </div>
-  );
+  )
 }

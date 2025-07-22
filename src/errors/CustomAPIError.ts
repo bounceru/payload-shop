@@ -1,11 +1,11 @@
 // File: src/errors/CustomAPIError.ts
 
-import { APIError } from 'payload';
+import { APIError } from 'payload'
 
 class CustomAPIError extends APIError {
-    constructor(message: string) {
-        super(message, 400, undefined, true);
-    }
+  constructor(message: string) {
+    super(message, 400, undefined, true)
+  }
 }
 
-export default CustomAPIError;
+export default CustomAPIError

@@ -1,9 +1,9 @@
-"use client";
+'use client'
 
-import React from "react";
+import React from 'react'
 
 /** Optionally allow passing `color` if you want dynamic or fallback. */
-export default function Loading({ color = "#ED6D38" }: { color?: string }) {
+export default function Loading({ color = '#ED6D38' }: { color?: string }) {
   return (
     <div className="flex justify-center items-center h-screen">
       {/* 
@@ -12,7 +12,7 @@ export default function Loading({ color = "#ED6D38" }: { color?: string }) {
       */}
       <div
         className="bouncing-loader"
-        style={{ ["--dot-color" as any]: color }}
+        style={{ ['--dot-color' as any]: color }}
       >
         <div />
         <div />
@@ -50,5 +50,5 @@ export default function Loading({ color = "#ED6D38" }: { color?: string }) {
         }
       `}</style>
     </div>
-  );
+  )
 }

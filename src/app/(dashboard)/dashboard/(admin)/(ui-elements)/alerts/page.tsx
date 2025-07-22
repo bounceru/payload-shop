@@ -1,15 +1,15 @@
-import ComponentCard from "../../../components/common/ComponentCard";
-import PageBreadcrumb from "../../../components/common/PageBreadCrumb";
-import Alert from "../../../components/ui/alert/Alert";
-import { Metadata } from "next";
-import React from "react";
+import ComponentCard from '../../../components/common/ComponentCard'
+import PageBreadcrumb from '../../../components/common/PageBreadCrumb'
+import Alert from '../../../components/ui/alert/Alert'
+import { Metadata } from 'next'
+import React from 'react'
 
 export const metadata: Metadata = {
-  title: "Next.js Alerts | TailAdmin - Next.js Dashboard Template",
+  title: 'Next.js Alerts | TailAdmin - Next.js Dashboard Template',
   description:
-    "This is Next.js Alerts page for TailAdmin - Next.js Tailwind CSS Admin Dashboard Template",
+    'This is Next.js Alerts page for TailAdmin - Next.js Tailwind CSS Admin Dashboard Template',
   // other metadata
-};
+}
 
 export default function Alerts() {
   return (
@@ -47,7 +47,7 @@ export default function Alerts() {
             message="Be cautious when performing this action."
             showLink={false}
           />
-        </ComponentCard>{" "}
+        </ComponentCard>{' '}
         <ComponentCard title="Error Alert">
           <Alert
             variant="error"
@@ -63,7 +63,7 @@ export default function Alerts() {
             message="Be cautious when performing this action."
             showLink={false}
           />
-        </ComponentCard>{" "}
+        </ComponentCard>{' '}
         <ComponentCard title="Info Alert">
           <Alert
             variant="info"
@@ -82,5 +82,5 @@ export default function Alerts() {
         </ComponentCard>
       </div>
     </div>
-  );
+  )
 }

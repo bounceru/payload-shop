@@ -1,49 +1,50 @@
-"use client";
-import React, { useState } from "react";
-import { Modal } from "../ui/modal";
-import { useModal } from "../../hooks/useModal";
-import Button from "../ui/button/Button";
-import Label from "../form/Label";
-import Input from "../form/input/InputField";
-import TextArea from "../form/input/TextArea";
-import Image from "next/image";
+'use client'
+import React, { useState } from 'react'
+import { Modal } from '../ui/modal'
+import { useModal } from '../../hooks/useModal'
+import Button from '../ui/button/Button'
+import Label from '../form/Label'
+import Input from '../form/input/InputField'
+import TextArea from '../form/input/TextArea'
+import Image from 'next/image'
 
 export default function TaskHeader() {
-  const [selectedTaskGroup, setSelectedTaskGroup] = useState<string>("All");
-  const { isOpen, openModal, closeModal } = useModal();
-  const [message, setMessage] = useState("");
+  const [selectedTaskGroup, setSelectedTaskGroup] = useState<string>('All')
+  const { isOpen, openModal, closeModal } = useModal()
+  const [message, setMessage] = useState('')
 
   const taskGroups = [
-    { name: "All Tasks", key: "All", count: 14 },
-    { name: "To do", key: "Todo", count: 3 },
-    { name: "In Progress", key: "InProgress", count: 4 },
-    { name: "Completed", key: "Completed", count: 4 },
-  ];
+    { name: 'All Tasks', key: 'All', count: 14 },
+    { name: 'To do', key: 'Todo', count: 3 },
+    { name: 'In Progress', key: 'InProgress', count: 4 },
+    { name: 'Completed', key: 'Completed', count: 4 },
+  ]
 
   const handleMessageChange = (value: string) => {
-    setMessage(value);
-  };
+    setMessage(value)
+  }
   return (
     <>
       <div className="flex flex-col items-center px-4 py-5 xl:px-6 xl:py-6">
         <div className="flex flex-col w-full gap-5 sm:justify-between xl:flex-row xl:items-center">
-          <div className="grid grid-cols-2 sm:grid-cols-4 items-center gap-x-1 gap-y-2 rounded-lg bg-gray-100 p-0.5 dark:bg-gray-900">
+          <div
+            className="grid grid-cols-2 sm:grid-cols-4 items-center gap-x-1 gap-y-2 rounded-lg bg-gray-100 p-0.5 dark:bg-gray-900">
             {taskGroups.map((group) => (
               <button
                 key={group.key}
                 onClick={() => setSelectedTaskGroup(group.key)}
                 className={`inline-flex items-center xl:justify-start justify-center gap-2 px-4 py-2 text-sm font-medium rounded-md group hover:text-gray-900 dark:hover:text-white ${
                   selectedTaskGroup === group.key
-                    ? "text-gray-900 dark:text-white bg-white dark:bg-gray-800"
-                    : "text-gray-500 dark:text-gray-400"
+                    ? 'text-gray-900 dark:text-white bg-white dark:bg-gray-800'
+                    : 'text-gray-500 dark:text-gray-400'
                 }`}
               >
                 {group.name}
                 <span
                   className={`inline-flex rounded-full px-2 py-0.5 text-xs font-medium leading-normal group-hover:bg-brand-50 group-hover:text-brand-500 dark:group-hover:bg-brand-500/15 dark:group-hover:text-brand-400 ${
                     selectedTaskGroup === group.key
-                      ? "text-brand-500 dark:text-brand-400 bg-brand-50 dark:bg-brand-500/15"
-                      : "bg-white dark:bg-white/[0.03]"
+                      ? 'text-brand-500 dark:text-brand-400 bg-brand-50 dark:bg-brand-500/15'
+                      : 'bg-white dark:bg-white/[0.03]'
                   }`}
                 >
                   {group.count}
@@ -139,7 +140,8 @@ export default function TaskHeader() {
               <div>
                 <Label>Status</Label>
                 <div className="relative z-20 bg-transparent dark:bg-form-input">
-                  <select className="dark:bg-dark-900 h-11 w-full appearance-none rounded-lg border border-gray-300 bg-transparent bg-none px-4 py-2.5 pr-11 text-sm text-gray-800 shadow-theme-xs placeholder:text-gray-400 focus:border-brand-300 focus:outline-hidden focus:ring-3 focus:ring-brand-500/10 dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30 dark:focus:border-brand-800">
+                  <select
+                    className="dark:bg-dark-900 h-11 w-full appearance-none rounded-lg border border-gray-300 bg-transparent bg-none px-4 py-2.5 pr-11 text-sm text-gray-800 shadow-theme-xs placeholder:text-gray-400 focus:border-brand-300 focus:outline-hidden focus:ring-3 focus:ring-brand-500/10 dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30 dark:focus:border-brand-800">
                     <option
                       value=""
                       className="text-gray-700 dark:bg-gray-900 dark:text-gray-400"
@@ -185,7 +187,8 @@ export default function TaskHeader() {
                   Tags
                 </Label>
                 <div className="relative z-20 bg-transparent dark:bg-form-input">
-                  <select className="dark:bg-dark-900 h-11 w-full appearance-none rounded-lg border border-gray-300 bg-transparent bg-none px-4 py-2.5 pr-11 text-sm text-gray-800 shadow-theme-xs placeholder:text-gray-400 focus:border-brand-300 focus:outline-hidden focus:ring-3 focus:ring-brand-500/10 dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30 dark:focus:border-brand-800">
+                  <select
+                    className="dark:bg-dark-900 h-11 w-full appearance-none rounded-lg border border-gray-300 bg-transparent bg-none px-4 py-2.5 pr-11 text-sm text-gray-800 shadow-theme-xs placeholder:text-gray-400 focus:border-brand-300 focus:outline-hidden focus:ring-3 focus:ring-brand-500/10 dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30 dark:focus:border-brand-800">
                     <option
                       value=""
                       className="text-gray-700 dark:bg-gray-900 dark:text-gray-400"
@@ -229,7 +232,8 @@ export default function TaskHeader() {
               <div>
                 <Label>Assignees</Label>
                 <div className="relative z-20 bg-transparent dark:bg-form-input">
-                  <select className="dark:bg-dark-900 h-11 w-full appearance-none rounded-lg border border-gray-300 bg-transparent bg-none px-4 py-2.5 pr-11 text-sm text-gray-800 shadow-theme-xs placeholder:text-gray-400 focus:border-brand-300 focus:outline-hidden focus:ring-3 focus:ring-brand-500/10 dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30 dark:focus:border-brand-800">
+                  <select
+                    className="dark:bg-dark-900 h-11 w-full appearance-none rounded-lg border border-gray-300 bg-transparent bg-none px-4 py-2.5 pr-11 text-sm text-gray-800 shadow-theme-xs placeholder:text-gray-400 focus:border-brand-300 focus:outline-hidden focus:ring-3 focus:ring-brand-500/10 dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30 dark:focus:border-brand-800">
                     <option
                       value=""
                       className="text-gray-700 dark:bg-gray-900 dark:text-gray-400"
@@ -281,7 +285,8 @@ export default function TaskHeader() {
               </div>
             </div>
 
-            <div className="relative p-3 mt-6 border border-gray-200 rounded-xl bg-gray-50 dark:border-gray-800 dark:bg-gray-900 sm:p-5">
+            <div
+              className="relative p-3 mt-6 border border-gray-200 rounded-xl bg-gray-50 dark:border-gray-800 dark:bg-gray-900 sm:p-5">
               <input type="file" id="upload-file" className="sr-only" />
               <div className="flex items-center gap-3 mb-5">
                 <span className="text-lg font-medium text-gray-800 dark:text-white/90">
@@ -297,8 +302,10 @@ export default function TaskHeader() {
               </div>
 
               <div className="flex flex-col items-center gap-3 sm:flex-row">
-                <div className="group relative flex w-full cursor-pointer items-center gap-3 rounded-xl border border-gray-200 bg-white py-2.5 pl-3 pr-5 dark:border-gray-800 dark:bg-white/5 sm:w-auto">
-                  <span className="absolute flex items-center justify-center w-5 h-5 text-gray-400 bg-white border border-gray-200 rounded-full opacity-0 -right-2 -top-2 group-hover:opacity-100 dark:border-gray-800 dark:bg-gray-900">
+                <div
+                  className="group relative flex w-full cursor-pointer items-center gap-3 rounded-xl border border-gray-200 bg-white py-2.5 pl-3 pr-5 dark:border-gray-800 dark:bg-white/5 sm:w-auto">
+                  <span
+                    className="absolute flex items-center justify-center w-5 h-5 text-gray-400 bg-white border border-gray-200 rounded-full opacity-0 -right-2 -top-2 group-hover:opacity-100 dark:border-gray-800 dark:bg-gray-900">
                     <svg
                       className="fill-current"
                       width="12"
@@ -340,8 +347,10 @@ export default function TaskHeader() {
                   </div>
                 </div>
 
-                <div className="group relative flex w-full cursor-pointer items-center gap-3 rounded-xl border border-gray-200 bg-white py-2.5 pl-3 pr-5 dark:border-gray-800 dark:bg-white/5 sm:w-auto">
-                  <span className="absolute flex items-center justify-center w-5 h-5 text-gray-400 bg-white border border-gray-200 rounded-full opacity-0 -right-2 -top-2 group-hover:opacity-100 dark:border-gray-800 dark:bg-gray-900">
+                <div
+                  className="group relative flex w-full cursor-pointer items-center gap-3 rounded-xl border border-gray-200 bg-white py-2.5 pl-3 pr-5 dark:border-gray-800 dark:bg-white/5 sm:w-auto">
+                  <span
+                    className="absolute flex items-center justify-center w-5 h-5 text-gray-400 bg-white border border-gray-200 rounded-full opacity-0 -right-2 -top-2 group-hover:opacity-100 dark:border-gray-800 dark:bg-gray-900">
                     <svg
                       className="fill-current"
                       width="12"
@@ -383,7 +392,8 @@ export default function TaskHeader() {
                   </div>
                 </div>
 
-                <div className="flex h-[60px] w-full cursor-pointer items-center justify-center rounded-xl border border-gray-200 bg-white text-gray-700 dark:border-gray-800 dark:bg-white/5 dark:text-gray-400 sm:w-[60px]">
+                <div
+                  className="flex h-[60px] w-full cursor-pointer items-center justify-center rounded-xl border border-gray-200 bg-white text-gray-700 dark:border-gray-800 dark:bg-white/5 dark:text-gray-400 sm:w-[60px]">
                   <svg
                     className="fill-current"
                     width="24"
@@ -456,5 +466,5 @@ export default function TaskHeader() {
         </form>
       </Modal>
     </>
-  );
+  )
 }

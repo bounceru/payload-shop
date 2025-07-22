@@ -1,9 +1,11 @@
-import React from "react";
+import React from 'react'
 
 export default function RibbonWithHover() {
   return (
-    <div className="group relative overflow-hidden rounded-xl border border-gray-200 dark:border-gray-800 dark:bg-white/[0.03]">
-      <span className="after:bottom-0-0 group absolute -left-px mt-3 flex -translate-x-[55px] items-center gap-1 bg-brand-500 px-4 py-1.5 text-sm font-medium text-white transition-transform duration-500 ease-in-out before:absolute before:-right-4 before:top-0 before:border-[16px] before:border-transparent before:border-l-brand-500 before:border-t-brand-500 before:content-[''] after:absolute after:-right-4 after:border-[16px] after:border-transparent after:border-b-brand-500 after:border-l-brand-500 after:content-[''] group-hover:translate-x-0">
+    <div
+      className="group relative overflow-hidden rounded-xl border border-gray-200 dark:border-gray-800 dark:bg-white/[0.03]">
+      <span
+        className="after:bottom-0-0 group absolute -left-px mt-3 flex -translate-x-[55px] items-center gap-1 bg-brand-500 px-4 py-1.5 text-sm font-medium text-white transition-transform duration-500 ease-in-out before:absolute before:-right-4 before:top-0 before:border-[16px] before:border-transparent before:border-l-brand-500 before:border-t-brand-500 before:content-[''] after:absolute after:-right-4 after:border-[16px] after:border-transparent after:border-b-brand-500 after:border-l-brand-500 after:content-[''] group-hover:translate-x-0">
         <span className="transition-opacity duration-300 ease-linear opacity-0 group-hover:opacity-100">
           Popular
         </span>
@@ -32,5 +34,5 @@ export default function RibbonWithHover() {
         </p>
       </div>
     </div>
-  );
+  )
 }

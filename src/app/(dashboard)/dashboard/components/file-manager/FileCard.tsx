@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 
 interface FileCardProps {
   icon: React.ReactNode;
@@ -10,15 +10,16 @@ interface FileCardProps {
 }
 
 const FileCard: React.FC<FileCardProps> = ({
-  icon,
-  title,
-  usage,
-  fileCount,
-  storageUsed,
-  iconStyle,
-}) => {
+                                             icon,
+                                             title,
+                                             usage,
+                                             fileCount,
+                                             storageUsed,
+                                             iconStyle,
+                                           }) => {
   return (
-    <div className="flex items-center justify-between rounded-2xl border border-gray-100 bg-white py-4 pl-4 pr-4 dark:border-gray-800 dark:bg-white/[0.03] xl:pr-5">
+    <div
+      className="flex items-center justify-between rounded-2xl border border-gray-100 bg-white py-4 pl-4 pr-4 dark:border-gray-800 dark:bg-white/[0.03] xl:pr-5">
       <div className="flex items-center gap-4">
         <div
           className={`flex h-[52px] w-[52px] items-center justify-center rounded-xl ${iconStyle}`}
@@ -44,7 +45,7 @@ const FileCard: React.FC<FileCardProps> = ({
         </span>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default FileCard;
+export default FileCard

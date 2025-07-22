@@ -1,34 +1,34 @@
-"use client"
-import { useRouter } from "next/navigation"
-import { useState, useRef, useEffect } from "react"
-import { Calendar, MapPin, Filter, X, Check, ChevronDown, Search, RotateCcw } from "lucide-react"
+'use client'
+import { useRouter } from 'next/navigation'
+import { useEffect, useRef, useState } from 'react'
+import { Calendar, Check, ChevronDown, Filter, MapPin, RotateCcw, Search, X } from 'lucide-react'
 
 const eventTypes = [
-  { value: "concert", label: "Concert" },
-  { value: "theater", label: "Theater" },
-  { value: "dance", label: "Dans" },
-  { value: "comedy", label: "Comedy" },
-  { value: "musical", label: "Musical" },
-  { value: "opera", label: "Opera" },
-  { value: "family", label: "Familie" },
-  { value: "talk", label: "Lezing" },
-  { value: "workshop", label: "Workshop" },
-  { value: "festival", label: "Festival" },
-  { value: "other", label: "Overig" },
+  { value: 'concert', label: 'Concert' },
+  { value: 'theater', label: 'Theater' },
+  { value: 'dance', label: 'Dans' },
+  { value: 'comedy', label: 'Comedy' },
+  { value: 'musical', label: 'Musical' },
+  { value: 'opera', label: 'Opera' },
+  { value: 'family', label: 'Familie' },
+  { value: 'talk', label: 'Lezing' },
+  { value: 'workshop', label: 'Workshop' },
+  { value: 'festival', label: 'Festival' },
+  { value: 'other', label: 'Overig' },
 ]
 
 const provinces = [
-  "Antwerpen",
-  "Vlaams-Brabant",
-  "Waals-Brabant",
-  "West-Vlaanderen",
-  "Oost-Vlaanderen",
-  "Henegouwen",
-  "Luik",
-  "Limburg",
-  "Luxemburg",
-  "Namen",
-  "Brussels Hoofdstedelijk Gewest",
+  'Antwerpen',
+  'Vlaams-Brabant',
+  'Waals-Brabant',
+  'West-Vlaanderen',
+  'Oost-Vlaanderen',
+  'Henegouwen',
+  'Luik',
+  'Limburg',
+  'Luxemburg',
+  'Namen',
+  'Brussels Hoofdstedelijk Gewest',
 ]
 
 type Props = {
@@ -40,16 +40,16 @@ type Props = {
 }
 
 export default function FilterComponent({
-  initialLocation = "",
-  initialType = "",
-  initialStartDate = "",
-  initialEndDate = "",
-  primaryColor = "#ED6D38",
-}: Props) {
+                                          initialLocation = '',
+                                          initialType = '',
+                                          initialStartDate = '',
+                                          initialEndDate = '',
+                                          primaryColor = '#ED6D38',
+                                        }: Props) {
   const router = useRouter()
 
-  const parseCSV = (input: string) => (input ? input.split(",") : [])
-  const toCSV = (arr: string[]) => arr.join(",")
+  const parseCSV = (input: string) => (input ? input.split(',') : [])
+  const toCSV = (arr: string[]) => arr.join(',')
 
   const [location, setLocation] = useState<string[]>(parseCSV(initialLocation))
   const [type, setType] = useState<string[]>(parseCSV(initialType))
@@ -74,8 +74,8 @@ export default function FilterComponent({
       }
     }
 
-    document.addEventListener("mousedown", handleClickOutside)
-    return () => document.removeEventListener("mousedown", handleClickOutside)
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => document.removeEventListener('mousedown', handleClickOutside)
   }, [])
 
   const handleLocationToggle = (province: string) => {
@@ -89,19 +89,19 @@ export default function FilterComponent({
   const handleSearch = () => {
     const currentParams = new URLSearchParams(window.location.search)
 
-    if (type.length) currentParams.set("type", toCSV(type))
-    else currentParams.delete("type")
+    if (type.length) currentParams.set('type', toCSV(type))
+    else currentParams.delete('type')
 
-    if (location.length) currentParams.set("location", toCSV(location))
-    else currentParams.delete("location")
+    if (location.length) currentParams.set('location', toCSV(location))
+    else currentParams.delete('location')
 
-    if (startDate) currentParams.set("start", startDate)
-    else currentParams.delete("start")
+    if (startDate) currentParams.set('start', startDate)
+    else currentParams.delete('start')
 
-    if (endDate) currentParams.set("end", endDate)
-    else currentParams.delete("end")
+    if (endDate) currentParams.set('end', endDate)
+    else currentParams.delete('end')
 
-    const typeSlug = type.length === 1 ? type[0] : ""
+    const typeSlug = type.length === 1 ? type[0] : ''
     const queryString = currentParams.toString()
 
     router.push(typeSlug ? `/${typeSlug}?${queryString}` : `/?${queryString}`)
@@ -110,16 +110,17 @@ export default function FilterComponent({
   const handleReset = () => {
     setLocation([])
     setType([])
-    setStartDate("")
-    setEndDate("")
-    router.push("/")
+    setStartDate('')
+    setEndDate('')
+    router.push('/')
   }
 
   const hasActiveFilters = location.length > 0 || type.length > 0 || startDate || endDate
 
   return (
     <div className="relative z-10 -mt-16 mb-12">
-      <div className="bg-white border border-gray-200 shadow-lg rounded-2xl w-full max-w-7xl mx-auto p-6 backdrop-blur-sm">
+      <div
+        className="bg-white border border-gray-200 shadow-lg rounded-2xl w-full max-w-7xl mx-auto p-6 backdrop-blur-sm">
         {/* Header */}
         <div className="flex items-center gap-3 mb-6">
           <div
@@ -134,7 +135,8 @@ export default function FilterComponent({
           </div>
           {hasActiveFilters && (
             <div className="ml-auto">
-              <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-sm font-medium">
+              <span
+                className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-sm font-medium">
                 <div className="w-2 h-2 bg-blue-500 rounded-full" />
                 Filters actief
               </span>
@@ -155,19 +157,20 @@ export default function FilterComponent({
                 <MapPin className="h-4 w-4 text-gray-500" />
                 <span className="text-gray-900 truncate">
                   {location.length === 0
-                    ? "Alle provincies"
+                    ? 'Alle provincies'
                     : location.length === 1
                       ? location[0]
                       : `${location.length} geselecteerd`}
                 </span>
               </div>
               <ChevronDown
-                className={`h-4 w-4 text-gray-500 transition-transform ${locationOpen ? "rotate-180" : ""}`}
+                className={`h-4 w-4 text-gray-500 transition-transform ${locationOpen ? 'rotate-180' : ''}`}
               />
             </button>
 
             {locationOpen && (
-              <div className="absolute top-full left-0 right-0 mt-1 bg-white border border-gray-200 rounded-lg shadow-lg z-50 max-h-60 overflow-y-auto">
+              <div
+                className="absolute top-full left-0 right-0 mt-1 bg-white border border-gray-200 rounded-lg shadow-lg z-50 max-h-60 overflow-y-auto">
                 <div className="p-2">
                   {provinces.map((province) => (
                     <button
@@ -176,10 +179,10 @@ export default function FilterComponent({
                       className="w-full flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-50 transition-colors text-left"
                     >
                       <div
-                        className={`w-4 h-4 rounded border-2 flex items-center justify-center transition-colors ${location.includes(province) ? "border-transparent text-white" : "border-gray-300 bg-white"
-                          }`}
+                        className={`w-4 h-4 rounded border-2 flex items-center justify-center transition-colors ${location.includes(province) ? 'border-transparent text-white' : 'border-gray-300 bg-white'
+                        }`}
                         style={{
-                          backgroundColor: location.includes(province) ? primaryColor : "transparent",
+                          backgroundColor: location.includes(province) ? primaryColor : 'transparent',
                         }}
                       >
                         {location.includes(province) && <Check className="h-3 w-3" />}
@@ -203,17 +206,18 @@ export default function FilterComponent({
                 <Filter className="h-4 w-4 text-gray-500" />
                 <span className="text-gray-900 truncate">
                   {type.length === 0
-                    ? "Alle types"
+                    ? 'Alle types'
                     : type.length === 1
                       ? eventTypes.find((t) => t.value === type[0])?.label
                       : `${type.length} geselecteerd`}
                 </span>
               </div>
-              <ChevronDown className={`h-4 w-4 text-gray-500 transition-transform ${typeOpen ? "rotate-180" : ""}`} />
+              <ChevronDown className={`h-4 w-4 text-gray-500 transition-transform ${typeOpen ? 'rotate-180' : ''}`} />
             </button>
 
             {typeOpen && (
-              <div className="absolute top-full left-0 right-0 mt-1 bg-white border border-gray-200 rounded-lg shadow-lg z-50 max-h-60 overflow-y-auto">
+              <div
+                className="absolute top-full left-0 right-0 mt-1 bg-white border border-gray-200 rounded-lg shadow-lg z-50 max-h-60 overflow-y-auto">
                 <div className="p-2">
                   {eventTypes.map((eventType) => (
                     <button
@@ -222,10 +226,10 @@ export default function FilterComponent({
                       className="w-full flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-50 transition-colors text-left"
                     >
                       <div
-                        className={`w-4 h-4 rounded border-2 flex items-center justify-center transition-colors ${type.includes(eventType.value) ? "border-transparent text-white" : "border-gray-300 bg-white"
-                          }`}
+                        className={`w-4 h-4 rounded border-2 flex items-center justify-center transition-colors ${type.includes(eventType.value) ? 'border-transparent text-white' : 'border-gray-300 bg-white'
+                        }`}
                         style={{
-                          backgroundColor: type.includes(eventType.value) ? primaryColor : "transparent",
+                          backgroundColor: type.includes(eventType.value) ? primaryColor : 'transparent',
                         }}
                       >
                         {type.includes(eventType.value) && <Check className="h-3 w-3" />}
@@ -333,11 +337,12 @@ export default function FilterComponent({
                 </span>
               ))}
               {startDate && (
-                <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-sm">
+                <span
+                  className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-sm">
                   <Calendar className="h-3 w-3" />
-                  Vanaf: {new Date(startDate).toLocaleDateString("nl-BE")}
+                  Vanaf: {new Date(startDate).toLocaleDateString('nl-BE')}
                   <button
-                    onClick={() => setStartDate("")}
+                    onClick={() => setStartDate('')}
                     className="ml-1 hover:bg-blue-200 rounded-full p-0.5 transition-colors"
                   >
                     <X className="h-3 w-3" />
@@ -345,11 +350,12 @@ export default function FilterComponent({
                 </span>
               )}
               {endDate && (
-                <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-sm">
+                <span
+                  className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-sm">
                   <Calendar className="h-3 w-3" />
-                  Tot: {new Date(endDate).toLocaleDateString("nl-BE")}
+                  Tot: {new Date(endDate).toLocaleDateString('nl-BE')}
                   <button
-                    onClick={() => setEndDate("")}
+                    onClick={() => setEndDate('')}
                     className="ml-1 hover:bg-blue-200 rounded-full p-0.5 transition-colors"
                   >
                     <X className="h-3 w-3" />

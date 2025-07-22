@@ -1,10 +1,11 @@
-import React from "react";
+import React from 'react'
 
 export default function HorizontalList() {
   return (
     <div className="rounded-lg border border-gray-200 bg-white dark:border-gray-800 dark:bg-white/[0.03] sm:w-fit">
       <ul className="flex flex-col md:flex-row">
-        <li className="flex items-center gap-2 border-b border-gray-200 px-3 py-2.5 text-sm text-gray-500 last:border-0 dark:border-gray-800 dark:text-gray-400 md:border-b-0 md:border-r">
+        <li
+          className="flex items-center gap-2 border-b border-gray-200 px-3 py-2.5 text-sm text-gray-500 last:border-0 dark:border-gray-800 dark:text-gray-400 md:border-b-0 md:border-r">
           <span className="text-brand-500 dark:text-brand-400">
             <svg
               className="fill-current"
@@ -26,7 +27,8 @@ export default function HorizontalList() {
           <span> Lorem ipsum dolor sit amet </span>
         </li>
 
-        <li className="flex items-center gap-2 border-b border-gray-200 px-3 py-2.5 text-sm text-gray-500 last:border-0 dark:border-gray-800 dark:text-gray-400 md:border-b-0 md:border-r">
+        <li
+          className="flex items-center gap-2 border-b border-gray-200 px-3 py-2.5 text-sm text-gray-500 last:border-0 dark:border-gray-800 dark:text-gray-400 md:border-b-0 md:border-r">
           <span className="text-brand-500 dark:text-brand-400">
             <svg
               className="fill-current"
@@ -48,7 +50,8 @@ export default function HorizontalList() {
           <span> It is a long established </span>
         </li>
 
-        <li className="flex items-center gap-2 border-b border-gray-200 px-3 py-2.5 text-sm text-gray-500 last:border-0 dark:border-gray-800 dark:text-gray-400 md:border-b-0 md:border-r">
+        <li
+          className="flex items-center gap-2 border-b border-gray-200 px-3 py-2.5 text-sm text-gray-500 last:border-0 dark:border-gray-800 dark:text-gray-400 md:border-b-0 md:border-r">
           <span className="text-brand-500 dark:text-brand-400">
             <svg
               className="fill-current"
@@ -70,7 +73,8 @@ export default function HorizontalList() {
           <span> Lorem ipsum dolor sit amet </span>
         </li>
 
-        <li className="flex items-center gap-2 border-b border-gray-200 px-3 py-2.5 text-sm text-gray-500 last:border-0 dark:border-gray-800 dark:text-gray-400 md:border-b-0 md:border-r">
+        <li
+          className="flex items-center gap-2 border-b border-gray-200 px-3 py-2.5 text-sm text-gray-500 last:border-0 dark:border-gray-800 dark:text-gray-400 md:border-b-0 md:border-r">
           <span className="text-brand-500 dark:text-brand-400">
             <svg
               className="fill-current"
@@ -92,7 +96,8 @@ export default function HorizontalList() {
           <span> Lorem ipsum dolor sit amet </span>
         </li>
 
-        <li className="flex items-center gap-2 border-b border-gray-200 px-3 py-2.5 text-sm text-gray-500 last:border-0 dark:border-gray-800 dark:text-gray-400 md:border-b-0 md:border-r">
+        <li
+          className="flex items-center gap-2 border-b border-gray-200 px-3 py-2.5 text-sm text-gray-500 last:border-0 dark:border-gray-800 dark:text-gray-400 md:border-b-0 md:border-r">
           <span className="text-brand-500 dark:text-brand-400">
             <svg
               className="fill-current"
@@ -115,5 +120,5 @@ export default function HorizontalList() {
         </li>
       </ul>
     </div>
-  );
+  )
 }

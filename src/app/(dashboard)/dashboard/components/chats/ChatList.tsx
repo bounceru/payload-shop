@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import { Dropdown } from "../ui/dropdown/Dropdown";
-import { DropdownItem } from "../ui/dropdown/DropdownItem";
-import { MoreDotIcon } from "@/app/(dashboard)/dashboard/icons";
-import Image from "next/image";
+import React, { useState } from 'react'
+import { Dropdown } from '../ui/dropdown/Dropdown'
+import { DropdownItem } from '../ui/dropdown/DropdownItem'
+import { MoreDotIcon } from '@/app/(dashboard)/dashboard/icons'
+import Image from 'next/image'
 
 interface ChatListProps {
   isOpen: boolean;
@@ -10,21 +10,22 @@ interface ChatListProps {
 }
 
 export default function ChatList({ isOpen, onToggle }: ChatListProps) {
-  const [isOpenTwo, setIsOpenTwo] = useState(false);
+  const [isOpenTwo, setIsOpenTwo] = useState(false)
 
   function toggleDropdownTwo() {
-    setIsOpenTwo(!isOpenTwo);
+    setIsOpenTwo(!isOpenTwo)
   }
 
   function closeDropdownTwo() {
-    setIsOpenTwo(false);
+    setIsOpenTwo(false)
   }
+
   return (
     <div
       className={`flex-col overflow-auto no-scrollbar transition-all duration-300 ${isOpen
-        ? "fixed top-0 left-0 z-999999 h-screen bg-white dark:bg-gray-900"
-        : "hidden xl:flex"
-        }`}
+        ? 'fixed top-0 left-0 z-999999 h-screen bg-white dark:bg-gray-900'
+        : 'hidden xl:flex'
+      }`}
     >
       <div className="flex items-center justify-between p-5 border-b border-gray-200 dark:border-gray-800 xl:hidden">
         <div>
@@ -80,7 +81,8 @@ export default function ChatList({ isOpen, onToggle }: ChatListProps) {
       <div className="flex flex-col max-h-full px-4 overflow-auto sm:px-5">
         <div className="max-h-full space-y-1 overflow-auto custom-scrollbar">
           {/* <!-- Chat List Item --> */}
-          <div className="flex cursor-pointer items-center gap-3 rounded-lg p-3 hover:bg-gray-100 dark:hover:bg-white/[0.03]">
+          <div
+            className="flex cursor-pointer items-center gap-3 rounded-lg p-3 hover:bg-gray-100 dark:hover:bg-white/[0.03]">
             <div className="relative h-12 w-full max-w-[48px] rounded-full">
               <Image
                 width={48}
@@ -89,7 +91,8 @@ export default function ChatList({ isOpen, onToggle }: ChatListProps) {
                 alt="profile"
                 className="object-cover object-center w-full h-full overflow-hidden rounded-full"
               />
-              <span className="absolute bottom-0 right-0 block h-3 w-3 rounded-full border-[1.5px] border-white bg-success-500 dark:border-gray-900"></span>
+              <span
+                className="absolute bottom-0 right-0 block h-3 w-3 rounded-full border-[1.5px] border-white bg-success-500 dark:border-gray-900"></span>
             </div>
             <div className="w-full">
               <div className="flex items-start justify-between">
@@ -107,7 +110,8 @@ export default function ChatList({ isOpen, onToggle }: ChatListProps) {
           </div>
 
           {/* <!-- Chat List Item --> */}
-          <div className="flex cursor-pointer items-center gap-3 rounded-lg p-3 hover:bg-gray-100 dark:hover:bg-white/[0.03]">
+          <div
+            className="flex cursor-pointer items-center gap-3 rounded-lg p-3 hover:bg-gray-100 dark:hover:bg-white/[0.03]">
             <div className="relative h-12 w-full max-w-[48px] rounded-full">
               <Image
                 width={48}
@@ -116,7 +120,8 @@ export default function ChatList({ isOpen, onToggle }: ChatListProps) {
                 alt="profile"
                 className="object-cover object-center w-full h-full overflow-hidden rounded-full"
               />
-              <span className="absolute bottom-0 right-0 block h-3 w-3 rounded-full border-[1.5px] border-white bg-success-500 dark:border-gray-900"></span>
+              <span
+                className="absolute bottom-0 right-0 block h-3 w-3 rounded-full border-[1.5px] border-white bg-success-500 dark:border-gray-900"></span>
             </div>
             <div className="w-full">
               <div className="flex items-start justify-between">
@@ -134,7 +139,8 @@ export default function ChatList({ isOpen, onToggle }: ChatListProps) {
           </div>
 
           {/* <!-- Chat List Item --> */}
-          <div className="flex cursor-pointer items-center gap-3 rounded-lg p-3 hover:bg-gray-100 dark:hover:bg-white/[0.03]">
+          <div
+            className="flex cursor-pointer items-center gap-3 rounded-lg p-3 hover:bg-gray-100 dark:hover:bg-white/[0.03]">
             <div className="relative h-12 w-full max-w-[48px] rounded-full">
               <Image
                 width={48}
@@ -143,7 +149,8 @@ export default function ChatList({ isOpen, onToggle }: ChatListProps) {
                 alt="profile"
                 className="object-cover object-center w-full h-full overflow-hidden rounded-full"
               />
-              <span className="absolute bottom-0 right-0 block h-3 w-3 rounded-full border-[1.5px] border-white bg-success-500 dark:border-gray-900"></span>
+              <span
+                className="absolute bottom-0 right-0 block h-3 w-3 rounded-full border-[1.5px] border-white bg-success-500 dark:border-gray-900"></span>
             </div>
             <div className="w-full">
               <div className="flex items-start justify-between">
@@ -161,7 +168,8 @@ export default function ChatList({ isOpen, onToggle }: ChatListProps) {
           </div>
 
           {/* <!-- Chat List Item --> */}
-          <div className="flex cursor-pointer items-center gap-3 rounded-lg p-3 hover:bg-gray-100 dark:hover:bg-white/[0.03]">
+          <div
+            className="flex cursor-pointer items-center gap-3 rounded-lg p-3 hover:bg-gray-100 dark:hover:bg-white/[0.03]">
             <div className="relative h-12 w-full max-w-[48px] rounded-full">
               <Image
                 width={48}
@@ -170,7 +178,8 @@ export default function ChatList({ isOpen, onToggle }: ChatListProps) {
                 alt="profile"
                 className="object-cover object-center w-full h-full overflow-hidden rounded-full"
               />
-              <span className="absolute bottom-0 right-0 block h-3 w-3 rounded-full border-[1.5px] border-white bg-warning-500 dark:border-gray-900"></span>
+              <span
+                className="absolute bottom-0 right-0 block h-3 w-3 rounded-full border-[1.5px] border-white bg-warning-500 dark:border-gray-900"></span>
             </div>
             <div className="w-full">
               <div className="flex items-start justify-between">
@@ -188,7 +197,8 @@ export default function ChatList({ isOpen, onToggle }: ChatListProps) {
           </div>
 
           {/* <!-- Chat List Item --> */}
-          <div className="flex cursor-pointer items-center gap-3 rounded-lg p-3 hover:bg-gray-100 dark:hover:bg-white/[0.03]">
+          <div
+            className="flex cursor-pointer items-center gap-3 rounded-lg p-3 hover:bg-gray-100 dark:hover:bg-white/[0.03]">
             <div className="relative h-12 w-full max-w-[48px] rounded-full">
               <Image
                 width={48}
@@ -197,7 +207,8 @@ export default function ChatList({ isOpen, onToggle }: ChatListProps) {
                 alt="profile"
                 className="object-cover object-center w-full h-full overflow-hidden rounded-full"
               />
-              <span className="absolute bottom-0 right-0 block h-3 w-3 rounded-full border-[1.5px] border-white bg-success-500 dark:border-gray-900"></span>
+              <span
+                className="absolute bottom-0 right-0 block h-3 w-3 rounded-full border-[1.5px] border-white bg-success-500 dark:border-gray-900"></span>
             </div>
             <div className="w-full">
               <div className="flex items-start justify-between">
@@ -215,7 +226,8 @@ export default function ChatList({ isOpen, onToggle }: ChatListProps) {
           </div>
 
           {/* <!-- Chat List Item --> */}
-          <div className="flex cursor-pointer items-center gap-3 rounded-lg p-3 hover:bg-gray-100 dark:hover:bg-white/[0.03]">
+          <div
+            className="flex cursor-pointer items-center gap-3 rounded-lg p-3 hover:bg-gray-100 dark:hover:bg-white/[0.03]">
             <div className="relative h-12 w-full max-w-[48px] rounded-full">
               <Image
                 width={48}
@@ -224,7 +236,8 @@ export default function ChatList({ isOpen, onToggle }: ChatListProps) {
                 alt="profile"
                 className="object-cover object-center w-full h-full overflow-hidden rounded-full"
               />
-              <span className="absolute bottom-0 right-0 block h-3 w-3 rounded-full border-[1.5px] border-white bg-success-500 dark:border-gray-900"></span>
+              <span
+                className="absolute bottom-0 right-0 block h-3 w-3 rounded-full border-[1.5px] border-white bg-success-500 dark:border-gray-900"></span>
             </div>
             <div className="w-full">
               <div className="flex items-start justify-between">
@@ -242,7 +255,8 @@ export default function ChatList({ isOpen, onToggle }: ChatListProps) {
           </div>
 
           {/* <!-- Chat List Item --> */}
-          <div className="flex cursor-pointer items-center gap-3 rounded-lg p-3 hover:bg-gray-100 dark:hover:bg-white/[0.03]">
+          <div
+            className="flex cursor-pointer items-center gap-3 rounded-lg p-3 hover:bg-gray-100 dark:hover:bg-white/[0.03]">
             <div className="relative h-12 w-full max-w-[48px] rounded-full">
               <Image
                 width={48}
@@ -251,7 +265,8 @@ export default function ChatList({ isOpen, onToggle }: ChatListProps) {
                 alt="profile"
                 className="object-cover object-center w-full h-full overflow-hidden rounded-full"
               />
-              <span className="absolute bottom-0 right-0 block h-3 w-3 rounded-full border-[1.5px] border-white bg-success-500 dark:border-gray-900"></span>
+              <span
+                className="absolute bottom-0 right-0 block h-3 w-3 rounded-full border-[1.5px] border-white bg-success-500 dark:border-gray-900"></span>
             </div>
             <div className="w-full">
               <div className="flex items-start justify-between">
@@ -269,7 +284,8 @@ export default function ChatList({ isOpen, onToggle }: ChatListProps) {
           </div>
 
           {/* <!-- Chat List Item --> */}
-          <div className="flex cursor-pointer items-center gap-3 rounded-lg p-3 hover:bg-gray-100 dark:hover:bg-white/[0.03]">
+          <div
+            className="flex cursor-pointer items-center gap-3 rounded-lg p-3 hover:bg-gray-100 dark:hover:bg-white/[0.03]">
             <div className="relative h-12 w-full max-w-[48px] rounded-full">
               <Image
                 width={48}
@@ -278,7 +294,8 @@ export default function ChatList({ isOpen, onToggle }: ChatListProps) {
                 alt="profile"
                 className="object-cover object-center w-full h-full overflow-hidden rounded-full"
               />
-              <span className="absolute bottom-0 right-0 block h-3 w-3 rounded-full border-[1.5px] border-white bg-error-500 dark:border-gray-900"></span>
+              <span
+                className="absolute bottom-0 right-0 block h-3 w-3 rounded-full border-[1.5px] border-white bg-error-500 dark:border-gray-900"></span>
             </div>
             <div className="w-full">
               <div className="flex items-start justify-between">
@@ -296,7 +313,8 @@ export default function ChatList({ isOpen, onToggle }: ChatListProps) {
           </div>
 
           {/* <!-- Chat List Item --> */}
-          <div className="flex cursor-pointer items-center gap-3 rounded-lg p-3 hover:bg-gray-100 dark:hover:bg-white/[0.03]">
+          <div
+            className="flex cursor-pointer items-center gap-3 rounded-lg p-3 hover:bg-gray-100 dark:hover:bg-white/[0.03]">
             <div className="relative h-12 w-full max-w-[48px] rounded-full">
               <Image
                 width={48}
@@ -305,7 +323,8 @@ export default function ChatList({ isOpen, onToggle }: ChatListProps) {
                 alt="profile"
                 className="object-cover object-center w-full h-full overflow-hidden rounded-full"
               />
-              <span className="absolute bottom-0 right-0 block h-3 w-3 rounded-full border-[1.5px] border-white bg-success-500 dark:border-gray-900"></span>
+              <span
+                className="absolute bottom-0 right-0 block h-3 w-3 rounded-full border-[1.5px] border-white bg-success-500 dark:border-gray-900"></span>
             </div>
             <div className="w-full">
               <div className="flex items-start justify-between">
@@ -324,5 +343,5 @@ export default function ChatList({ isOpen, onToggle }: ChatListProps) {
         </div>
       </div>
     </div>
-  );
+  )
 }

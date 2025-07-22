@@ -1,5 +1,5 @@
 // src/app/(dashboard)/dashboard/layout/SidebarWidget.tsx
-import React from "react";
+import React from 'react'
 
 export default function SidebarWidget() {
   return (
@@ -22,5 +22,5 @@ export default function SidebarWidget() {
         Handleidingen
       </a>
     </div>
-  );
+  )
 }

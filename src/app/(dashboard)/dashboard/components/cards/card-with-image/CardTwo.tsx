@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react'
 
-import { CardDescription } from "../../ui/card";
-import Link from "next/link";
-import Image from "next/image";
+import { CardDescription } from '../../ui/card'
+import Link from 'next/link'
+import Image from 'next/image'
 
 export default function CardTwo() {
   return (
@@ -29,5 +29,5 @@ export default function CardTwo() {
         </Link>
       </div>
     </div>
-  );
+  )
 }

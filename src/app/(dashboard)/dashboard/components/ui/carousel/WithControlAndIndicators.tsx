@@ -1,23 +1,23 @@
-"use client";
-import Image from "next/image";
-import React from "react";
-import { Navigation, Autoplay, Pagination } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
+'use client'
+import Image from 'next/image'
+import React from 'react'
+import { Autoplay, Navigation, Pagination } from 'swiper/modules'
+import { Swiper, SwiperSlide } from 'swiper/react'
 
 const carouselData = [
   {
-    thumbnail: "/images/carousel/carousel-01.png",
+    thumbnail: '/images/carousel/carousel-01.png',
   },
   {
-    thumbnail: "/images/carousel/carousel-02.png",
+    thumbnail: '/images/carousel/carousel-02.png',
   },
   {
-    thumbnail: "/images/carousel/carousel-03.png",
+    thumbnail: '/images/carousel/carousel-03.png',
   },
   {
-    thumbnail: "/images/carousel/carousel-04.png",
+    thumbnail: '/images/carousel/carousel-04.png',
   },
-];
+]
 export default function WithControlAndIndicators() {
   const swiperOptions = {
     modules: [Navigation, Pagination, Autoplay],
@@ -26,14 +26,14 @@ export default function WithControlAndIndicators() {
       disableOnInteraction: false,
     },
     pagination: {
-      el: ".swiper-pagination",
+      el: '.swiper-pagination',
       clickable: true,
     },
     navigation: {
-      nextEl: ".next-style-two.swiper-button-next",
-      prevEl: ".prev-style-two.swiper-button-prev",
+      nextEl: '.next-style-two.swiper-button-next',
+      prevEl: '.prev-style-two.swiper-button-prev',
     },
-  };
+  }
   return (
     <div className="relative border border-gray-200 rounded-lg carouselFour dark:border-gray-800">
       <Swiper {...swiperOptions}>
@@ -93,5 +93,5 @@ export default function WithControlAndIndicators() {
         </svg>
       </div>
     </div>
-  );
+  )
 }

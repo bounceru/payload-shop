@@ -1,22 +1,23 @@
-"use client";
-import React from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Autoplay } from "swiper/modules";
-import Image from "next/image";
+'use client'
+import React from 'react'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Autoplay, Pagination } from 'swiper/modules'
+import Image from 'next/image'
+
 const carouselData = [
   {
-    thumbnail: "/images/carousel/carousel-01.png",
+    thumbnail: '/images/carousel/carousel-01.png',
   },
   {
-    thumbnail: "/images/carousel/carousel-03.png",
+    thumbnail: '/images/carousel/carousel-03.png',
   },
   {
-    thumbnail: "/images/carousel/carousel-02.png",
+    thumbnail: '/images/carousel/carousel-02.png',
   },
   {
-    thumbnail: "/images/carousel/carousel-04.png",
+    thumbnail: '/images/carousel/carousel-04.png',
   },
-];
+]
 export default function WithIndicators() {
   const swiperOptions = {
     modules: [Pagination, Autoplay],
@@ -25,10 +26,10 @@ export default function WithIndicators() {
       disableOnInteraction: false,
     },
     pagination: {
-      el: ".swiper-pagination",
+      el: '.swiper-pagination',
       clickable: true,
     },
-  };
+  }
   return (
     <div className="relative border border-gray-200 rounded-lg carouselThree dark:border-gray-800">
       <Swiper {...swiperOptions}>
@@ -50,5 +51,5 @@ export default function WithIndicators() {
         <div className="swiper-pagination"></div>
       </Swiper>
     </div>
-  );
+  )
 }

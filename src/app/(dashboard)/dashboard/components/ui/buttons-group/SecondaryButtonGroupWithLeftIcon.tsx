@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 
 export default function SecondaryButtonGroupWithLeftIcon() {
   return (
@@ -77,5 +77,5 @@ export default function SecondaryButtonGroupWithLeftIcon() {
         </div>
       </div>
     </div>
-  );
+  )
 }

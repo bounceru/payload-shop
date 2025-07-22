@@ -1,19 +1,19 @@
-import type { Access } from 'payload';
-import { parseCookies } from 'payload';
+import type { Access } from 'payload'
+import { parseCookies } from 'payload'
 
-import { isSuperAdmin } from '../../../access/isSuperAdmin';
-import { getTenantAccessIDs } from '../../../utilities/getTenantAccessIDs';
+import { isSuperAdmin } from '../../../access/isSuperAdmin'
+import { getTenantAccessIDs } from '../../../utilities/getTenantAccessIDs'
 
 export const filterByTenantRead: Access = (args) => {
-  const { req } = args;
-  const cookies = parseCookies(req.headers);
-  const superAdmin = isSuperAdmin(args);
-  const selectedTenant = cookies.get('payload-tenant');
+  const { req } = args
+  const cookies = parseCookies(req.headers)
+  const superAdmin = isSuperAdmin(args)
+  const selectedTenant = cookies.get('payload-tenant')
 
   // Safely narrow the user to 'User'
-  const userDoc = req.user?.collection === 'users' ? req.user : null;
+  const userDoc = req.user?.collection === 'users' ? req.user : null
   // If we have a userDoc, getTenantAccessIDs(...) else empty array
-  const tenantAccessIDs = userDoc ? getTenantAccessIDs(userDoc) : [];
+  const tenantAccessIDs = userDoc ? getTenantAccessIDs(userDoc) : []
 
   // First check for manually selected tenant from cookies
   if (selectedTenant) {
@@ -23,10 +23,10 @@ export const filterByTenantRead: Access = (args) => {
         tenant: {
           equals: selectedTenant,
         },
-      };
+      }
     }
 
-    const hasTenantAccess = tenantAccessIDs.some((id) => id === selectedTenant);
+    const hasTenantAccess = tenantAccessIDs.some((id) => id === selectedTenant)
 
     // If NOT super admin, give them access only if they have that tenant
     if (hasTenantAccess) {
@@ -34,13 +34,13 @@ export const filterByTenantRead: Access = (args) => {
         tenant: {
           equals: selectedTenant,
         },
-      };
+      }
     }
   }
 
   // If no selected tenant but super admin => access to all
   if (superAdmin) {
-    return true;
+    return true
   }
 
   // If not super admin but has tenant(s) => only those
@@ -49,49 +49,49 @@ export const filterByTenantRead: Access = (args) => {
       tenant: {
         in: tenantAccessIDs,
       },
-    };
+    }
   }
 
   // Deny all else
-  return false;
-};
+  return false
+}
 
 export const canMutatePage: Access = (args) => {
-  const { req } = args;
-  const superAdmin = isSuperAdmin(args);
+  const { req } = args
+  const superAdmin = isSuperAdmin(args)
 
   // If no user, deny
   if (!req.user) {
-    return false;
+    return false
   }
 
   // Super admins can mutate pages for any tenant
   if (superAdmin) {
-    return true;
+    return true
   }
 
-  const cookies = parseCookies(req.headers);
-  const selectedTenant = cookies.get('payload-tenant');
+  const cookies = parseCookies(req.headers)
+  const selectedTenant = cookies.get('payload-tenant')
 
   // If user is not actually from 'users' => no 'tenants' array => deny
   if (req.user.collection !== 'users') {
-    return false;
+    return false
   }
 
   // Otherwise, userDoc is definitely a "User" => safe to read `tenants`
   return (
     req.user.tenants?.reduce((hasAccess: boolean, accessRow) => {
       if (hasAccess) {
-        return true;
+        return true
       }
       if (
         accessRow &&
         accessRow.tenant === selectedTenant &&
         accessRow.roles?.includes('tenant-admin')
       ) {
-        return true;
+        return true
       }
-      return hasAccess;
+      return hasAccess
     }, false) || false
-  );
-};
+  )
+}

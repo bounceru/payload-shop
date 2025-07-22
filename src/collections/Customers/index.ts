@@ -1,8 +1,8 @@
-import type { CollectionConfig } from 'payload';
-import { tenantField } from '../../fields/TenantField';
-import { hasPermission, hasFieldPermission } from '@/access/permissionChecker';
-import { isSuperAdmin } from '@/access/isSuperAdmin';
-import { FieldAccess } from 'payload';
+import type { CollectionConfig } from 'payload'
+import { FieldAccess } from 'payload'
+import { tenantField } from '../../fields/TenantField'
+import { hasFieldPermission, hasPermission } from '@/access/permissionChecker'
+import { isSuperAdmin } from '@/access/isSuperAdmin'
 
 export const ownerOrFieldPermission = (
   collectionName: string,
@@ -10,11 +10,11 @@ export const ownerOrFieldPermission = (
   action: 'read' | 'update',
 ): FieldAccess =>
   async ({ req, doc }) => {
-    if (!req.user) return false;
-    if (isSuperAdmin({ req })) return true;
-    if (req.user.collection === collectionName && req.user.id === doc?.id) return true;
-    return hasFieldPermission(collectionName, fieldName, action)({ req });
-  };
+    if (!req.user) return false
+    if (isSuperAdmin({ req })) return true
+    if (req.user.collection === collectionName && req.user.id === doc?.id) return true
+    return hasFieldPermission(collectionName, fieldName, action)({ req })
+  }
 
 export const Customers: CollectionConfig = {
   slug: 'customers',
@@ -30,14 +30,14 @@ export const Customers: CollectionConfig = {
   access: {
     create: hasPermission('customers', 'create'),
     read: async ({ req, id }) => {
-      if (!req.user) return false;
-      if (hasPermission('customers', 'read')({ req })) return true;
-      return req.user.id === id;
+      if (!req.user) return false
+      if (hasPermission('customers', 'read')({ req })) return true
+      return req.user.id === id
     },
     update: async ({ req, id }) => {
-      if (!req.user) return false;
-      if (hasPermission('customers', 'update')({ req })) return true;
-      return req.user.id === id;
+      if (!req.user) return false
+      if (hasPermission('customers', 'update')({ req })) return true
+      return req.user.id === id
     },
     delete: hasPermission('customers', 'delete'),
   },
@@ -119,6 +119,6 @@ export const Customers: CollectionConfig = {
 
 
   ],
-};
+}
 
-export default Customers;
+export default Customers

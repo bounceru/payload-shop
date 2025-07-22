@@ -1,23 +1,23 @@
-"use client";
-import { ApexOptions } from "apexcharts";
-import { Dropdown } from "../ui/dropdown/Dropdown";
-import { DropdownItem } from "../ui/dropdown/DropdownItem";
-import { MoreDotIcon } from "@/app/(dashboard)/dashboard/icons";
+'use client'
+import { ApexOptions } from 'apexcharts'
+import { Dropdown } from '../ui/dropdown/Dropdown'
+import { DropdownItem } from '../ui/dropdown/DropdownItem'
+import { MoreDotIcon } from '@/app/(dashboard)/dashboard/icons'
 
-import dynamic from "next/dynamic";
-import { useState } from "react";
+import dynamic from 'next/dynamic'
+import { useState } from 'react'
 // Dynamically import the ReactApexChart component
-const ReactApexChart = dynamic(() => import("react-apexcharts"), {
+const ReactApexChart = dynamic(() => import('react-apexcharts'), {
   ssr: false,
-});
+})
 
 export default function MonthlyTarget() {
-  const series = [75.55];
+  const series = [75.55]
   const options: ApexOptions = {
-    colors: ["#465FFF"],
+    colors: ['#465FFF'],
     chart: {
-      fontFamily: "Outfit, sans-serif",
-      type: "radialBar",
+      fontFamily: 'Outfit, sans-serif',
+      type: 'radialBar',
       height: 330,
       sparkline: {
         enabled: true,
@@ -28,11 +28,11 @@ export default function MonthlyTarget() {
         startAngle: -85,
         endAngle: 85,
         hollow: {
-          size: "80%",
+          size: '80%',
         },
         track: {
-          background: "#E4E7EC",
-          strokeWidth: "100%",
+          background: '#E4E7EC',
+          strokeWidth: '100%',
           margin: 5, // margin is in pixels
         },
         dataLabels: {
@@ -40,35 +40,36 @@ export default function MonthlyTarget() {
             show: false,
           },
           value: {
-            fontSize: "36px",
-            fontWeight: "600",
+            fontSize: '36px',
+            fontWeight: '600',
             offsetY: -40,
-            color: "#1D2939",
-            formatter: function (val) {
-              return val + "%";
+            color: '#1D2939',
+            formatter: function(val) {
+              return val + '%'
             },
           },
         },
       },
     },
     fill: {
-      type: "solid",
-      colors: ["#465FFF"],
+      type: 'solid',
+      colors: ['#465FFF'],
     },
     stroke: {
-      lineCap: "round",
+      lineCap: 'round',
     },
-    labels: ["Progress"],
-  };
-  const [isOpen, setIsOpen] = useState(false);
+    labels: ['Progress'],
+  }
+  const [isOpen, setIsOpen] = useState(false)
 
   function toggleDropdown() {
-    setIsOpen(!isOpen);
+    setIsOpen(!isOpen)
   }
 
   function closeDropdown() {
-    setIsOpen(false);
+    setIsOpen(false)
   }
+
   return (
     <div className="rounded-2xl border border-gray-200 bg-gray-100 dark:border-gray-800 dark:bg-white/[0.03]">
       <div className="px-5 pt-5 bg-white shadow-default rounded-2xl pb-11 dark:bg-gray-900 sm:px-6 sm:pt-6">
@@ -115,7 +116,8 @@ export default function MonthlyTarget() {
             />
           </div>
 
-          <span className="absolute left-1/2 top-full -translate-x-1/2 -translate-y-[95%] rounded-full bg-success-50 px-3 py-1 text-xs font-medium text-success-600 dark:bg-success-500/15 dark:text-success-500">
+          <span
+            className="absolute left-1/2 top-full -translate-x-1/2 -translate-y-[95%] rounded-full bg-success-50 px-3 py-1 text-xs font-medium text-success-600 dark:bg-success-500/15 dark:text-success-500">
             +10%
           </span>
         </div>
@@ -130,7 +132,8 @@ export default function MonthlyTarget() {
           <p className="mb-1 text-center text-gray-500 text-theme-xs dark:text-gray-400 sm:text-sm">
             Target
           </p>
-          <p className="flex items-center justify-center gap-1 text-base font-semibold text-gray-800 dark:text-white/90 sm:text-lg">
+          <p
+            className="flex items-center justify-center gap-1 text-base font-semibold text-gray-800 dark:text-white/90 sm:text-lg">
             $20K
             <svg
               width="16"
@@ -155,7 +158,8 @@ export default function MonthlyTarget() {
           <p className="mb-1 text-center text-gray-500 text-theme-xs dark:text-gray-400 sm:text-sm">
             Revenue
           </p>
-          <p className="flex items-center justify-center gap-1 text-base font-semibold text-gray-800 dark:text-white/90 sm:text-lg">
+          <p
+            className="flex items-center justify-center gap-1 text-base font-semibold text-gray-800 dark:text-white/90 sm:text-lg">
             $20K
             <svg
               width="16"
@@ -180,7 +184,8 @@ export default function MonthlyTarget() {
           <p className="mb-1 text-center text-gray-500 text-theme-xs dark:text-gray-400 sm:text-sm">
             Today
           </p>
-          <p className="flex items-center justify-center gap-1 text-base font-semibold text-gray-800 dark:text-white/90 sm:text-lg">
+          <p
+            className="flex items-center justify-center gap-1 text-base font-semibold text-gray-800 dark:text-white/90 sm:text-lg">
             $20K
             <svg
               width="16"
@@ -200,5 +205,5 @@ export default function MonthlyTarget() {
         </div>
       </div>
     </div>
-  );
+  )
 }

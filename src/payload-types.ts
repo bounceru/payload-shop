@@ -136,16 +136,17 @@ export interface Config {
   locale: 'nl' | 'en' | 'de' | 'fr';
   user:
     | (Customer & {
-        collection: 'customers';
-      })
+    collection: 'customers';
+  })
     | (User & {
-        collection: 'users';
-      });
+    collection: 'users';
+  });
   jobs: {
     tasks: unknown;
     workflows: unknown;
   };
 }
+
 export interface CustomerAuthOperations {
   forgotPassword: {
     email: string;
@@ -164,6 +165,7 @@ export interface CustomerAuthOperations {
     password: string;
   };
 }
+
 export interface UserAuthOperations {
   forgotPassword: {
     email: string;
@@ -182,6 +184,7 @@ export interface UserAuthOperations {
     password: string;
   };
 }
+
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "customers".
@@ -194,10 +197,10 @@ export interface Customer {
   date_of_birth?: string | null;
   tags?:
     | {
-        tag_id?: string | null;
-        tag_type?: string | null;
-        id?: string | null;
-      }[]
+    tag_id?: string | null;
+    tag_type?: string | null;
+    id?: string | null;
+  }[]
     | null;
   enabled?: boolean | null;
   tenant: string | Tenant;
@@ -212,6 +215,7 @@ export interface Customer {
   lockUntil?: string | null;
   password?: string | null;
 }
+
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "tenants".
@@ -221,9 +225,9 @@ export interface Tenant {
   name: string;
   domains?:
     | {
-        domain: string;
-        id?: string | null;
-      }[]
+    domain: string;
+    id?: string | null;
+  }[]
     | null;
   /**
    * Used for URL paths, example: /tenant-slug/page-slug.
@@ -244,6 +248,7 @@ export interface Tenant {
   updatedAt: string;
   createdAt: string;
 }
+
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "users".
@@ -256,16 +261,16 @@ export interface User {
   roles?: (string | Role)[] | null;
   tenants?:
     | {
-        /**
-         * Assign tenants to the user.
-         */
-        tenant: string | Tenant;
-        /**
-         * Assign roles specific to the tenant.
-         */
-        roles: ('tenant-admin' | 'tenant-viewer')[];
-        id?: string | null;
-      }[]
+    /**
+     * Assign tenants to the user.
+     */
+    tenant: string | Tenant;
+    /**
+     * Assign roles specific to the tenant.
+     */
+    roles: ('tenant-admin' | 'tenant-viewer')[];
+    id?: string | null;
+  }[]
     | null;
   stripeCustomerId?: string | null;
   /**
@@ -287,6 +292,7 @@ export interface User {
   lockUntil?: string | null;
   password?: string | null;
 }
+
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "roles".
@@ -296,28 +302,29 @@ export interface Role {
   name: string;
   collections?:
     | {
-        collectionName?: string | null;
-        read?: boolean | null;
-        create?: boolean | null;
-        update?: boolean | null;
-        delete?: boolean | null;
-        id?: string | null;
-      }[]
+    collectionName?: string | null;
+    read?: boolean | null;
+    create?: boolean | null;
+    update?: boolean | null;
+    delete?: boolean | null;
+    id?: string | null;
+  }[]
     | null;
   fields?:
     | {
-        collectionName?: string | null;
-        fieldName?: string | null;
-        read?: boolean | null;
-        create?: boolean | null;
-        update?: boolean | null;
-        delete?: boolean | null;
-        id?: string | null;
-      }[]
+    collectionName?: string | null;
+    fieldName?: string | null;
+    read?: boolean | null;
+    create?: boolean | null;
+    update?: boolean | null;
+    delete?: boolean | null;
+    id?: string | null;
+  }[]
     | null;
   updatedAt: string;
   createdAt: string;
 }
+
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "membership-roles".
@@ -341,6 +348,7 @@ export interface MembershipRole {
   updatedAt: string;
   createdAt: string;
 }
+
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "shops".
@@ -352,10 +360,10 @@ export interface Shop {
   showExceptionallyClosedDaysOnOrderPage?: boolean | null;
   exceptionally_closed_days?:
     | {
-        date: string;
-        reason?: string | null;
-        id?: string | null;
-      }[]
+    date: string;
+    reason?: string | null;
+    id?: string | null;
+  }[]
     | null;
   address?: string | null;
   location?: {
@@ -378,6 +386,7 @@ export interface Shop {
   updatedAt: string;
   createdAt: string;
 }
+
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "events".
@@ -408,18 +417,18 @@ export interface Event {
   end?: string | null;
   type?:
     | (
-        | 'theater'
-        | 'concert'
-        | 'dance'
-        | 'comedy'
-        | 'musical'
-        | 'opera'
-        | 'family'
-        | 'talk'
-        | 'workshop'
-        | 'festival'
-        | 'other'
-      )
+    | 'theater'
+    | 'concert'
+    | 'dance'
+    | 'comedy'
+    | 'musical'
+    | 'opera'
+    | 'family'
+    | 'talk'
+    | 'workshop'
+    | 'festival'
+    | 'other'
+    )
     | null;
   /**
    * Unpublished events are not visible to the public
@@ -433,19 +442,19 @@ export interface Event {
   seatMap?: (string | null) | SeatMap;
   ticketTypes?:
     | {
-        id: string | null;
-        name: string;
-        price: number;
-        color?: string | null;
-      }[]
+    id: string | null;
+    name: string;
+    price: number;
+    color?: string | null;
+  }[]
     | null;
   /**
    * Map of seatId -> ticketTypeId
    */
   seatAssignments?:
     | {
-        [k: string]: unknown;
-      }
+    [k: string]: unknown;
+  }
     | unknown[]
     | string
     | number
@@ -453,30 +462,30 @@ export interface Event {
     | null;
   performers?:
     | {
-        image?: (string | null) | Media;
-        stageName: string;
-        realName?: string | null;
-        socials?: {
-          facebook?: string | null;
-          instagram?: string | null;
-          linkedin?: string | null;
-          x?: string | null;
-        };
-        id?: string | null;
-      }[]
+    image?: (string | null) | Media;
+    stageName: string;
+    realName?: string | null;
+    socials?: {
+      facebook?: string | null;
+      instagram?: string | null;
+      linkedin?: string | null;
+      x?: string | null;
+    };
+    id?: string | null;
+  }[]
     | null;
   sponsors?:
     | {
-        logo?: (string | null) | Media;
-        id?: string | null;
-      }[]
+    logo?: (string | null) | Media;
+    id?: string | null;
+  }[]
     | null;
   faqs?:
     | {
-        question: string;
-        answer: string;
-        id?: string | null;
-      }[]
+    question: string;
+    answer: string;
+    id?: string | null;
+  }[]
     | null;
   /**
    * Paste the full iframe code from Google Maps share → embed map.
@@ -484,23 +493,24 @@ export interface Event {
   googleMapsIframe?: string | null;
   location?:
     | (
-        | 'Antwerpen'
-        | 'Vlaams-Brabant'
-        | 'Waals-Brabant'
-        | 'West-Vlaanderen'
-        | 'Oost-Vlaanderen'
-        | 'Henegouwen'
-        | 'Luik'
-        | 'Limburg'
-        | 'Luxemburg'
-        | 'Namen'
-        | 'Brussels Hoofdstedelijk Gewest'
-      )
+    | 'Antwerpen'
+    | 'Vlaams-Brabant'
+    | 'Waals-Brabant'
+    | 'West-Vlaanderen'
+    | 'Oost-Vlaanderen'
+    | 'Henegouwen'
+    | 'Luik'
+    | 'Limburg'
+    | 'Luxemburg'
+    | 'Namen'
+    | 'Brussels Hoofdstedelijk Gewest'
+    )
     | null;
   updatedAt: string;
   createdAt: string;
   _status?: ('draft' | 'published') | null;
 }
+
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "media".
@@ -513,9 +523,9 @@ export interface Media {
    */
   tags?:
     | {
-        tag?: string | null;
-        id?: string | null;
-      }[]
+    tag?: string | null;
+    id?: string | null;
+  }[]
     | null;
   /**
    * Alternative text for the media file to improve accessibility.
@@ -567,6 +577,7 @@ export interface Media {
     };
   };
 }
+
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "seatMaps".
@@ -587,35 +598,35 @@ export interface SeatMap {
    */
   seats?:
     | {
-        row: string;
-        seat: string;
-        pinnedRow: number;
-        pinnedCol: number;
-        locks?:
-          | {
-              eventId: string;
-              lockedUntil: string;
-              id?: string | null;
-            }[]
-          | null;
-        status?: string | null;
-        purpose?: string | null;
-        groupLabel?: string | null;
-        /**
-         * If you want seats in group 1 to sell out before group 2 are purchasable, give group 1 a lower number than group 2, etc.
-         */
-        groupReleaseOrder?: number | null;
-        /**
-         * How many seats in this group must be sold before the next group (with a higher groupReleaseOrder) is unlocked?
-         */
-        groupMinToReleaseNext?: number | null;
-        id?: string | null;
-      }[]
+    row: string;
+    seat: string;
+    pinnedRow: number;
+    pinnedCol: number;
+    locks?:
+      | {
+      eventId: string;
+      lockedUntil: string;
+      id?: string | null;
+    }[]
+      | null;
+    status?: string | null;
+    purpose?: string | null;
+    groupLabel?: string | null;
+    /**
+     * If you want seats in group 1 to sell out before group 2 are purchasable, give group 1 a lower number than group 2, etc.
+     */
+    groupReleaseOrder?: number | null;
+    /**
+     * How many seats in this group must be sold before the next group (with a higher groupReleaseOrder) is unlocked?
+     */
+    groupMinToReleaseNext?: number | null;
+    id?: string | null;
+  }[]
     | null;
   seatMapJSON?:
     | {
-        [k: string]: unknown;
-      }
+    [k: string]: unknown;
+  }
     | unknown[]
     | string
     | number
@@ -637,6 +648,7 @@ export interface SeatMap {
   updatedAt: string;
   createdAt: string;
 }
+
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "event-ticket-types".
@@ -688,6 +700,7 @@ export interface EventTicketType {
   updatedAt: string;
   createdAt: string;
 }
+
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "addons".
@@ -718,6 +731,7 @@ export interface Addon {
   updatedAt: string;
   createdAt: string;
 }
+
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "orders".
@@ -733,11 +747,11 @@ export interface Order {
   customer: string | Customer;
   addonSelections?:
     | {
-        seatId: string;
-        addonId: string;
-        quantity: number;
-        id?: string | null;
-      }[]
+    seatId: string;
+    addonId: string;
+    quantity: number;
+    id?: string | null;
+  }[]
     | null;
   event: string | Event;
   tickets?: (string | Ticket)[] | null;
@@ -752,6 +766,7 @@ export interface Order {
   locale?: ('nl' | 'fr' | 'en' | 'de') | null;
   updatedAt: string;
 }
+
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "tickets".
@@ -786,6 +801,7 @@ export interface Ticket {
   updatedAt: string;
   createdAt: string;
 }
+
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payment-methods".
@@ -805,6 +821,7 @@ export interface PaymentMethod {
   updatedAt: string;
   createdAt: string;
 }
+
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "checkins".
@@ -824,6 +841,7 @@ export interface Checkin {
   updatedAt: string;
   createdAt: string;
 }
+
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "coupons".
@@ -866,6 +884,7 @@ export interface Coupon {
   updatedAt: string;
   createdAt: string;
 }
+
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "emails".
@@ -897,6 +916,7 @@ export interface Email {
   updatedAt: string;
   createdAt: string;
 }
+
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "smtp-settings".
@@ -928,6 +948,7 @@ export interface SmtpSetting {
   updatedAt: string;
   createdAt: string;
 }
+
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "email-logs".
@@ -968,6 +989,7 @@ export interface EmailLog {
   updatedAt: string;
   createdAt: string;
 }
+
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "newsletters".
@@ -1018,6 +1040,7 @@ export interface Newsletter {
   updatedAt: string;
   createdAt: string;
 }
+
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "support-articles".
@@ -1039,6 +1062,7 @@ export interface SupportArticle {
   updatedAt: string;
   createdAt: string;
 }
+
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "analytics".
@@ -1057,8 +1081,8 @@ export interface Analytics {
    */
   data?:
     | {
-        [k: string]: unknown;
-      }
+    [k: string]: unknown;
+  }
     | unknown[]
     | string
     | number
@@ -1067,6 +1091,7 @@ export interface Analytics {
   updatedAt: string;
   createdAt: string;
 }
+
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "venue-branding".
@@ -1087,6 +1112,7 @@ export interface VenueBranding {
   updatedAt: string;
   createdAt: string;
 }
+
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "seat-map-templates".
@@ -1102,8 +1128,8 @@ export interface SeatMapTemplate {
   colFormat?: ('Numeric' | 'Letter' | 'RNumber' | 'RowNumber' | 'Continuous') | null;
   seats?:
     | {
-        [k: string]: unknown;
-      }
+    [k: string]: unknown;
+  }
     | unknown[]
     | string
     | number
@@ -1113,6 +1139,7 @@ export interface SeatMapTemplate {
   updatedAt: string;
   createdAt: string;
 }
+
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "email-templates".
@@ -1144,6 +1171,7 @@ export interface EmailTemplate {
   updatedAt: string;
   createdAt: string;
 }
+
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "pages".
@@ -1166,6 +1194,7 @@ export interface Page {
   updatedAt: string;
   createdAt: string;
 }
+
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
@@ -1174,122 +1203,123 @@ export interface PayloadLockedDocument {
   id: string;
   document?:
     | ({
-        relationTo: 'customers';
-        value: string | Customer;
-      } | null)
+    relationTo: 'customers';
+    value: string | Customer;
+  } | null)
     | ({
-        relationTo: 'tenants';
-        value: string | Tenant;
-      } | null)
+    relationTo: 'tenants';
+    value: string | Tenant;
+  } | null)
     | ({
-        relationTo: 'users';
-        value: string | User;
-      } | null)
+    relationTo: 'users';
+    value: string | User;
+  } | null)
     | ({
-        relationTo: 'roles';
-        value: string | Role;
-      } | null)
+    relationTo: 'roles';
+    value: string | Role;
+  } | null)
     | ({
-        relationTo: 'membership-roles';
-        value: string | MembershipRole;
-      } | null)
+    relationTo: 'membership-roles';
+    value: string | MembershipRole;
+  } | null)
     | ({
-        relationTo: 'shops';
-        value: string | Shop;
-      } | null)
+    relationTo: 'shops';
+    value: string | Shop;
+  } | null)
     | ({
-        relationTo: 'events';
-        value: string | Event;
-      } | null)
+    relationTo: 'events';
+    value: string | Event;
+  } | null)
     | ({
-        relationTo: 'event-ticket-types';
-        value: string | EventTicketType;
-      } | null)
+    relationTo: 'event-ticket-types';
+    value: string | EventTicketType;
+  } | null)
     | ({
-        relationTo: 'seatMaps';
-        value: string | SeatMap;
-      } | null)
+    relationTo: 'seatMaps';
+    value: string | SeatMap;
+  } | null)
     | ({
-        relationTo: 'addons';
-        value: string | Addon;
-      } | null)
+    relationTo: 'addons';
+    value: string | Addon;
+  } | null)
     | ({
-        relationTo: 'orders';
-        value: string | Order;
-      } | null)
+    relationTo: 'orders';
+    value: string | Order;
+  } | null)
     | ({
-        relationTo: 'tickets';
-        value: string | Ticket;
-      } | null)
+    relationTo: 'tickets';
+    value: string | Ticket;
+  } | null)
     | ({
-        relationTo: 'checkins';
-        value: string | Checkin;
-      } | null)
+    relationTo: 'checkins';
+    value: string | Checkin;
+  } | null)
     | ({
-        relationTo: 'payment-methods';
-        value: string | PaymentMethod;
-      } | null)
+    relationTo: 'payment-methods';
+    value: string | PaymentMethod;
+  } | null)
     | ({
-        relationTo: 'coupons';
-        value: string | Coupon;
-      } | null)
+    relationTo: 'coupons';
+    value: string | Coupon;
+  } | null)
     | ({
-        relationTo: 'emails';
-        value: string | Email;
-      } | null)
+    relationTo: 'emails';
+    value: string | Email;
+  } | null)
     | ({
-        relationTo: 'smtp-settings';
-        value: string | SmtpSetting;
-      } | null)
+    relationTo: 'smtp-settings';
+    value: string | SmtpSetting;
+  } | null)
     | ({
-        relationTo: 'email-logs';
-        value: string | EmailLog;
-      } | null)
+    relationTo: 'email-logs';
+    value: string | EmailLog;
+  } | null)
     | ({
-        relationTo: 'newsletters';
-        value: string | Newsletter;
-      } | null)
+    relationTo: 'newsletters';
+    value: string | Newsletter;
+  } | null)
     | ({
-        relationTo: 'support-articles';
-        value: string | SupportArticle;
-      } | null)
+    relationTo: 'support-articles';
+    value: string | SupportArticle;
+  } | null)
     | ({
-        relationTo: 'analytics';
-        value: string | Analytics;
-      } | null)
+    relationTo: 'analytics';
+    value: string | Analytics;
+  } | null)
     | ({
-        relationTo: 'venue-branding';
-        value: string | VenueBranding;
-      } | null)
+    relationTo: 'venue-branding';
+    value: string | VenueBranding;
+  } | null)
     | ({
-        relationTo: 'media';
-        value: string | Media;
-      } | null)
+    relationTo: 'media';
+    value: string | Media;
+  } | null)
     | ({
-        relationTo: 'seat-map-templates';
-        value: string | SeatMapTemplate;
-      } | null)
+    relationTo: 'seat-map-templates';
+    value: string | SeatMapTemplate;
+  } | null)
     | ({
-        relationTo: 'email-templates';
-        value: string | EmailTemplate;
-      } | null)
+    relationTo: 'email-templates';
+    value: string | EmailTemplate;
+  } | null)
     | ({
-        relationTo: 'pages';
-        value: string | Page;
-      } | null);
+    relationTo: 'pages';
+    value: string | Page;
+  } | null);
   globalSlug?: string | null;
   user:
     | {
-        relationTo: 'customers';
-        value: string | Customer;
-      }
+    relationTo: 'customers';
+    value: string | Customer;
+  }
     | {
-        relationTo: 'users';
-        value: string | User;
-      };
+    relationTo: 'users';
+    value: string | User;
+  };
   updatedAt: string;
   createdAt: string;
 }
+
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-preferences".
@@ -1298,18 +1328,18 @@ export interface PayloadPreference {
   id: string;
   user:
     | {
-        relationTo: 'customers';
-        value: string | Customer;
-      }
+    relationTo: 'customers';
+    value: string | Customer;
+  }
     | {
-        relationTo: 'users';
-        value: string | User;
-      };
+    relationTo: 'users';
+    value: string | User;
+  };
   key?: string | null;
   value?:
     | {
-        [k: string]: unknown;
-      }
+    [k: string]: unknown;
+  }
     | unknown[]
     | string
     | number
@@ -1318,6 +1348,7 @@ export interface PayloadPreference {
   updatedAt: string;
   createdAt: string;
 }
+
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-migrations".
@@ -1329,6 +1360,7 @@ export interface PayloadMigration {
   updatedAt: string;
   createdAt: string;
 }
+
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "customers_select".
@@ -1341,10 +1373,10 @@ export interface CustomersSelect<T extends boolean = true> {
   tags?:
     | T
     | {
-        tag_id?: T;
-        tag_type?: T;
-        id?: T;
-      };
+    tag_id?: T;
+    tag_type?: T;
+    id?: T;
+  };
   enabled?: T;
   tenant?: T;
   updatedAt?: T;
@@ -1357,6 +1389,7 @@ export interface CustomersSelect<T extends boolean = true> {
   loginAttempts?: T;
   lockUntil?: T;
 }
+
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "tenants_select".
@@ -1366,9 +1399,9 @@ export interface TenantsSelect<T extends boolean = true> {
   domains?:
     | T
     | {
-        domain?: T;
-        id?: T;
-      };
+    domain?: T;
+    id?: T;
+  };
   slug?: T;
   stripeCustomerId?: T;
   managedByReseller?: T;
@@ -1376,6 +1409,7 @@ export interface TenantsSelect<T extends boolean = true> {
   updatedAt?: T;
   createdAt?: T;
 }
+
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "users_select".
@@ -1385,10 +1419,10 @@ export interface UsersSelect<T extends boolean = true> {
   tenants?:
     | T
     | {
-        tenant?: T;
-        roles?: T;
-        id?: T;
-      };
+    tenant?: T;
+    roles?: T;
+    id?: T;
+  };
   stripeCustomerId?: T;
   fullName?: T;
   phoneNumber?: T;
@@ -1402,6 +1436,7 @@ export interface UsersSelect<T extends boolean = true> {
   loginAttempts?: T;
   lockUntil?: T;
 }
+
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "roles_select".
@@ -1411,27 +1446,28 @@ export interface RolesSelect<T extends boolean = true> {
   collections?:
     | T
     | {
-        collectionName?: T;
-        read?: T;
-        create?: T;
-        update?: T;
-        delete?: T;
-        id?: T;
-      };
+    collectionName?: T;
+    read?: T;
+    create?: T;
+    update?: T;
+    delete?: T;
+    id?: T;
+  };
   fields?:
     | T
     | {
-        collectionName?: T;
-        fieldName?: T;
-        read?: T;
-        create?: T;
-        update?: T;
-        delete?: T;
-        id?: T;
-      };
+    collectionName?: T;
+    fieldName?: T;
+    read?: T;
+    create?: T;
+    update?: T;
+    delete?: T;
+    id?: T;
+  };
   updatedAt?: T;
   createdAt?: T;
 }
+
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "membership-roles_select".
@@ -1445,6 +1481,7 @@ export interface MembershipRolesSelect<T extends boolean = true> {
   updatedAt?: T;
   createdAt?: T;
 }
+
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "shops_select".
@@ -1456,35 +1493,36 @@ export interface ShopsSelect<T extends boolean = true> {
   exceptionally_closed_days?:
     | T
     | {
-        date?: T;
-        reason?: T;
-        id?: T;
-      };
+    date?: T;
+    reason?: T;
+    id?: T;
+  };
   address?: T;
   location?:
     | T
     | {
-        lat?: T;
-        lng?: T;
-      };
+    lat?: T;
+    lng?: T;
+  };
   company_details?:
     | T
     | {
-        company_name?: T;
-        contact_email?: T;
-        phone?: T;
-        street?: T;
-        house_number?: T;
-        city?: T;
-        postal?: T;
-        vat_nr?: T;
-        website_url?: T;
-      };
+    company_name?: T;
+    contact_email?: T;
+    phone?: T;
+    street?: T;
+    house_number?: T;
+    city?: T;
+    postal?: T;
+    vat_nr?: T;
+    website_url?: T;
+  };
   domain?: T;
   tenant?: T;
   updatedAt?: T;
   createdAt?: T;
 }
+
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "events_select".
@@ -1508,47 +1546,48 @@ export interface EventsSelect<T extends boolean = true> {
   ticketTypes?:
     | T
     | {
-        id?: T;
-        name?: T;
-        price?: T;
-        color?: T;
-      };
+    id?: T;
+    name?: T;
+    price?: T;
+    color?: T;
+  };
   seatAssignments?: T;
   performers?:
     | T
     | {
-        image?: T;
-        stageName?: T;
-        realName?: T;
-        socials?:
-          | T
-          | {
-              facebook?: T;
-              instagram?: T;
-              linkedin?: T;
-              x?: T;
-            };
-        id?: T;
-      };
+    image?: T;
+    stageName?: T;
+    realName?: T;
+    socials?:
+      | T
+      | {
+      facebook?: T;
+      instagram?: T;
+      linkedin?: T;
+      x?: T;
+    };
+    id?: T;
+  };
   sponsors?:
     | T
     | {
-        logo?: T;
-        id?: T;
-      };
+    logo?: T;
+    id?: T;
+  };
   faqs?:
     | T
     | {
-        question?: T;
-        answer?: T;
-        id?: T;
-      };
+    question?: T;
+    answer?: T;
+    id?: T;
+  };
   googleMapsIframe?: T;
   location?: T;
   updatedAt?: T;
   createdAt?: T;
   _status?: T;
 }
+
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "event-ticket-types_select".
@@ -1569,6 +1608,7 @@ export interface EventTicketTypesSelect<T extends boolean = true> {
   updatedAt?: T;
   createdAt?: T;
 }
+
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "seatMaps_select".
@@ -1583,24 +1623,24 @@ export interface SeatMapsSelect<T extends boolean = true> {
   seats?:
     | T
     | {
-        row?: T;
-        seat?: T;
-        pinnedRow?: T;
-        pinnedCol?: T;
-        locks?:
-          | T
-          | {
-              eventId?: T;
-              lockedUntil?: T;
-              id?: T;
-            };
-        status?: T;
-        purpose?: T;
-        groupLabel?: T;
-        groupReleaseOrder?: T;
-        groupMinToReleaseNext?: T;
-        id?: T;
-      };
+    row?: T;
+    seat?: T;
+    pinnedRow?: T;
+    pinnedCol?: T;
+    locks?:
+      | T
+      | {
+      eventId?: T;
+      lockedUntil?: T;
+      id?: T;
+    };
+    status?: T;
+    purpose?: T;
+    groupLabel?: T;
+    groupReleaseOrder?: T;
+    groupMinToReleaseNext?: T;
+    id?: T;
+  };
   seatMapJSON?: T;
   backgroundImage?: T;
   rowFormat?: T;
@@ -1609,6 +1649,7 @@ export interface SeatMapsSelect<T extends boolean = true> {
   updatedAt?: T;
   createdAt?: T;
 }
+
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "addons_select".
@@ -1626,6 +1667,7 @@ export interface AddonsSelect<T extends boolean = true> {
   updatedAt?: T;
   createdAt?: T;
 }
+
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "orders_select".
@@ -1638,11 +1680,11 @@ export interface OrdersSelect<T extends boolean = true> {
   addonSelections?:
     | T
     | {
-        seatId?: T;
-        addonId?: T;
-        quantity?: T;
-        id?: T;
-      };
+    seatId?: T;
+    addonId?: T;
+    quantity?: T;
+    id?: T;
+  };
   event?: T;
   tickets?: T;
   addons?: T;
@@ -1656,6 +1698,7 @@ export interface OrdersSelect<T extends boolean = true> {
   locale?: T;
   updatedAt?: T;
 }
+
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "tickets_select".
@@ -1677,6 +1720,7 @@ export interface TicketsSelect<T extends boolean = true> {
   updatedAt?: T;
   createdAt?: T;
 }
+
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "checkins_select".
@@ -1692,6 +1736,7 @@ export interface CheckinsSelect<T extends boolean = true> {
   updatedAt?: T;
   createdAt?: T;
 }
+
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payment-methods_select".
@@ -1703,15 +1748,16 @@ export interface PaymentMethodsSelect<T extends boolean = true> {
   mollie_settings?:
     | T
     | {
-        enable_test_mode?: T;
-        live_api_key?: T;
-        test_api_key?: T;
-        webhook_secret?: T;
-      };
+    enable_test_mode?: T;
+    live_api_key?: T;
+    test_api_key?: T;
+    webhook_secret?: T;
+  };
   enabled?: T;
   updatedAt?: T;
   createdAt?: T;
 }
+
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "coupons_select".
@@ -1732,6 +1778,7 @@ export interface CouponsSelect<T extends boolean = true> {
   updatedAt?: T;
   createdAt?: T;
 }
+
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "emails_select".
@@ -1750,6 +1797,7 @@ export interface EmailsSelect<T extends boolean = true> {
   updatedAt?: T;
   createdAt?: T;
 }
+
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "smtp-settings_select".
@@ -1768,6 +1816,7 @@ export interface SmtpSettingsSelect<T extends boolean = true> {
   updatedAt?: T;
   createdAt?: T;
 }
+
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "email-logs_select".
@@ -1786,6 +1835,7 @@ export interface EmailLogsSelect<T extends boolean = true> {
   updatedAt?: T;
   createdAt?: T;
 }
+
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "newsletters_select".
@@ -1803,6 +1853,7 @@ export interface NewslettersSelect<T extends boolean = true> {
   updatedAt?: T;
   createdAt?: T;
 }
+
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "support-articles_select".
@@ -1817,6 +1868,7 @@ export interface SupportArticlesSelect<T extends boolean = true> {
   updatedAt?: T;
   createdAt?: T;
 }
+
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "analytics_select".
@@ -1830,6 +1882,7 @@ export interface AnalyticsSelect<T extends boolean = true> {
   updatedAt?: T;
   createdAt?: T;
 }
+
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "venue-branding_select".
@@ -1849,6 +1902,7 @@ export interface VenueBrandingSelect<T extends boolean = true> {
   updatedAt?: T;
   createdAt?: T;
 }
+
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "media_select".
@@ -1858,9 +1912,9 @@ export interface MediaSelect<T extends boolean = true> {
   tags?:
     | T
     | {
-        tag?: T;
-        id?: T;
-      };
+    tag?: T;
+    id?: T;
+  };
   alt_text?: T;
   blurhash?: T;
   s3_url?: T;
@@ -1878,38 +1932,39 @@ export interface MediaSelect<T extends boolean = true> {
   sizes?:
     | T
     | {
-        thumbnail?:
-          | T
-          | {
-              url?: T;
-              width?: T;
-              height?: T;
-              mimeType?: T;
-              filesize?: T;
-              filename?: T;
-            };
-        preview?:
-          | T
-          | {
-              url?: T;
-              width?: T;
-              height?: T;
-              mimeType?: T;
-              filesize?: T;
-              filename?: T;
-            };
-        medium?:
-          | T
-          | {
-              url?: T;
-              width?: T;
-              height?: T;
-              mimeType?: T;
-              filesize?: T;
-              filename?: T;
-            };
-      };
+    thumbnail?:
+      | T
+      | {
+      url?: T;
+      width?: T;
+      height?: T;
+      mimeType?: T;
+      filesize?: T;
+      filename?: T;
+    };
+    preview?:
+      | T
+      | {
+      url?: T;
+      width?: T;
+      height?: T;
+      mimeType?: T;
+      filesize?: T;
+      filename?: T;
+    };
+    medium?:
+      | T
+      | {
+      url?: T;
+      width?: T;
+      height?: T;
+      mimeType?: T;
+      filesize?: T;
+      filename?: T;
+    };
+  };
 }
+
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "seat-map-templates_select".
@@ -1927,6 +1982,7 @@ export interface SeatMapTemplatesSelect<T extends boolean = true> {
   updatedAt?: T;
   createdAt?: T;
 }
+
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "email-templates_select".
@@ -1940,6 +1996,7 @@ export interface EmailTemplatesSelect<T extends boolean = true> {
   updatedAt?: T;
   createdAt?: T;
 }
+
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "pages_select".
@@ -1952,6 +2009,7 @@ export interface PagesSelect<T extends boolean = true> {
   updatedAt?: T;
   createdAt?: T;
 }
+
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents_select".
@@ -1963,6 +2021,7 @@ export interface PayloadLockedDocumentsSelect<T extends boolean = true> {
   updatedAt?: T;
   createdAt?: T;
 }
+
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-preferences_select".
@@ -1974,6 +2033,7 @@ export interface PayloadPreferencesSelect<T extends boolean = true> {
   updatedAt?: T;
   createdAt?: T;
 }
+
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-migrations_select".
@@ -1984,6 +2044,7 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
   updatedAt?: T;
   createdAt?: T;
 }
+
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "auth".
@@ -1994,5 +2055,6 @@ export interface Auth {
 
 
 declare module 'payload' {
-  export interface GeneratedTypes extends Config {}
+  export interface GeneratedTypes extends Config {
+  }
 }

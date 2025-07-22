@@ -28,41 +28,41 @@ export const dynamic = 'force-dynamic'
  *         description: Server error
  */
 export async function GET(req: NextRequest) {
-    try {
-        const { searchParams } = req.nextUrl
-        const host = searchParams.get('host')
-        if (!host) {
-            return NextResponse.json(
-                { error: 'No host param' },
-                { status: 400 },
-            )
-        }
-
-        // 1) Initialize Payload
-        const payload = await getPayload({ config })
-
-        // 2) Find the shop by slug
-        const shopResult = await payload.find({
-            collection: 'shops',
-            where: { slug: { equals: host } },
-            limit: 1,
-        })
-        const shop = shopResult.docs[0]
-        if (!shop) {
-            return NextResponse.json(
-                { error: `No shop found for slug: "${host}"` },
-                { status: 404 },
-            )
-        }
-
-        // 3) Return just the shop doc
-        return NextResponse.json({ shop })
-
-    } catch (err: any) {
-        console.error('/api/getShop error:', err)
-        return NextResponse.json(
-            { error: err?.message || 'Unknown error' },
-            { status: 500 },
-        )
+  try {
+    const { searchParams } = req.nextUrl
+    const host = searchParams.get('host')
+    if (!host) {
+      return NextResponse.json(
+        { error: 'No host param' },
+        { status: 400 },
+      )
     }
+
+    // 1) Initialize Payload
+    const payload = await getPayload({ config })
+
+    // 2) Find the shop by slug
+    const shopResult = await payload.find({
+      collection: 'shops',
+      where: { slug: { equals: host } },
+      limit: 1,
+    })
+    const shop = shopResult.docs[0]
+    if (!shop) {
+      return NextResponse.json(
+        { error: `No shop found for slug: "${host}"` },
+        { status: 404 },
+      )
+    }
+
+    // 3) Return just the shop doc
+    return NextResponse.json({ shop })
+
+  } catch (err: any) {
+    console.error('/api/getShop error:', err)
+    return NextResponse.json(
+      { error: err?.message || 'Unknown error' },
+      { status: 500 },
+    )
+  }
 }

@@ -53,22 +53,22 @@ export const generateOrderSummaryEmail = async (params: OrderSummaryParams) => {
     fulfillmentMethod = 'takeaway',
     customerDetails,
     branding,
-  } = params;
+  } = params
 
   // Build an HTML table of items
-  let itemsTableRows = '';
+  let itemsTableRows = ''
   for (const line of itemLines) {
     // For subproducts
-    let subRows = '';
+    let subRows = ''
     if (line.subproducts && line.subproducts.length > 0) {
       subRows = line.subproducts
         .map(
           sp => `
             <div style="margin-left: 20px; font-size: 14px; color: #666;">
               + ${sp.name} (€${sp.price.toFixed(2)})
-            </div>`
+            </div>`,
         )
-        .join('');
+        .join('')
     }
 
     itemsTableRows += `
@@ -81,33 +81,33 @@ export const generateOrderSummaryEmail = async (params: OrderSummaryParams) => {
           €${(line.price * line.quantity).toFixed(2)}
         </td>
       </tr>
-    `;
+    `
   }
 
   // Convert the fulfillmentMethod code to Dutch
-  let fulfillmentStr = '';
+  let fulfillmentStr = ''
   switch (fulfillmentMethod) {
     case 'delivery':
-      fulfillmentStr = 'Levering aan huis';
-      break;
+      fulfillmentStr = 'Levering aan huis'
+      break
     case 'takeaway':
-      fulfillmentStr = 'Afhaling';
-      break;
+      fulfillmentStr = 'Afhaling'
+      break
     case 'dine_in':
-      fulfillmentStr = 'Ter plaatse eten';
-      break;
+      fulfillmentStr = 'Ter plaatse eten'
+      break
     default:
-      fulfillmentStr = 'Afhaling';
+      fulfillmentStr = 'Afhaling'
   }
 
   // Optionally, show shipping row if shippingCost > 0
-  const shippingFloat = parseFloat(shippingCost || '0');
-  const showShippingRow = shippingFloat > 0;
+  const shippingFloat = parseFloat(shippingCost || '0')
+  const showShippingRow = shippingFloat > 0
 
   // The main content in Dutch
   const advancedContent = `
     <p style="margin-bottom: 1rem;">Hallo ${customerDetails?.firstName || ''
-    }, bedankt voor uw bestelling!</p>
+  }, bedankt voor uw bestelling!</p>
 
     <table style="width: 100%; border-collapse: collapse; margin-bottom: 1rem;">
       <thead>
@@ -122,18 +122,18 @@ export const generateOrderSummaryEmail = async (params: OrderSummaryParams) => {
     </table>
 
     ${showShippingRow
-      ? `<div style="text-align: right; margin-bottom: 0.5rem;">
+    ? `<div style="text-align: right; margin-bottom: 0.5rem;">
              <strong>Verzendkosten:</strong> €${shippingCost}
            </div>`
-      : ''
-    }
+    : ''
+  }
 
     ${serviceCost
-      ? `<div style="text-align: right; margin-bottom: 0.5rem;">
+    ? `<div style="text-align: right; margin-bottom: 0.5rem;">
              <strong>Servicekosten:</strong> €${serviceCost}
            </div>`
-      : ''
-    }
+    : ''
+  }
 
     <div style="text-align: right; margin-bottom: 1.5rem;">
       <strong style="font-size: 1.2rem;">
@@ -146,14 +146,14 @@ export const generateOrderSummaryEmail = async (params: OrderSummaryParams) => {
     </div>
 
     ${customerDetails?.address
-      ? `<div style="margin-bottom: 1rem;">
+    ? `<div style="margin-bottom: 1rem;">
              <strong>Afleveradres:</strong><br/>
              ${customerDetails.address || ''}<br/>
              ${customerDetails.postalCode || ''} ${customerDetails.city || ''}<br/>
              ${customerDetails.phone || ''}
            </div>`
-      : ''
-    }
+    : ''
+  }
 
     <p style="margin-bottom: 1rem;">
       Wij nemen contact met u op als we nog vragen hebben over uw bestelling.
@@ -162,30 +162,30 @@ export const generateOrderSummaryEmail = async (params: OrderSummaryParams) => {
 
     <!-- Example for review links if branding has them -->
     ${branding?.googleReviewUrl || branding?.tripAdvisorUrl
-      ? `<div style="margin-top: 2rem; padding: 1rem; background-color: #f0f0f0;">
+    ? `<div style="margin-top: 2rem; padding: 1rem; background-color: #f0f0f0;">
              <p style="margin: 0 0 0.5rem;">
                Tevreden van uw bestelling? Laat gerust een review achter:
              </p>
              ${branding.googleReviewUrl
-        ? `<a href="${branding.googleReviewUrl
-        }" target="_blank" style="margin-right: 20px; text-decoration: none; color: #007bff;">Google Review</a>`
-        : ''
-      }
-             ${branding.tripAdvisorUrl
-        ? `<a href="${branding.tripAdvisorUrl
-        }" target="_blank" style="text-decoration: none; color: #007bff;">TripAdvisor</a>`
-        : ''
-      }
-           </div>`
+      ? `<a href="${branding.googleReviewUrl
+      }" target="_blank" style="margin-right: 20px; text-decoration: none; color: #007bff;">Google Review</a>`
       : ''
     }
-  `;
+             ${branding.tripAdvisorUrl
+      ? `<a href="${branding.tripAdvisorUrl
+      }" target="_blank" style="text-decoration: none; color: #007bff;">TripAdvisor</a>`
+      : ''
+    }
+           </div>`
+    : ''
+  }
+  `
 
   // For the headline, we now show "Bestelling #<shopOrdNr>"
   // If you still want to include the main ID or not is up to you.
   const headlineText = branding?.siteTitle
     ? `${branding.siteTitle} – Bestelling #${shopOrdNr}`
-    : `Bestelling #${shopOrdNr}`;
+    : `Bestelling #${shopOrdNr}`
 
   // Finally, generate the full HTML via your existing template
   return generateEmailHTML({
@@ -198,6 +198,6 @@ export const generateOrderSummaryEmail = async (params: OrderSummaryParams) => {
     },
     brandLogoUrl: branding?.siteLogo?.s3_url,
     brandHeaderColor: branding?.headerBackgroundColor,
-  });
-};
+  })
+}
 

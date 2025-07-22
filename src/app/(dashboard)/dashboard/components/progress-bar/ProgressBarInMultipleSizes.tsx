@@ -1,5 +1,5 @@
-import React from "react";
-import ProgressBar from "./ProgressBar";
+import React from 'react'
+import ProgressBar from './ProgressBar'
 
 export default function ProgressBarInMultipleSizes() {
   return (
@@ -9,5 +9,5 @@ export default function ProgressBarInMultipleSizes() {
       <ProgressBar progress={55} size="lg" />
       <ProgressBar progress={55} size="xl" />
     </div>
-  );
+  )
 }

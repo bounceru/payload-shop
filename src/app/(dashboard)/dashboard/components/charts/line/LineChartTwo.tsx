@@ -1,37 +1,37 @@
-"use client";
-import React from "react";
-import { ApexOptions } from "apexcharts";
-import dynamic from "next/dynamic";
+'use client'
+import React from 'react'
+import { ApexOptions } from 'apexcharts'
+import dynamic from 'next/dynamic'
 // Dynamically import the ReactApexChart component
-const ReactApexChart = dynamic(() => import("react-apexcharts"), {
+const ReactApexChart = dynamic(() => import('react-apexcharts'), {
   ssr: false,
-});
+})
 
 export default function LineChartTwo() {
   const options: ApexOptions = {
     legend: {
       show: false,
-      position: "top",
-      horizontalAlign: "left",
+      position: 'top',
+      horizontalAlign: 'left',
     },
-    colors: ["#465FFF", "#9CB9FF"],
+    colors: ['#465FFF', '#9CB9FF'],
     chart: {
-      fontFamily: "Outfit, sans-serif",
+      fontFamily: 'Outfit, sans-serif',
       height: 310,
-      type: "area",
+      type: 'area',
       toolbar: {
         show: false,
       },
     },
     fill: {
-      type: "gradient", // Explicitly specify gradient type
+      type: 'gradient', // Explicitly specify gradient type
       gradient: {
         opacityFrom: 0.55,
         opacityTo: 0,
       },
     },
     stroke: {
-      curve: "smooth",
+      curve: 'smooth',
       width: [2, 2], // Correct width as an array of numbers
     },
     markers: {
@@ -54,24 +54,24 @@ export default function LineChartTwo() {
     },
     tooltip: {
       x: {
-        format: "dd MMM yyyy",
+        format: 'dd MMM yyyy',
       },
     },
     xaxis: {
-      type: "category", // Ensure proper type for categories
+      type: 'category', // Ensure proper type for categories
       categories: [
-        "Jan",
-        "Feb",
-        "Mar",
-        "Apr",
-        "May",
-        "Jun",
-        "Jul",
-        "Aug",
-        "Sep",
-        "Oct",
-        "Nov",
-        "Dec",
+        'Jan',
+        'Feb',
+        'Mar',
+        'Apr',
+        'May',
+        'Jun',
+        'Jul',
+        'Aug',
+        'Sep',
+        'Oct',
+        'Nov',
+        'Dec',
       ],
       axisBorder: {
         show: false,
@@ -85,24 +85,24 @@ export default function LineChartTwo() {
     },
     yaxis: {
       title: {
-        text: "", // Ensure no text is displayed
+        text: '', // Ensure no text is displayed
         style: {
-          fontSize: "0px",
+          fontSize: '0px',
         },
       },
     },
-  };
+  }
 
   const series = [
     {
-      name: "Sales",
+      name: 'Sales',
       data: [180, 190, 170, 160, 175, 165, 170, 205, 230, 210, 240, 235],
     },
     {
-      name: "Revenue",
+      name: 'Revenue',
       data: [40, 30, 50, 40, 55, 40, 70, 100, 110, 120, 150, 140],
     },
-  ];
+  ]
   return (
     <div className="max-w-full overflow-x-auto custom-scrollbar">
       <div id="chartEight" className="min-w-[1000px] xl:min-w-full">
@@ -114,5 +114,5 @@ export default function LineChartTwo() {
         />
       </div>
     </div>
-  );
+  )
 }

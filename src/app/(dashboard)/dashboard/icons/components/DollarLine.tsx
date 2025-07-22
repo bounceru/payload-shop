@@ -1,5 +1,6 @@
-import * as React from 'react'
 import type { SVGProps } from 'react'
+import * as React from 'react'
+
 const SvgDollarLine = (props: SVGProps<SVGSVGElement>) => (
   <svg xmlns="http://www.w3.org/2000/svg" width={25} height={24} fill="none" {...props}>
     <path

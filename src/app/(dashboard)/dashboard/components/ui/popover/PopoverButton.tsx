@@ -1,6 +1,6 @@
-import React from "react";
-import Popover from "./Popover";
-import Button from "../button/Button";
+import React from 'react'
+import Popover from './Popover'
+import Button from '../button/Button'
 
 export default function PopoverButton() {
   return (
@@ -13,7 +13,8 @@ export default function PopoverButton() {
                 position="top"
                 trigger={<Button size="sm"> Popover on Top</Button>}
               >
-                <div className="relative rounded-t-xl border-b border-gray-200 bg-gray-100 px-5 py-3 dark:border-white/[0.03] dark:bg-[#252D3A]">
+                <div
+                  className="relative rounded-t-xl border-b border-gray-200 bg-gray-100 px-5 py-3 dark:border-white/[0.03] dark:bg-[#252D3A]">
                   <h3 className="text-base font-semibold text-gray-800 dark:text-white/90">
                     Top Popover
                   </h3>
@@ -25,13 +26,15 @@ export default function PopoverButton() {
                   </p>
                 </div>
               </Popover>
-            </div>{" "}
+            </div>
+            {' '}
             <div>
               <Popover
                 position="bottom"
                 trigger={<Button size="sm"> Popover on Bottom</Button>}
               >
-                <div className="rounded-t-xl border-b relative  border-gray-200  bg-gray-200 px-5 py-3 dark:border-white/[0.03] dark:bg-[#252D3A]">
+                <div
+                  className="rounded-t-xl border-b relative  border-gray-200  bg-gray-200 px-5 py-3 dark:border-white/[0.03] dark:bg-[#252D3A]">
                   <h3 className="text-base font-semibold text-gray-800 dark:text-white/90">
                     Top Popover
                   </h3>
@@ -43,13 +46,15 @@ export default function PopoverButton() {
                   </p>
                 </div>
               </Popover>
-            </div>{" "}
+            </div>
+            {' '}
             <div>
               <Popover
                 position="right"
                 trigger={<Button size="sm"> Popover on Bottom</Button>}
               >
-                <div className="rounded-t-xl border-b relative  border-gray-200  bg-gray-200 px-5 py-3 dark:border-white/[0.03] dark:bg-[#252D3A]">
+                <div
+                  className="rounded-t-xl border-b relative  border-gray-200  bg-gray-200 px-5 py-3 dark:border-white/[0.03] dark:bg-[#252D3A]">
                   <h3 className="text-base font-semibold text-gray-800 dark:text-white/90">
                     Top Popover
                   </h3>
@@ -61,13 +66,15 @@ export default function PopoverButton() {
                   </p>
                 </div>
               </Popover>
-            </div>{" "}
+            </div>
+            {' '}
             <div>
               <Popover
                 position="left"
                 trigger={<Button size="sm"> Popover on Bottom</Button>}
               >
-                <div className="rounded-t-xl border-b relative  border-gray-200  bg-gray-200 px-5 py-3 dark:border-white/[0.03] dark:bg-[#252D3A]">
+                <div
+                  className="rounded-t-xl border-b relative  border-gray-200  bg-gray-200 px-5 py-3 dark:border-white/[0.03] dark:bg-[#252D3A]">
                   <h3 className="text-base font-semibold text-gray-800 dark:text-white/90">
                     Top Popover
                   </h3>
@@ -84,5 +91,5 @@ export default function PopoverButton() {
         </div>
       </div>
     </div>
-  );
+  )
 }

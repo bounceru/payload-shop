@@ -1,33 +1,33 @@
-"use client";
-import React, { useState } from "react";
-import ComponentCard from "../../common/ComponentCard";
-import Form from "../Form";
-import Label from "../Label";
-import Input from "../input/InputField";
-import Select from "../Select";
-import TextArea from "../input/TextArea";
-import Button from "../../ui/button/Button";
-import { PaperPlaneIcon } from "../../../icons";
+'use client'
+import React, { useState } from 'react'
+import ComponentCard from '../../common/ComponentCard'
+import Form from '../Form'
+import Label from '../Label'
+import Input from '../input/InputField'
+import Select from '../Select'
+import TextArea from '../input/TextArea'
+import Button from '../../ui/button/Button'
+import { PaperPlaneIcon } from '../../../icons'
 
 export default function ExampleFormOne() {
-  const [message, setMessage] = useState<string>("");
+  const [message, setMessage] = useState<string>('')
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log("Form submitted:");
-  };
+    e.preventDefault()
+    console.log('Form submitted:')
+  }
   const options = [
-    { value: "marketing", label: "Option 1" },
-    { value: "template", label: "Option 2" },
-    { value: "development", label: "Option 3" },
-  ];
+    { value: 'marketing', label: 'Option 1' },
+    { value: 'template', label: 'Option 2' },
+    { value: 'development', label: 'Option 3' },
+  ]
   const handleSelectChange = (value: string) => {
-    console.log("Selected value:", value);
-  };
+    console.log('Selected value:', value)
+  }
 
   const handleTextareaChange = (value: string) => {
-    setMessage(value);
-    console.log("Message:", value);
-  };
+    setMessage(value)
+    console.log('Message:', value)
+  }
   return (
     <ComponentCard title="Example Form">
       <Form onSubmit={handleSubmit}>
@@ -73,5 +73,5 @@ export default function ExampleFormOne() {
         </div>
       </Form>
     </ComponentCard>
-  );
+  )
 }

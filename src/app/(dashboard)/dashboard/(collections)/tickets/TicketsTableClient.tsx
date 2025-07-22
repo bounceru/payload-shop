@@ -1,13 +1,7 @@
-"use client";
-import React, { useState } from "react";
-import Link from "next/link";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHeader,
-  TableRow,
-} from "@/app/(dashboard)/dashboard/components/ui/table";
+'use client'
+import React, { useState } from 'react'
+import Link from 'next/link'
+import { Table, TableBody, TableCell, TableHeader, TableRow } from '@/app/(dashboard)/dashboard/components/ui/table'
 
 interface TicketsTableClientProps {
   tickets: any[];
@@ -16,15 +10,15 @@ interface TicketsTableClientProps {
 }
 
 export default function TicketsTableClient({ tickets, events, eventStats }: TicketsTableClientProps) {
-  const [eventFilter, setEventFilter] = useState<string>("");
+  const [eventFilter, setEventFilter] = useState<string>('')
 
   const filteredTickets = tickets.filter((t) => {
-    const evId = typeof t.event === "object" ? t.event.id : t.event;
-    return !eventFilter || evId === eventFilter;
-  });
+    const evId = typeof t.event === 'object' ? t.event.id : t.event
+    return !eventFilter || evId === eventFilter
+  })
 
-  const selectedStats = eventFilter ? eventStats[eventFilter] : null;
-  const selectedEvent = eventFilter ? events.find((ev) => ev.id === eventFilter) : null;
+  const selectedStats = eventFilter ? eventStats[eventFilter] : null
+  const selectedEvent = eventFilter ? events.find((ev) => ev.id === eventFilter) : null
 
   return (
     <div className="space-y-4">
@@ -51,10 +45,10 @@ export default function TicketsTableClient({ tickets, events, eventStats }: Tick
             Verkocht: {selectedStats.sold} – Gescand: {selectedStats.scanned}
           </p>
           <p>
-            Capaciteit: {selectedStats.capacity || "?"} – Bezetting:
+            Capaciteit: {selectedStats.capacity || '?'} – Bezetting:
             {selectedStats.capacity
               ? ` ${(selectedStats.sold / selectedStats.capacity * 100).toFixed(1)}%`
-              : " ?"}
+              : ' ?'}
           </p>
         </div>
       )}
@@ -89,13 +83,13 @@ export default function TicketsTableClient({ tickets, events, eventStats }: Tick
             </TableHeader>
             <TableBody className="divide-y divide-gray-100 dark:divide-white/[0.05]">
               {filteredTickets.map((t) => {
-                const ev = typeof t.event === "object" ? t.event : events.find((e) => e.id === t.event);
-                const typeLabel = typeof t.ticketType === "object" ? t.ticketType.name : t.ticketType;
+                const ev = typeof t.event === 'object' ? t.event : events.find((e) => e.id === t.event)
+                const typeLabel = typeof t.ticketType === 'object' ? t.ticketType.name : t.ticketType
                 const customerLabel =
-                  typeof t.customer === "object"
-                    ? `${t.customer.firstname || ""} ${t.customer.lastname || ""}`.trim()
-                    : t.customer || "";
-                const evId = typeof t.event === "object" ? t.event.id : t.event;
+                  typeof t.customer === 'object'
+                    ? `${t.customer.firstname || ''} ${t.customer.lastname || ''}`.trim()
+                    : t.customer || ''
+                const evId = typeof t.event === 'object' ? t.event.id : t.event
                 return (
                   <TableRow key={t.id}>
                     <TableCell className="px-4 py-2 text-sm text-gray-600">{t.barcode}</TableCell>
@@ -103,9 +97,9 @@ export default function TicketsTableClient({ tickets, events, eventStats }: Tick
                     <TableCell className="px-4 py-2 text-sm text-gray-600">{typeLabel}</TableCell>
                     <TableCell className="px-4 py-2 text-sm text-gray-600 capitalize">{t.status}</TableCell>
                     <TableCell className="px-4 py-2 text-sm text-center">
-                      {t.status === "scanned" || t.scannedAt ? "✅" : "❌"}
+                      {t.status === 'scanned' || t.scannedAt ? '✅' : '❌'}
                     </TableCell>
-                    <TableCell className="px-4 py-2 text-sm text-gray-600">{customerLabel || "-"}</TableCell>
+                    <TableCell className="px-4 py-2 text-sm text-gray-600">{customerLabel || '-'}</TableCell>
                     <TableCell className="px-4 py-2 text-sm text-gray-600">
                       <Link
                         href={`/dashboard/tickets/${t.id}`}
@@ -115,7 +109,7 @@ export default function TicketsTableClient({ tickets, events, eventStats }: Tick
                       </Link>
                     </TableCell>
                   </TableRow>
-                );
+                )
               })}
               {filteredTickets.length === 0 && (
                 <TableRow>
@@ -129,5 +123,5 @@ export default function TicketsTableClient({ tickets, events, eventStats }: Tick
         </div>
       </div>
     </div>
-  );
+  )
 }

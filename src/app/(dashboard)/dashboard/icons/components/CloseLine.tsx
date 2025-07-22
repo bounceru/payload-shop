@@ -1,5 +1,6 @@
-import * as React from 'react'
 import type { SVGProps } from 'react'
+import * as React from 'react'
+
 const SvgCloseLine = (props: SVGProps<SVGSVGElement>) => (
   <svg xmlns="http://www.w3.org/2000/svg" width={17} height={16} fill="none" {...props}>
     <path

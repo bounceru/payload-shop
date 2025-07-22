@@ -1,16 +1,16 @@
-"use client";
-import React, { useState } from "react";
+'use client'
+import React, { useState } from 'react'
 
 export default function LabelList() {
-  const [activeItem, setActiveItem] = useState("");
+  const [activeItem, setActiveItem] = useState('')
 
   const labelItems = [
-    { name: "Personal", key: "personal", count: "", icon: PersonalLabel },
-    { name: "Work", key: "work", icon: WorkLabel },
-    { name: "Payments", key: "draft", icon: PaymentsLabel },
-    { name: "Invoices", key: "invoices", icon: InvoicesLabel },
-    { name: "Blank", key: "blank", icon: BlankLabel },
-  ];
+    { name: 'Personal', key: 'personal', count: '', icon: PersonalLabel },
+    { name: 'Work', key: 'work', icon: WorkLabel },
+    { name: 'Payments', key: 'draft', icon: PaymentsLabel },
+    { name: 'Invoices', key: 'invoices', icon: InvoicesLabel },
+    { name: 'Blank', key: 'blank', icon: BlankLabel },
+  ]
   return (
     <ul className="flex flex-col gap-1">
       {labelItems.map((item) => (
@@ -19,10 +19,10 @@ export default function LabelList() {
             onClick={() => setActiveItem(item.key)}
             className={`group flex w-full items-center justify-between gap-2 rounded-lg px-3 py-2.5 text-sm font-medium
               ${
-                activeItem === item.key
-                  ? "text-brand-500 bg-brand-50 dark:text-brand-400 dark:bg-brand-500/[0.12]"
-                  : "text-gray-500 dark:text-gray-400"
-              }
+              activeItem === item.key
+                ? 'text-brand-500 bg-brand-50 dark:text-brand-400 dark:bg-brand-500/[0.12]'
+                : 'text-gray-500 dark:text-gray-400'
+            }
               hover:bg-brand-50 hover:text-brand-500 dark:hover:bg-brand-500/[0.12] dark:hover:text-brand-400`}
           >
             <span className="flex items-center gap-3">
@@ -34,7 +34,7 @@ export default function LabelList() {
         </li>
       ))}
     </ul>
-  );
+  )
 }
 
 const PersonalLabel = () => (
@@ -50,7 +50,7 @@ const PersonalLabel = () => (
       fill="#12B76A"
     />
   </svg>
-);
+)
 
 const WorkLabel = () => (
   <svg
@@ -65,7 +65,7 @@ const WorkLabel = () => (
       fill="#F04438"
     />
   </svg>
-);
+)
 
 const PaymentsLabel = () => (
   <svg
@@ -80,7 +80,7 @@ const PaymentsLabel = () => (
       fill="#FD853A"
     />
   </svg>
-);
+)
 
 const InvoicesLabel = () => (
   <svg
@@ -95,7 +95,7 @@ const InvoicesLabel = () => (
       fill="#36BFFA"
     />
   </svg>
-);
+)
 
 const BlankLabel = () => (
   <svg
@@ -110,4 +110,4 @@ const BlankLabel = () => (
       fill="#6172F3"
     />
   </svg>
-);
+)

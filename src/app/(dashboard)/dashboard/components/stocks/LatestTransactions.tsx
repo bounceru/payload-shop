@@ -1,55 +1,49 @@
-import Image from "next/image";
-import Badge from "../ui/badge/Badge";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHeader,
-  TableRow,
-} from "../ui/table";
+import Image from 'next/image'
+import Badge from '../ui/badge/Badge'
+import { Table, TableBody, TableCell, TableHeader, TableRow } from '../ui/table'
 
 const transactionData = [
   {
-    image: "/images/brand/brand-08.svg", // Path or URL for the image
-    action: "Bought PYPL", // Action description
-    date: "Nov 23, 01:00 PM", // Date and time of the transaction
-    amount: "$2,567.88", // Transaction amount
-    category: "Finance", // Category of the transaction
-    status: "Success",
+    image: '/images/brand/brand-08.svg', // Path or URL for the image
+    action: 'Bought PYPL', // Action description
+    date: 'Nov 23, 01:00 PM', // Date and time of the transaction
+    amount: '$2,567.88', // Transaction amount
+    category: 'Finance', // Category of the transaction
+    status: 'Success',
   },
   {
-    image: "/images/brand/brand-07.svg", // Path or URL for the image
-    action: "Bought AAPL", // Action description
-    date: "Nov 23, 01:00 PM", // Date and time of the transaction
-    amount: "$2,567.88", // Transaction amount
-    category: "Finance", // Category of the transaction
-    status: "Pending",
+    image: '/images/brand/brand-07.svg', // Path or URL for the image
+    action: 'Bought AAPL', // Action description
+    date: 'Nov 23, 01:00 PM', // Date and time of the transaction
+    amount: '$2,567.88', // Transaction amount
+    category: 'Finance', // Category of the transaction
+    status: 'Pending',
   },
   {
-    image: "/images/brand/brand-15.svg", // Path or URL for the image
-    action: "Sell KKST", // Action description
-    date: "Nov 23, 01:00 PM", // Date and time of the transaction
-    amount: "$2,567.88", // Transaction amount
-    category: "Finance", // Category of the transaction
-    status: "Success",
+    image: '/images/brand/brand-15.svg', // Path or URL for the image
+    action: 'Sell KKST', // Action description
+    date: 'Nov 23, 01:00 PM', // Date and time of the transaction
+    amount: '$2,567.88', // Transaction amount
+    category: 'Finance', // Category of the transaction
+    status: 'Success',
   },
   {
-    image: "/images/brand/brand-02.svg", // Path or URL for the image
-    action: "Bought FB", // Action description
-    date: "Nov 23, 01:00 PM", // Date and time of the transaction
-    amount: "$2,567.88", // Transaction amount
-    category: "Finance", // Category of the transaction
-    status: "Success",
+    image: '/images/brand/brand-02.svg', // Path or URL for the image
+    action: 'Bought FB', // Action description
+    date: 'Nov 23, 01:00 PM', // Date and time of the transaction
+    amount: '$2,567.88', // Transaction amount
+    category: 'Finance', // Category of the transaction
+    status: 'Success',
   },
   {
-    image: "/images/brand/brand-10.svg", // Path or URL for the image
-    action: "Sell AMZN", // Action description
-    date: "Nov 23, 01:00 PM", // Date and time of the transaction
-    amount: "$2,567.88", // Transaction amount
-    category: "Finance", // Category of the transaction
-    status: "Failed",
+    image: '/images/brand/brand-10.svg', // Path or URL for the image
+    action: 'Sell AMZN', // Action description
+    date: 'Nov 23, 01:00 PM', // Date and time of the transaction
+    amount: '$2,567.88', // Transaction amount
+    category: 'Finance', // Category of the transaction
+    status: 'Failed',
   },
-];
+]
 
 export default function LatestTransactions() {
   return (
@@ -163,11 +157,11 @@ export default function LatestTransactions() {
                       <Badge
                         size="sm"
                         color={
-                          item.status === "Success"
-                            ? "success"
-                            : item.status === "Pending"
-                            ? "warning"
-                            : "error"
+                          item.status === 'Success'
+                            ? 'success'
+                            : item.status === 'Pending'
+                              ? 'warning'
+                              : 'error'
                         }
                       >
                         {item.status}
@@ -181,5 +175,5 @@ export default function LatestTransactions() {
         </div>
       </div>
     </div>
-  );
+  )
 }

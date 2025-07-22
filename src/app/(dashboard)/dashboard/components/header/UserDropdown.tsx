@@ -1,55 +1,52 @@
-"use client";
-import Image from "next/image";
-import Link from "next/link";
-import React, { useState } from "react";
-import { useRouter } from "next/navigation";
+'use client'
+import React, { useState } from 'react'
+import { useRouter } from 'next/navigation'
 
-import { Dropdown } from "../ui/dropdown/Dropdown";
-import { DropdownItem } from "../ui/dropdown/DropdownItem";
-import { ThemeToggleButton } from "../common/ThemeToggleButton";
-import NotificationDropdown from "./NotificationDropdown";
-import { TenantSelectorClient } from "../TenantSelector/TenantSelector";
-import { useTenant } from "../../context/TenantContext";
-import { Bolt, Pencil } from "../../icons/components";
-import { ChevronLeftIcon, EyeCloseIcon, EyeIcon } from "../../icons";
+import { Dropdown } from '../ui/dropdown/Dropdown'
+import { DropdownItem } from '../ui/dropdown/DropdownItem'
+import { ThemeToggleButton } from '../common/ThemeToggleButton'
+import NotificationDropdown from './NotificationDropdown'
+import { TenantSelectorClient } from '../TenantSelector/TenantSelector'
+import { useTenant } from '../../context/TenantContext'
+import { Pencil } from '../../icons/components'
 
 export default function UserDropdown() {
-  const [isOpen, setIsOpen] = useState(false);
-  const router = useRouter();
+  const [isOpen, setIsOpen] = useState(false)
+  const router = useRouter()
 
   // Grab the user from TenantContext
-  const { user } = useTenant();
+  const { user } = useTenant()
 
   function toggleDropdown() {
-    setIsOpen(!isOpen);
+    setIsOpen(!isOpen)
   }
 
   function closeDropdown() {
-    setIsOpen(false);
+    setIsOpen(false)
   }
 
   // Sign‑out handler
   async function handleSignOut() {
     try {
       // 1) Ask server to clear the HTTP‑only payload‑token
-      await fetch("/api/users/logout", {
-        method: "POST",
-        credentials: "include",
-      });
+      await fetch('/api/users/logout', {
+        method: 'POST',
+        credentials: 'include',
+      })
     } catch (err) {
       // ignore – cookie will be gone anyway on 401 refresh
-      console.warn("/api/users/logout failed", err);
+      console.warn('/api/users/logout failed', err)
     } finally {
       // 2) Clear tenant cookie (client‑side)
       document.cookie =
-        "payload-tenant=; Path=/; Expires=Thu, 01 Jan 1970 00:00:00 GMT; SameSite=Lax;";
+        'payload-tenant=; Path=/; Expires=Thu, 01 Jan 1970 00:00:00 GMT; SameSite=Lax;'
       // 3) Redirect to sign‑in page (will also trigger server guard)
-      router.push("/signin");
+      router.push('/signin')
     }
   }
 
-  const displayEmail = user?.email || "unknown@example.com";
-  const displayName = user?.username || displayEmail;
+  const displayEmail = user?.email || 'unknown@example.com'
+  const displayName = user?.username || displayEmail
 
   return (
     <div className="relative">
@@ -76,8 +73,8 @@ export default function UserDropdown() {
         </span>
         <span className="mr-1 block text-theme-sm font-medium text-white">{displayName}</span>
         <svg
-          className={`stroke-white-500 dark:stroke-white-400 transition-transform duration-200 ${isOpen ? "rotate-180" : ""
-            }`}
+          className={`stroke-white-500 dark:stroke-white-400 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''
+          }`}
           width="18"
           height="20"
           viewBox="0 0 18 20"
@@ -151,11 +148,12 @@ export default function UserDropdown() {
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
           >
-            <path d="M16 13v-2H7V9l-5 3 5 3v-2h9zm3-11H5c-1.1 0-2 .9-2 2v4h2V4h14v16H5v-4H3v4c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z" />
+            <path
+              d="M16 13v-2H7V9l-5 3 5 3v-2h9zm3-11H5c-1.1 0-2 .9-2 2v4h2V4h14v16H5v-4H3v4c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z" />
           </svg>
           Sign out
         </button>
       </Dropdown>
     </div>
-  );
+  )
 }

@@ -1,10 +1,10 @@
 // File: src/collections/Pages/index.ts
 
-import type { CollectionConfig } from 'payload';
-import { tenantField } from '../../fields/TenantField';
-import { baseListFilter } from './access/baseListFilter';
-import { ensureUniqueSlug } from './hooks/ensureUniqueSlug';
-import { hasPermission, hasFieldPermission } from '@/access/permissionChecker';
+import type { CollectionConfig } from 'payload'
+import { tenantField } from '../../fields/TenantField'
+import { baseListFilter } from './access/baseListFilter'
+import { ensureUniqueSlug } from './hooks/ensureUniqueSlug'
+import { hasPermission, hasFieldPermission } from '@/access/permissionChecker'
 
 export const Pages: CollectionConfig = {
   slug: 'pages',
@@ -141,6 +141,6 @@ export const Pages: CollectionConfig = {
 
     },
   ],
-};
+}
 
-export default Pages;
+export default Pages

@@ -1,5 +1,5 @@
-import ResetPasswordForm from "@/app/(dashboard)/dashboard/components/auth/ResetPasswordForm";
+import ResetPasswordForm from '@/app/(dashboard)/dashboard/components/auth/ResetPasswordForm'
 
 export default function ResetPasswordPage() {
-    return <ResetPasswordForm />;
+  return <ResetPasswordForm />
 }

@@ -1,5 +1,5 @@
-import SignUpForm from "@/app/(dashboard)/dashboard/components/auth/SignUpForm";
+import SignUpForm from '@/app/(dashboard)/dashboard/components/auth/SignUpForm'
 
 export default function SignUpPage() {
-    return <SignUpForm />;
+  return <SignUpForm />
 }

@@ -1,32 +1,33 @@
-"use client";
-import React, { useState } from "react";
-import { ApexOptions } from "apexcharts";
-import { Dropdown } from "../ui/dropdown/Dropdown";
-import { DropdownItem } from "../ui/dropdown/DropdownItem";
-import { MoreDotIcon } from "@/app/(dashboard)/dashboard/icons";
-import dynamic from "next/dynamic";
-const ReactApexChart = dynamic(() => import("react-apexcharts"), {
+'use client'
+import React, { useState } from 'react'
+import { ApexOptions } from 'apexcharts'
+import { Dropdown } from '../ui/dropdown/Dropdown'
+import { DropdownItem } from '../ui/dropdown/DropdownItem'
+import { MoreDotIcon } from '@/app/(dashboard)/dashboard/icons'
+import dynamic from 'next/dynamic'
+
+const ReactApexChart = dynamic(() => import('react-apexcharts'), {
   ssr: false,
-});
+})
 
 export default function ActiveUsersChart() {
   const options: ApexOptions = {
     legend: {
       show: false,
-      position: "top",
-      horizontalAlign: "left",
+      position: 'top',
+      horizontalAlign: 'left',
     },
-    colors: ["#465FFF"],
+    colors: ['#465FFF'],
     chart: {
-      fontFamily: "Outfit, sans-serif",
+      fontFamily: 'Outfit, sans-serif',
       height: 140,
-      type: "area",
+      type: 'area',
       toolbar: {
         show: false,
       },
     },
     fill: {
-      type: "gradient", // Ensures gradient fill is explicitly defined
+      type: 'gradient', // Ensures gradient fill is explicitly defined
       gradient: {
         opacityFrom: 0.55,
         opacityTo: 0,
@@ -51,7 +52,7 @@ export default function ActiveUsersChart() {
       },
     ],
     stroke: {
-      curve: "smooth",
+      curve: 'smooth',
       width: 2, // Changed from ["2"] to match type expectations
     },
     markers: {
@@ -74,24 +75,24 @@ export default function ActiveUsersChart() {
     },
     tooltip: {
       x: {
-        format: "dd MMM yyyy",
+        format: 'dd MMM yyyy',
       },
     },
     xaxis: {
-      type: "category",
+      type: 'category',
       categories: [
-        "Jan",
-        "Feb",
-        "Mar",
-        "Apr",
-        "May",
-        "Jun",
-        "Jul",
-        "Aug",
-        "Sep",
-        "Oct",
-        "Nov",
-        "Dec",
+        'Jan',
+        'Feb',
+        'Mar',
+        'Apr',
+        'May',
+        'Jun',
+        'Jul',
+        'Aug',
+        'Sep',
+        'Oct',
+        'Nov',
+        'Dec',
       ],
       axisBorder: {
         show: false,
@@ -111,24 +112,25 @@ export default function ActiveUsersChart() {
         text: undefined, // Removed font size styling; unnecessary with hidden labels
       },
     },
-  };
+  }
 
   const series = [
     {
-      name: "Sales",
+      name: 'Sales',
       data: [180, 181, 182, 184, 183, 182, 181, 182, 183, 185, 186, 183],
     },
-  ];
+  ]
 
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false)
 
   function toggleDropdown() {
-    setIsOpen(!isOpen);
+    setIsOpen(!isOpen)
   }
 
   function closeDropdown() {
-    setIsOpen(false);
+    setIsOpen(false)
   }
+
   return (
     <div className="rounded-2xl border border-gray-200 bg-white p-5 dark:border-gray-800 dark:bg-white/[0.03] md:p-6">
       <div className="flex items-start justify-between">
@@ -164,8 +166,10 @@ export default function ActiveUsersChart() {
       <div className="mt-6 flex items-end gap-1.5">
         <div className="flex items-center gap-2.5">
           <span className="relative inline-block w-5 h-5">
-            <span className="absolute w-2 h-2 transform -translate-x-1/2 -translate-y-1/2 rounded-full top-1/2 left-1/2 bg-error-500">
-              <span className="absolute inline-flex w-4 h-4 rounded-full opacity-75 bg-error-400 animate-ping -top-1 -left-1"></span>
+            <span
+              className="absolute w-2 h-2 transform -translate-x-1/2 -translate-y-1/2 rounded-full top-1/2 left-1/2 bg-error-500">
+              <span
+                className="absolute inline-flex w-4 h-4 rounded-full opacity-75 bg-error-400 animate-ping -top-1 -left-1"></span>
             </span>
           </span>
 
@@ -222,5 +226,5 @@ export default function ActiveUsersChart() {
         </div>
       </div>
     </div>
-  );
+  )
 }

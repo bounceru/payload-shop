@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 
 export default function FaqsThree() {
   return (
@@ -194,5 +194,5 @@ export default function FaqsThree() {
         </div>
       </div>
     </div>
-  );
+  )
 }

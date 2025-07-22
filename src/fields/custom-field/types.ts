@@ -1,11 +1,11 @@
 export type PermissionAction = 'read' | 'create' | 'update' | 'delete';
 
 export interface CollectionPermission {
-    collectionName: string;
-    read: boolean;
-    create: boolean;
-    update: boolean;
-    delete: boolean;
+  collectionName: string;
+  read: boolean;
+  create: boolean;
+  update: boolean;
+  delete: boolean;
 }
 
 /**
@@ -13,12 +13,12 @@ export interface CollectionPermission {
  * a specific field in a specific collection.
  */
 export interface FieldsPermission {
-    collectionName: string;
-    fieldName: string;
-    read: boolean;
-    create: boolean;
-    update: boolean;
-    delete: boolean;
+  collectionName: string;
+  fieldName: string;
+  read: boolean;
+  create: boolean;
+  update: boolean;
+  delete: boolean;
 }
 
 /**
@@ -26,20 +26,20 @@ export interface FieldsPermission {
  * Now includes `fields` for field-level permissions.
  */
 export interface RoleFormData {
-    name: string;
-    collections?: CollectionPermission[];
-    fields?: FieldsPermission[]; // optional if not always present
+  name: string;
+  collections?: CollectionPermission[];
+  fields?: FieldsPermission[]; // optional if not always present
 }
 
 /**
  * The shape of the doc we receive when editing a Role
- * in our custom UI components. 
+ * in our custom UI components.
  */
 export interface RoleDoc {
-    id?: string;
-    name?: string;
-    collections?: CollectionPermission[];
-    fields?: FieldsPermission[];
+  id?: string;
+  name?: string;
+  collections?: CollectionPermission[];
+  fields?: FieldsPermission[];
 }
 
 /**
@@ -47,8 +47,8 @@ export interface RoleDoc {
  * doc is our RoleDoc to be edited, collectionNames is the array of collection slugs.
  */
 export interface CollectionsTableProps {
-    collectionNames: string[];
-    doc?: RoleDoc;
+  collectionNames: string[];
+  doc?: RoleDoc;
 }
 
 /**
@@ -56,7 +56,7 @@ export interface CollectionsTableProps {
  * if you want a separate table to manage field-based permissions.
  */
 export interface FieldsTableProps {
-    doc?: RoleDoc;
+  doc?: RoleDoc;
 }
 
 /**
@@ -64,8 +64,8 @@ export interface FieldsTableProps {
  * (both collection-level and field-level).
  */
 export interface PermissionCheckboxProps {
-    checked: boolean;
-    action: PermissionAction;
-    onChange: (action: PermissionAction, event: React.ChangeEvent<HTMLInputElement>) => void;
-    label: string;
+  checked: boolean;
+  action: PermissionAction;
+  onChange: (action: PermissionAction, event: React.ChangeEvent<HTMLInputElement>) => void;
+  label: string;
 }

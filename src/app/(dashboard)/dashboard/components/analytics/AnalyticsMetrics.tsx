@@ -1,40 +1,40 @@
-import React from "react";
-import Badge from "../ui/badge/Badge";
+import React from 'react'
+import Badge from '../ui/badge/Badge'
 
 const mockData = [
   {
     id: 1,
-    title: "Unique Visitors",
-    value: "24.7K",
-    change: "+20%",
-    direction: "up",
-    comparisonText: "Vs last month",
+    title: 'Unique Visitors',
+    value: '24.7K',
+    change: '+20%',
+    direction: 'up',
+    comparisonText: 'Vs last month',
   },
   {
     id: 2,
-    title: "Total Pageviews",
-    value: "55.9K",
-    change: "+4%",
-    direction: "up",
-    comparisonText: "Vs last month",
+    title: 'Total Pageviews',
+    value: '55.9K',
+    change: '+4%',
+    direction: 'up',
+    comparisonText: 'Vs last month',
   },
   {
     id: 3,
-    title: "Bounce Rate",
-    value: "54%",
-    change: "-1.59%",
-    direction: "down",
-    comparisonText: "Vs last month",
+    title: 'Bounce Rate',
+    value: '54%',
+    change: '-1.59%',
+    direction: 'down',
+    comparisonText: 'Vs last month',
   },
   {
     id: 4,
-    title: "Visit Duration",
-    value: "2m 56s",
-    change: "+7%",
-    direction: "up",
-    comparisonText: "Vs last month",
+    title: 'Visit Duration',
+    value: '2m 56s',
+    change: '+7%',
+    direction: 'up',
+    comparisonText: 'Vs last month',
   },
-];
+]
 
 const AnalyticsMetrics: React.FC = () => {
   return (
@@ -57,11 +57,11 @@ const AnalyticsMetrics: React.FC = () => {
             <div className="flex items-center gap-1">
               <Badge
                 color={
-                  item.direction === "up"
-                    ? "success"
-                    : item.direction === "down"
-                    ? "error"
-                    : "warning"
+                  item.direction === 'up'
+                    ? 'success'
+                    : item.direction === 'down'
+                      ? 'error'
+                      : 'warning'
                 }
               >
                 <span className="text-xs"> {item.change}</span>
@@ -76,7 +76,7 @@ const AnalyticsMetrics: React.FC = () => {
 
       {/* <!-- Metric Item End --> */}
     </div>
-  );
-};
+  )
+}
 
-export default AnalyticsMetrics;
+export default AnalyticsMetrics

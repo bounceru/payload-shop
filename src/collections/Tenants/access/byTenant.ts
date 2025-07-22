@@ -11,8 +11,8 @@ export const filterByTenantRead: Access = (args) => {
     return true
   }
 
-  const userDoc = req.user?.collection === 'users' ? req.user : null;
-  const tenantIDs = userDoc ? getTenantAccessIDs(userDoc) : [];
+  const userDoc = req.user?.collection === 'users' ? req.user : null
+  const tenantIDs = userDoc ? getTenantAccessIDs(userDoc) : []
 
   // Allow public tenants to be read by anyone
   const publicConstraint = {
@@ -59,7 +59,7 @@ export const canMutateTenant: Access = (args) => {
           ?.map(({ roles, tenant }) =>
             roles?.includes('tenant-admin')
               ? tenant && (typeof tenant === 'string' ? tenant : tenant.id)
-              : null
+              : null,
           )
           .filter(Boolean)
         : [],

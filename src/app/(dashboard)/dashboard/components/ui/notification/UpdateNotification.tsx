@@ -1,5 +1,5 @@
-"use client";
-import { BoltIcon } from "../../../icons";
+'use client'
+import { BoltIcon } from '../../../icons'
 
 interface UpdateNotificationProps {
   title: string; // Title of the notification
@@ -9,13 +9,14 @@ interface UpdateNotificationProps {
 }
 
 const UpdateNotification: React.FC<UpdateNotificationProps> = ({
-  title,
-  message,
-  onLaterClick,
-  onUpdateClick,
-}) => {
+                                                                 title,
+                                                                 message,
+                                                                 onLaterClick,
+                                                                 onUpdateClick,
+                                                               }) => {
   return (
-    <div className="w-full max-w-[607px] rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-800 dark:bg-[#1E2634]">
+    <div
+      className="w-full max-w-[607px] rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-800 dark:bg-[#1E2634]">
       <div className="flex items-start gap-3">
         {/* Icon */}
         <div className="text-brand-500">
@@ -53,7 +54,7 @@ const UpdateNotification: React.FC<UpdateNotificationProps> = ({
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default UpdateNotification;
+export default UpdateNotification

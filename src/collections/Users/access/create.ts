@@ -16,12 +16,12 @@ export const createAccess: Access<User> = (args) => {
   }
 
   // 1) Narrow to a userDoc if collection === 'users'
-  const userDoc = req.user?.collection === 'users' ? req.user : null;
+  const userDoc = req.user?.collection === 'users' ? req.user : null
 
   // 2) Only call getTenantAdminTenantAccessIDs(userDoc) if it’s truly a user
   const adminTenantAccessIDs = userDoc
     ? getTenantAdminTenantAccessIDs(userDoc)
-    : [];
+    : []
 
   if (adminTenantAccessIDs.length > 0) {
     return true

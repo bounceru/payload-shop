@@ -1,24 +1,24 @@
-"use client";
-import React, { useState } from "react";
-import { ApexOptions } from "apexcharts";
-import { Dropdown } from "../ui/dropdown/Dropdown";
-import { DropdownItem } from "../ui/dropdown/DropdownItem";
-import { MoreDotIcon } from "@/app/(dashboard)/dashboard/icons";
-import dynamic from "next/dynamic";
+'use client'
+import React, { useState } from 'react'
+import { ApexOptions } from 'apexcharts'
+import { Dropdown } from '../ui/dropdown/Dropdown'
+import { DropdownItem } from '../ui/dropdown/DropdownItem'
+import { MoreDotIcon } from '@/app/(dashboard)/dashboard/icons'
+import dynamic from 'next/dynamic'
 
 // Dynamically import the ReactApexChart component
-const ReactApexChart = dynamic(() => import("react-apexcharts"), {
+const ReactApexChart = dynamic(() => import('react-apexcharts'), {
   ssr: false,
-});
+})
 
 export default function SalePieChart() {
   // ApexCharts configuration
   const options: ApexOptions = {
-    colors: ["#3641f5", "#7592ff", "#dde9ff"],
-    labels: ["Affiliate", "Direct", "Adsense"],
+    colors: ['#3641f5', '#7592ff', '#dde9ff'],
+    labels: ['Affiliate', 'Direct', 'Adsense'],
     chart: {
-      fontFamily: "Outfit, sans-serif",
-      type: "donut",
+      fontFamily: 'Outfit, sans-serif',
+      type: 'donut',
       width: 280,
       height: 280,
     },
@@ -29,32 +29,32 @@ export default function SalePieChart() {
     plotOptions: {
       pie: {
         donut: {
-          size: "65%",
-          background: "transparent",
+          size: '65%',
+          background: 'transparent',
           labels: {
             show: true,
             name: {
               show: true,
               offsetY: 0,
-              color: "#1D2939",
-              fontSize: "12px",
-              fontWeight: "normal",
+              color: '#1D2939',
+              fontSize: '12px',
+              fontWeight: 'normal',
               // text: "",
-              formatter: () => "Total 3.5K",
+              formatter: () => 'Total 3.5K',
             },
             value: {
               show: true,
               offsetY: 10,
-              color: "#667085",
-              fontSize: "14px",
-              formatter: () => "Used of 1.1K",
+              color: '#667085',
+              fontSize: '14px',
+              formatter: () => 'Used of 1.1K',
             },
             total: {
               show: true,
-              label: "Total",
-              color: "#000000",
-              fontSize: "20px",
-              fontWeight: "bold",
+              label: 'Total',
+              color: '#000000',
+              fontSize: '20px',
+              fontWeight: 'bold',
             },
           },
         },
@@ -63,13 +63,13 @@ export default function SalePieChart() {
     states: {
       hover: {
         filter: {
-          type: "none",
+          type: 'none',
         },
       },
       active: {
         allowMultipleDataPointsSelection: false,
         filter: {
-          type: "darken",
+          type: 'darken',
         },
       },
     },
@@ -105,19 +105,20 @@ export default function SalePieChart() {
         },
       },
     ],
-  };
+  }
 
-  const series = [900, 700, 850];
+  const series = [900, 700, 850]
 
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false)
 
   function toggleDropdown() {
-    setIsOpen(!isOpen);
+    setIsOpen(!isOpen)
   }
 
   function closeDropdown() {
-    setIsOpen(false);
+    setIsOpen(false)
   }
+
   return (
     <div className="rounded-2xl border border-gray-200 bg-white p-5 dark:border-gray-800 dark:bg-white/[0.03] sm:p-6">
       <div className="flex items-center justify-between mb-5">
@@ -214,5 +215,5 @@ export default function SalePieChart() {
         </div>
       </div>
     </div>
-  );
+  )
 }

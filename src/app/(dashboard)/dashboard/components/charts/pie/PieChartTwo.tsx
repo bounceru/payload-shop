@@ -1,59 +1,59 @@
-"use client";
-import React, { useMemo } from "react";
-import { ApexOptions } from "apexcharts";
+'use client'
+import React, { useMemo } from 'react'
+import { ApexOptions } from 'apexcharts'
 
-import dynamic from "next/dynamic";
+import dynamic from 'next/dynamic'
 // Dynamically import the ReactApexChart component
-const ReactApexChart = dynamic(() => import("react-apexcharts"), {
+const ReactApexChart = dynamic(() => import('react-apexcharts'), {
   ssr: false,
-});
+})
 
 export default function PieChartTwo() {
   // Mocked dark mode state (replace with actual context/state if applicable)
-  const isDarkMode = true; // Change this to your dark mode logic
+  const isDarkMode = true // Change this to your dark mode logic
 
   // Chart configuration using useMemo for optimization
   const options: ApexOptions = useMemo(
     () => ({
-      colors: ["#9b8afb", "#fd853a", "#fdb022", "#32d583"],
-      labels: ["Downloads", "Apps", "Documents", "Media"],
+      colors: ['#9b8afb', '#fd853a', '#fdb022', '#32d583'],
+      labels: ['Downloads', 'Apps', 'Documents', 'Media'],
       chart: {
-        fontFamily: "Outfit, sans-serif",
-        type: "donut",
+        fontFamily: 'Outfit, sans-serif',
+        type: 'donut',
       },
       stroke: {
         show: false,
         width: 4,
-        colors: ["transparent"], // Corrected to be an array
+        colors: ['transparent'], // Corrected to be an array
       },
       plotOptions: {
         pie: {
           donut: {
-            size: "65%",
-            background: "transparent",
+            size: '65%',
+            background: 'transparent',
             labels: {
               show: true,
               name: {
                 show: true,
                 offsetY: -10,
-                color: isDarkMode ? "#ffffff" : "#1D2939",
-                fontSize: "14px",
-                fontWeight: "500",
+                color: isDarkMode ? '#ffffff' : '#1D2939',
+                fontSize: '14px',
+                fontWeight: '500',
               },
               value: {
                 show: true,
                 offsetY: 10,
-                color: isDarkMode ? "#D1D5DB" : "#667085",
-                fontSize: "12px",
-                fontWeight: "400",
-                formatter: () => "Used of 135 GB",
+                color: isDarkMode ? '#D1D5DB' : '#667085',
+                fontSize: '12px',
+                fontWeight: '400',
+                formatter: () => 'Used of 135 GB',
               },
               total: {
                 show: true,
-                label: "Total 135 GB",
-                color: isDarkMode ? "#ffffff" : "#000000",
-                fontSize: "16px",
-                fontWeight: "bold",
+                label: 'Total 135 GB',
+                color: isDarkMode ? '#ffffff' : '#000000',
+                fontSize: '16px',
+                fontWeight: 'bold',
               },
             },
           },
@@ -68,14 +68,14 @@ export default function PieChartTwo() {
       },
       legend: {
         show: true,
-        position: "bottom",
-        horizontalAlign: "left",
-        fontFamily: "Outfit, sans-serif",
-        fontSize: "14px",
+        position: 'bottom',
+        horizontalAlign: 'left',
+        fontFamily: 'Outfit, sans-serif',
+        fontSize: '14px',
         fontWeight: 400,
         markers: {
           size: 6,
-          shape: "circle",
+          shape: 'circle',
           strokeWidth: 0,
         },
         itemMargin: {
@@ -95,17 +95,17 @@ export default function PieChartTwo() {
                 horizontal: 7,
                 vertical: 5,
               },
-              fontSize: "12px",
+              fontSize: '12px',
             },
           },
         },
       ],
     }),
-    [isDarkMode]
-  );
+    [isDarkMode],
+  )
 
   // Chart data series
-  const series = [45, 65, 25, 25];
+  const series = [45, 65, 25, 25]
   return (
     <div className="flex justify-center">
       <div id="chartDarkStyle">
@@ -117,5 +117,5 @@ export default function PieChartTwo() {
         />
       </div>
     </div>
-  );
+  )
 }

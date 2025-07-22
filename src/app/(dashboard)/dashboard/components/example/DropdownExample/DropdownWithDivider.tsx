@@ -1,17 +1,17 @@
-"use client";
-import { Dropdown } from "../../ui/dropdown/Dropdown";
-import { DropdownItem } from "../../ui/dropdown/DropdownItem";
-import React, { useState } from "react";
+'use client'
+import { Dropdown } from '../../ui/dropdown/Dropdown'
+import { DropdownItem } from '../../ui/dropdown/DropdownItem'
+import React, { useState } from 'react'
 
 export default function DropdownWithDivider() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false)
 
   function toggleDropdown() {
-    setIsOpen(!isOpen);
+    setIsOpen(!isOpen)
   }
 
   function closeDropdown() {
-    setIsOpen(false);
+    setIsOpen(false)
   }
 
   return (
@@ -22,8 +22,8 @@ export default function DropdownWithDivider() {
       >
         Options
         <svg
-          className={`duration-200 ease-in-out stroke-current ${isOpen ? "rotate-180" : ""
-            }`}
+          className={`duration-200 ease-in-out stroke-current ${isOpen ? 'rotate-180' : ''
+          }`}
           width="20"
           height="20"
           viewBox="0 0 20 20"
@@ -95,5 +95,5 @@ export default function DropdownWithDivider() {
         </ul>
       </Dropdown>
     </div>
-  );
+  )
 }

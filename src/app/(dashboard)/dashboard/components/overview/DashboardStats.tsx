@@ -1,21 +1,21 @@
-"use client"
+'use client'
 
-import { Card, CardContent, CardTitle, CardHeader } from "@/components/ui/card"
-import { useEffect, useState } from "react"
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { useEffect, useState } from 'react'
 import {
-  TrendingUp,
-  Users,
+  Activity,
+  Award,
+  BarChart3,
   Calendar,
   DollarSign,
-  Ticket,
   Eye,
   ShoppingBag,
   Star,
-  BarChart3,
-  Activity,
   Target,
-  Award,
-} from "lucide-react"
+  Ticket,
+  TrendingUp,
+  Users,
+} from 'lucide-react'
 
 export type StatItem = {
   label: string
@@ -52,20 +52,20 @@ const iconMap: Record<string, any> = {
 
 // Color schemes for different stat types
 const colorSchemes = [
-  { bg: "from-blue-500 to-blue-600", light: "bg-blue-50", text: "text-blue-600", icon: "text-blue-600" },
-  { bg: "from-green-500 to-green-600", light: "bg-green-50", text: "text-green-600", icon: "text-green-600" },
-  { bg: "from-purple-500 to-purple-600", light: "bg-purple-50", text: "text-purple-600", icon: "text-purple-600" },
-  { bg: "from-orange-500 to-orange-600", light: "bg-orange-50", text: "text-orange-600", icon: "text-orange-600" },
-  { bg: "from-red-500 to-red-600", light: "bg-red-50", text: "text-red-600", icon: "text-red-600" },
-  { bg: "from-indigo-500 to-indigo-600", light: "bg-indigo-50", text: "text-indigo-600", icon: "text-indigo-600" },
+  { bg: 'from-blue-500 to-blue-600', light: 'bg-blue-50', text: 'text-blue-600', icon: 'text-blue-600' },
+  { bg: 'from-green-500 to-green-600', light: 'bg-green-50', text: 'text-green-600', icon: 'text-green-600' },
+  { bg: 'from-purple-500 to-purple-600', light: 'bg-purple-50', text: 'text-purple-600', icon: 'text-purple-600' },
+  { bg: 'from-orange-500 to-orange-600', light: 'bg-orange-50', text: 'text-orange-600', icon: 'text-orange-600' },
+  { bg: 'from-red-500 to-red-600', light: 'bg-red-50', text: 'text-red-600', icon: 'text-red-600' },
+  { bg: 'from-indigo-500 to-indigo-600', light: 'bg-indigo-50', text: 'text-indigo-600', icon: 'text-indigo-600' },
 ]
 
 function AnimatedCounter({
-  value,
-  duration = 2000,
-  prefix = "",
-  suffix = "",
-}: {
+                           value,
+                           duration = 2000,
+                           prefix = '',
+                           suffix = '',
+                         }: {
   value: number
   duration?: number
   prefix?: string
@@ -103,7 +103,7 @@ function AnimatedCounter({
   )
 }
 
-export default function DashboardStats({ stats, title = "Enkele cijfers", animated = true }: Props) {
+export default function DashboardStats({ stats, title = 'Enkele cijfers', animated = true }: Props) {
   return (
     <Card className="bg-gradient-to-br from-white to-gray-50 shadow-lg border-0 overflow-hidden relative">
       {/* Background decoration */}
@@ -112,7 +112,7 @@ export default function DashboardStats({ stats, title = "Enkele cijfers", animat
           className="absolute inset-0"
           style={{
             backgroundImage: `radial-gradient(circle at 25% 25%, #3B82F6 2px, transparent 2px)`,
-            backgroundSize: "24px 24px",
+            backgroundSize: '24px 24px',
           }}
         />
       </div>
@@ -136,7 +136,7 @@ export default function DashboardStats({ stats, title = "Enkele cijfers", animat
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {stats.map((stat, index) => {
             const colorScheme = colorSchemes[index % colorSchemes.length]
-            const IconComponent = iconMap[stat.icon || "default"]
+            const IconComponent = iconMap[stat.icon || 'default']
             const hasPositiveTrend = stat.trend && stat.trend > 0
             const hasNegativeTrend = stat.trend && stat.trend < 0
 
@@ -162,13 +162,13 @@ export default function DashboardStats({ stats, title = "Enkele cijfers", animat
                     {stat.trend !== undefined && (
                       <div
                         className={`flex items-center gap-1 px-2 py-1 rounded-full text-xs font-medium ${hasPositiveTrend
-                            ? "bg-green-100 text-green-700"
-                            : hasNegativeTrend
-                              ? "bg-red-100 text-red-700"
-                              : "bg-gray-100 text-gray-700"
-                          }`}
+                          ? 'bg-green-100 text-green-700'
+                          : hasNegativeTrend
+                            ? 'bg-red-100 text-red-700'
+                            : 'bg-gray-100 text-gray-700'
+                        }`}
                       >
-                        <TrendingUp className={`h-3 w-3 ${hasNegativeTrend ? "rotate-180" : ""}`} />
+                        <TrendingUp className={`h-3 w-3 ${hasNegativeTrend ? 'rotate-180' : ''}`} />
                         <span>{Math.abs(stat.trend)}%</span>
                       </div>
                     )}
@@ -180,7 +180,7 @@ export default function DashboardStats({ stats, title = "Enkele cijfers", animat
                       {animated ? (
                         <AnimatedCounter value={stat.value} prefix={stat.prefix} suffix={stat.suffix} />
                       ) : (
-                        `${stat.prefix || ""}${stat.value.toLocaleString()}${stat.suffix || ""}`
+                        `${stat.prefix || ''}${stat.value.toLocaleString()}${stat.suffix || ''}`
                       )}
                     </div>
                   </div>
@@ -191,7 +191,7 @@ export default function DashboardStats({ stats, title = "Enkele cijfers", animat
                   {/* Trend description */}
                   {stat.trend !== undefined && (
                     <div className="mt-2 text-xs text-gray-500">
-                      {hasPositiveTrend ? "↗ Stijging" : hasNegativeTrend ? "↘ Daling" : "→ Stabiel"} t.o.v. vorige
+                      {hasPositiveTrend ? '↗ Stijging' : hasNegativeTrend ? '↘ Daling' : '→ Stabiel'} t.o.v. vorige
                       periode
                     </div>
                   )}
@@ -204,7 +204,8 @@ export default function DashboardStats({ stats, title = "Enkele cijfers", animat
 
                 {/* Shine effect on hover */}
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-20 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+                  <div
+                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-20 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
                 </div>
               </div>
             )
@@ -226,7 +227,7 @@ export default function DashboardStats({ stats, title = "Enkele cijfers", animat
               </div>
               <div className="text-right">
                 <div className="text-sm font-medium text-gray-700">
-                  Laatste update: {new Date().toLocaleDateString("nl-NL")}
+                  Laatste update: {new Date().toLocaleDateString('nl-NL')}
                 </div>
                 <div className="text-xs text-gray-500">Real-time data</div>
               </div>

@@ -1,34 +1,35 @@
-"use client";
-import React, { useState } from "react";
-import Checkbox from "../form/input/Checkbox";
-import { Dropdown } from "../ui/dropdown/Dropdown";
-import { DropdownItem } from "../ui/dropdown/DropdownItem";
-import { MoreDotIcon } from "@/app/(dashboard)/dashboard/icons";
+'use client'
+import React, { useState } from 'react'
+import Checkbox from '../form/input/Checkbox'
+import { Dropdown } from '../ui/dropdown/Dropdown'
+import { DropdownItem } from '../ui/dropdown/DropdownItem'
+import { MoreDotIcon } from '@/app/(dashboard)/dashboard/icons'
 
 export default function UpcomingSchedule() {
   // Define the state with an index signature for dynamic string keys
   const [checkedItems, setCheckedItems] = useState<{ [key: string]: boolean }>({
-    "wed-11-jan": false,
-    "fri-15-feb": false,
-    "thu-18-mar": false,
-  });
+    'wed-11-jan': false,
+    'fri-15-feb': false,
+    'thu-18-mar': false,
+  })
 
   const handleCheckboxChange = (id: string) => {
     setCheckedItems((prevState) => ({
       ...prevState,
       [id]: !prevState[id], // Toggle the checkbox state
-    }));
-  };
+    }))
+  }
 
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false)
 
   function toggleDropdown() {
-    setIsOpen(!isOpen);
+    setIsOpen(!isOpen)
   }
 
   function closeDropdown() {
-    setIsOpen(false);
+    setIsOpen(false)
   }
+
   return (
     <div className="rounded-2xl border border-gray-200 bg-white p-5 dark:border-gray-800 dark:bg-white/[0.03] sm:p-6">
       <div className="flex items-center justify-between mb-6">
@@ -65,13 +66,14 @@ export default function UpcomingSchedule() {
         <div className="min-w-[500px] xl:min-w-full">
           <div className="flex flex-col gap-2">
             {/* Item 1 */}
-            <div className="flex cursor-pointer items-center gap-9 rounded-lg p-3 hover:bg-gray-50 dark:hover:bg-white/[0.03]">
+            <div
+              className="flex cursor-pointer items-center gap-9 rounded-lg p-3 hover:bg-gray-50 dark:hover:bg-white/[0.03]">
               <div className="flex items-start gap-3">
                 <div>
                   <Checkbox
                     className="w-5 h-5 rounded-md"
-                    checked={checkedItems["wed-11-jan"]}
-                    onChange={() => handleCheckboxChange("wed-11-jan")}
+                    checked={checkedItems['wed-11-jan']}
+                    onChange={() => handleCheckboxChange('wed-11-jan')}
                   />
                 </div>
                 <div>
@@ -94,13 +96,14 @@ export default function UpcomingSchedule() {
             </div>
 
             {/* Item 2 */}
-            <div className="flex cursor-pointer items-center gap-9 rounded-lg p-3 hover:bg-gray-50 dark:hover:bg-white/[0.03]">
+            <div
+              className="flex cursor-pointer items-center gap-9 rounded-lg p-3 hover:bg-gray-50 dark:hover:bg-white/[0.03]">
               <div className="flex items-start gap-3">
                 <div>
                   <Checkbox
                     className="w-5 h-5 rounded-md"
-                    checked={checkedItems["fri-15-feb"]}
-                    onChange={() => handleCheckboxChange("fri-15-feb")}
+                    checked={checkedItems['fri-15-feb']}
+                    onChange={() => handleCheckboxChange('fri-15-feb')}
                   />
                 </div>
                 <div>
@@ -123,13 +126,14 @@ export default function UpcomingSchedule() {
             </div>
 
             {/* Item 3 */}
-            <div className="flex cursor-pointer items-center gap-9 rounded-lg p-3 hover:bg-gray-50 dark:hover:bg-white/[0.03]">
+            <div
+              className="flex cursor-pointer items-center gap-9 rounded-lg p-3 hover:bg-gray-50 dark:hover:bg-white/[0.03]">
               <div className="flex items-start gap-3">
                 <div>
                   <Checkbox
                     className="w-5 h-5 rounded-md"
-                    checked={checkedItems["thu-18-mar"]}
-                    onChange={() => handleCheckboxChange("thu-18-mar")}
+                    checked={checkedItems['thu-18-mar']}
+                    onChange={() => handleCheckboxChange('thu-18-mar')}
                   />
                 </div>
                 <div>
@@ -154,5 +158,5 @@ export default function UpcomingSchedule() {
         </div>
       </div>
     </div>
-  );
+  )
 }

@@ -1,12 +1,13 @@
-import React from "react";
-import { CardDescription, CardTitle } from "../../ui/card";
-import Link from "next/link";
-import Image from "next/image";
+import React from 'react'
+import { CardDescription, CardTitle } from '../../ui/card'
+import Link from 'next/link'
+import Image from 'next/image'
 
 export default function CardFive() {
   return (
     <div>
-      <div className="flex flex-col gap-5 rounded-xl border border-gray-200 bg-white p-4 dark:border-gray-800 dark:bg-white/[0.03] sm:flex-row sm:items-center sm:gap-6">
+      <div
+        className="flex flex-col gap-5 rounded-xl border border-gray-200 bg-white p-4 dark:border-gray-800 dark:bg-white/[0.03] sm:flex-row sm:items-center sm:gap-6">
         <div className="overflow-hidden rounded-lg">
           <Image
             width={224}
@@ -46,5 +47,5 @@ export default function CardFive() {
         </div>
       </div>
     </div>
-  );
+  )
 }

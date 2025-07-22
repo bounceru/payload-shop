@@ -1,6 +1,6 @@
-"use client";
+'use client'
 
-import React, { useRef, useEffect } from "react";
+import React, { useEffect, useRef } from 'react'
 
 interface ModalProps {
   isOpen: boolean;
@@ -12,38 +12,38 @@ interface ModalProps {
 }
 
 export const Modal: React.FC<ModalProps> = ({
-  isOpen,
-  onClose,
-  children,
-  className,
-  showCloseButton = true,
-  isFullscreen = false,
-}) => {
-  const modalRef = useRef<HTMLDivElement>(null);
+                                              isOpen,
+                                              onClose,
+                                              children,
+                                              className,
+                                              showCloseButton = true,
+                                              isFullscreen = false,
+                                            }) => {
+  const modalRef = useRef<HTMLDivElement>(null)
 
   /* --- ESC‑to‑close --- */
   useEffect(() => {
     function handleEscape(event: KeyboardEvent) {
-      if (event.key === "Escape") onClose();
+      if (event.key === 'Escape') onClose()
     }
 
-    if (isOpen) document.addEventListener("keydown", handleEscape);
-    return () => document.removeEventListener("keydown", handleEscape);
-  }, [isOpen, onClose]);
+    if (isOpen) document.addEventListener('keydown', handleEscape)
+    return () => document.removeEventListener('keydown', handleEscape)
+  }, [isOpen, onClose])
 
   /* --- Body scroll lock --- */
   useEffect(() => {
-    document.body.style.overflow = isOpen ? "hidden" : "unset";
+    document.body.style.overflow = isOpen ? 'hidden' : 'unset'
     return () => {
-      document.body.style.overflow = "unset";
-    };
-  }, [isOpen]);
+      document.body.style.overflow = 'unset'
+    }
+  }, [isOpen])
 
-  if (!isOpen) return null;
+  if (!isOpen) return null
 
   const contentClasses = isFullscreen
-    ? "w-full h-full"
-    : "relative w-full rounded-3xl bg-white dark:bg-gray-900";
+    ? 'w-full h-full'
+    : 'relative w-full rounded-3xl bg-white dark:bg-gray-900'
 
   return (
     <div className="modal fixed inset-0 z-[99999] flex items-center justify-center overflow-y-auto">
@@ -58,15 +58,15 @@ export const Modal: React.FC<ModalProps> = ({
       {/* CONTENT */}
       <div
         ref={modalRef}
-        className={`${contentClasses} ${className ?? ""}`}
+        className={`${contentClasses} ${className ?? ''}`}
         onClick={(e) => e.stopPropagation()} // stop overlay‑clicks
       >
         {/* X‑BUTTON */}
         {showCloseButton && (
           <button
             onClick={(e) => {
-              e.stopPropagation(); // prevent bubbling into container
-              onClose();
+              e.stopPropagation() // prevent bubbling into container
+              onClose()
             }}
             className="absolute right-3 top-3 z-[999] flex h-9.5 w-9.5 items-center justify-center rounded-full
                        bg-gray-100 text-gray-400 transition-colors hover:bg-gray-200 hover:text-gray-700
@@ -88,5 +88,5 @@ export const Modal: React.FC<ModalProps> = ({
         <div>{children}</div>
       </div>
     </div>
-  );
-};
+  )
+}

@@ -1,26 +1,25 @@
-"use client";
+'use client'
 
-import dynamic from "next/dynamic";
+import dynamic from 'next/dynamic'
+import { ApexOptions } from 'apexcharts'
 
 // Dynamically import the ReactApexChart component
-const ReactApexChart = dynamic(() => import("react-apexcharts"), {
+const ReactApexChart = dynamic(() => import('react-apexcharts'), {
   ssr: false,
-});
-
-import { ApexOptions } from "apexcharts";
+})
 
 export default function NewUserChart() {
   const options: ApexOptions = {
     legend: {
       show: false, // Hide legend
-      position: "top",
-      horizontalAlign: "left",
+      position: 'top',
+      horizontalAlign: 'left',
     },
-    colors: ["#465FFF", "#9CB9FF"], // Define line colors
+    colors: ['#465FFF', '#9CB9FF'], // Define line colors
     chart: {
-      fontFamily: "Outfit, sans-serif",
+      fontFamily: 'Outfit, sans-serif',
       height: 310,
-      type: "line", // Set the chart type to 'line'
+      type: 'line', // Set the chart type to 'line'
       toolbar: {
         show: false, // Hide chart toolbar
       },
@@ -29,12 +28,12 @@ export default function NewUserChart() {
       },
     },
     stroke: {
-      curve: "straight", // Define the line style (straight, smooth, or step)
+      curve: 'straight', // Define the line style (straight, smooth, or step)
       width: [2, 2], // Line width for each dataset
     },
 
     fill: {
-      type: "gradient",
+      type: 'gradient',
       gradient: {
         opacityFrom: 0.55,
         opacityTo: 0,
@@ -42,7 +41,7 @@ export default function NewUserChart() {
     },
     markers: {
       size: 0, // Size of the marker points
-      strokeColors: "#fff", // Marker border color
+      strokeColors: '#fff', // Marker border color
       strokeWidth: 2,
       hover: {
         size: 6, // Marker size on hover
@@ -66,12 +65,12 @@ export default function NewUserChart() {
     tooltip: {
       enabled: true, // Enable tooltip
       x: {
-        format: "dd MMM yyyy", // Format for x-axis tooltip
+        format: 'dd MMM yyyy', // Format for x-axis tooltip
       },
     },
     xaxis: {
-      type: "category", // Category-based x-axis
-      categories: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+      type: 'category', // Category-based x-axis
+      categories: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
       axisBorder: {
         show: false, // Hide x-axis border
       },
@@ -85,29 +84,29 @@ export default function NewUserChart() {
     yaxis: {
       labels: {
         style: {
-          fontSize: "12px", // Adjust font size for y-axis labels
-          colors: ["#6B7280"], // Color of the labels
+          fontSize: '12px', // Adjust font size for y-axis labels
+          colors: ['#6B7280'], // Color of the labels
         },
       },
       title: {
-        text: "", // Remove y-axis title
+        text: '', // Remove y-axis title
         style: {
-          fontSize: "0px",
+          fontSize: '0px',
         },
       },
     },
-  };
+  }
 
   const series = [
     {
-      name: "Sales",
+      name: 'Sales',
       data: [180, 190, 170, 160, 175, 165, 170],
     },
     {
-      name: "Revenue",
+      name: 'Revenue',
       data: [40, 30, 50, 40, 55, 40, 100],
     },
-  ];
+  ]
   return (
     <div>
       <ReactApexChart
@@ -118,5 +117,5 @@ export default function NewUserChart() {
         height={200}
       />
     </div>
-  );
+  )
 }

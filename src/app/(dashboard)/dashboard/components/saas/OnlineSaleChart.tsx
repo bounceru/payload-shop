@@ -1,26 +1,25 @@
-"use client";
+'use client'
 
-import dynamic from "next/dynamic";
+import dynamic from 'next/dynamic'
+import { ApexOptions } from 'apexcharts'
 
 // Dynamically import the ReactApexChart component
-const ReactApexChart = dynamic(() => import("react-apexcharts"), {
+const ReactApexChart = dynamic(() => import('react-apexcharts'), {
   ssr: false,
-});
-
-import { ApexOptions } from "apexcharts";
+})
 
 export default function OnlineSaleChart() {
   const options: ApexOptions = {
     legend: {
       show: false,
-      position: "top",
-      horizontalAlign: "left",
+      position: 'top',
+      horizontalAlign: 'left',
     },
-    colors: ["#465FFF", "#9CB9FF"],
+    colors: ['#465FFF', '#9CB9FF'],
     chart: {
-      fontFamily: "Outfit, sans-serif",
+      fontFamily: 'Outfit, sans-serif',
       height: 310,
-      type: "area",
+      type: 'area',
       toolbar: {
         show: false,
       },
@@ -30,14 +29,14 @@ export default function OnlineSaleChart() {
       },
     },
     fill: {
-      type: "gradient", // Explicitly specify gradient type
+      type: 'gradient', // Explicitly specify gradient type
       gradient: {
         opacityFrom: 0.55,
         opacityTo: 0,
       },
     },
     stroke: {
-      curve: "smooth",
+      curve: 'smooth',
       width: [2, 2], // Correct width as an array of numbers
     },
     markers: {
@@ -60,12 +59,12 @@ export default function OnlineSaleChart() {
     },
     tooltip: {
       x: {
-        format: "dd MMM yyyy",
+        format: 'dd MMM yyyy',
       },
     },
     xaxis: {
-      type: "category", // Ensure proper type for categories
-      categories: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+      type: 'category', // Ensure proper type for categories
+      categories: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
       axisBorder: {
         show: false,
       },
@@ -78,24 +77,24 @@ export default function OnlineSaleChart() {
     },
     yaxis: {
       title: {
-        text: "", // Ensure no text is displayed
+        text: '', // Ensure no text is displayed
         style: {
-          fontSize: "0px",
+          fontSize: '0px',
         },
       },
     },
-  };
+  }
 
   const series = [
     {
-      name: "Sales",
+      name: 'Sales',
       data: [180, 190, 170, 160, 175, 165, 170],
     },
     {
-      name: "Revenue",
+      name: 'Revenue',
       data: [40, 30, 50, 40, 55, 40, 70],
     },
-  ];
+  ]
   return (
     <div>
       <ReactApexChart
@@ -106,5 +105,5 @@ export default function OnlineSaleChart() {
         height={200}
       />
     </div>
-  );
+  )
 }

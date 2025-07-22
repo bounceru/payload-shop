@@ -1,22 +1,22 @@
-"use client";
-import React, { useState } from "react";
-import ComponentCard from "../../common/ComponentCard";
-import Label from "../Label";
-import Input from "../input/InputField";
-import Select from "../Select";
-import { EyeCloseIcon, EyeIcon, TimeIcon } from "../../../icons";
-import DatePicker from "../date-picker";
+'use client'
+import React, { useState } from 'react'
+import ComponentCard from '../../common/ComponentCard'
+import Label from '../Label'
+import Input from '../input/InputField'
+import Select from '../Select'
+import { EyeCloseIcon, EyeIcon, TimeIcon } from '../../../icons'
+import DatePicker from '../date-picker'
 
 export default function DefaultInputs() {
-  const [showPassword, setShowPassword] = useState(false);
+  const [showPassword, setShowPassword] = useState(false)
   const options = [
-    { value: "marketing", label: "Marketing" },
-    { value: "template", label: "Template" },
-    { value: "development", label: "Development" },
-  ];
+    { value: 'marketing', label: 'Marketing' },
+    { value: 'template', label: 'Template' },
+    { value: 'development', label: 'Development' },
+  ]
   const handleSelectChange = (value: string) => {
-    console.log("Selected value:", value);
-  };
+    console.log('Selected value:', value)
+  }
 
   return (
     <ComponentCard title="Default Inputs">
@@ -43,7 +43,7 @@ export default function DefaultInputs() {
           <div className="relative">
             <Input
               id="pass"
-              type={showPassword ? "text" : "password"}
+              type={showPassword ? 'text' : 'password'}
               placeholder="Enter your password"
             />
             <button
@@ -66,7 +66,7 @@ export default function DefaultInputs() {
             placeholder="Select a date"
             onChange={(dates, currentDateString) => {
               // Handle your logic
-              console.log({ dates, currentDateString });
+              console.log({ dates, currentDateString })
             }}
           />
         </div>
@@ -80,7 +80,8 @@ export default function DefaultInputs() {
               name="tm"
               onChange={(e) => console.log(e.target.value)}
             />
-            <span className="absolute text-gray-500 -translate-y-1/2 pointer-events-none right-3 top-1/2 dark:text-gray-400">
+            <span
+              className="absolute text-gray-500 -translate-y-1/2 pointer-events-none right-3 top-1/2 dark:text-gray-400">
               <TimeIcon />
             </span>
           </div>
@@ -93,7 +94,8 @@ export default function DefaultInputs() {
               placeholder="Card number"
               className="pl-[62px]"
             />
-            <span className="absolute left-0 top-1/2 flex h-11 w-[46px] -translate-y-1/2 items-center justify-center border-r border-gray-200 dark:border-gray-800">
+            <span
+              className="absolute left-0 top-1/2 flex h-11 w-[46px] -translate-y-1/2 items-center justify-center border-r border-gray-200 dark:border-gray-800">
               <svg
                 width="20"
                 height="20"
@@ -113,5 +115,5 @@ export default function DefaultInputs() {
         </div>
       </div>
     </ComponentCard>
-  );
+  )
 }

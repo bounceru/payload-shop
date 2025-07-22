@@ -1,15 +1,15 @@
-"use client";
-import React from "react";
-import ComponentCard from "../../common/ComponentCard";
+'use client'
+import React from 'react'
+import ComponentCard from '../../common/ComponentCard'
 
-import { Modal } from "../../ui/modal";
-import { useModal } from "../../../hooks/useModal";
+import { Modal } from '../../ui/modal'
+import { useModal } from '../../../hooks/useModal'
 
 export default function ModalBasedAlerts() {
-  const successModal = useModal();
-  const infoModal = useModal();
-  const warningModal = useModal();
-  const errorModal = useModal();
+  const successModal = useModal()
+  const infoModal = useModal()
+  const warningModal = useModal()
+  const errorModal = useModal()
   return (
     <ComponentCard title="Modal Based Alerts">
       <div className="flex flex-wrap items-center gap-3">
@@ -278,5 +278,5 @@ export default function ModalBasedAlerts() {
         </div>
       </Modal>
     </ComponentCard>
-  );
+  )
 }

@@ -1,4 +1,4 @@
-import React, { FC, ReactNode, FormEvent } from "react";
+import React, { FC, FormEvent, ReactNode } from 'react'
 
 interface FormProps {
   onSubmit: (event: FormEvent<HTMLFormElement>) => void;
@@ -10,14 +10,14 @@ const Form: FC<FormProps> = ({ onSubmit, children, className }) => {
   return (
     <form
       onSubmit={(event) => {
-        event.preventDefault(); // Prevent default form submission
-        onSubmit(event);
+        event.preventDefault() // Prevent default form submission
+        onSubmit(event)
       }}
       className={` ${className}`} // Default spacing between form fields
     >
       {children}
     </form>
-  );
-};
+  )
+}
 
-export default Form;
+export default Form

@@ -1,7 +1,7 @@
-"use client";
-import React from "react";
-import ComponentCard from "../../common/ComponentCard";
-import { useDropzone } from "react-dropzone";
+'use client'
+import React from 'react'
+import ComponentCard from '../../common/ComponentCard'
+import { useDropzone } from 'react-dropzone'
 
 interface DropzoneComponentProps {
   // The parent can pass a function for handling uploaded files
@@ -9,42 +9,44 @@ interface DropzoneComponentProps {
 }
 
 const DropzoneComponent: React.FC<DropzoneComponentProps> = ({
-  onDrop,
-}) => {
+                                                               onDrop,
+                                                             }) => {
   const handleDrop = (acceptedFiles: File[]) => {
-    console.log("Bestanden geüpload:", acceptedFiles);
+    console.log('Bestanden geüpload:', acceptedFiles)
     if (onDrop) {
-      onDrop(acceptedFiles);
+      onDrop(acceptedFiles)
     }
-  };
+  }
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop: handleDrop,
     accept: {
-      "image/png": [],
-      "image/jpeg": [],
-      "image/webp": [],
-      "image/svg+xml": [],
+      'image/png': [],
+      'image/jpeg': [],
+      'image/webp': [],
+      'image/svg+xml': [],
     },
-  });
+  })
 
   return (
     <ComponentCard title="Bestanden Uploaden">
-      <div className="transition border border-gray-300 border-dashed cursor-pointer dark:hover:border-brand-500 dark:border-gray-700 rounded-lg hover:border-brand-500">
+      <div
+        className="transition border border-gray-300 border-dashed cursor-pointer dark:hover:border-brand-500 dark:border-gray-700 rounded-lg hover:border-brand-500">
         <form
           {...getRootProps()}
           className={`dropzone rounded-lg border-dashed border-gray-300 p-5 lg:p-7
             ${isDragActive
-              ? "border-brand-500 bg-gray-100 dark:bg-gray-800"
-              : "border-gray-300 bg-gray-50 dark:border-gray-700 dark:bg-gray-900"
-            }`}
+            ? 'border-brand-500 bg-gray-100 dark:bg-gray-800'
+            : 'border-gray-300 bg-gray-50 dark:border-gray-700 dark:bg-gray-900'
+          }`}
           id="demo-upload"
         >
           <input {...getInputProps()} hidden />
 
           <div className="dz-message flex flex-col items-center m-0!">
             <div className="mb-4 flex justify-center">
-              <div className="flex h-[30px] w-[30px] items-center justify-center rounded-full bg-gray-200 text-gray-700 dark:bg-gray-800 dark:text-gray-400">
+              <div
+                className="flex h-[30px] w-[30px] items-center justify-center rounded-full bg-gray-200 text-gray-700 dark:bg-gray-800 dark:text-gray-400">
                 <svg
                   className="fill-current"
                   width="24"
@@ -62,7 +64,7 @@ const DropzoneComponent: React.FC<DropzoneComponentProps> = ({
             </div>
 
             <h4 className="mb-2 font-semibold text-gray-800 text-theme-lg dark:text-white/90">
-              {isDragActive ? "Laat bestanden hier vallen" : "Sleep bestanden hierheen"}
+              {isDragActive ? 'Laat bestanden hier vallen' : 'Sleep bestanden hierheen'}
             </h4>
 
             <span className="mb-3 block w-full max-w-[350px] text-center text-sm text-gray-700 dark:text-gray-400">
@@ -76,7 +78,7 @@ const DropzoneComponent: React.FC<DropzoneComponentProps> = ({
         </form>
       </div>
     </ComponentCard>
-  );
-};
+  )
+}
 
-export default DropzoneComponent;
+export default DropzoneComponent

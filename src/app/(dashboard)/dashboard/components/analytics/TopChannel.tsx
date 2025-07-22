@@ -1,19 +1,20 @@
-"use client";
-import React, { useState } from "react";
-import { Dropdown } from "../ui/dropdown/Dropdown";
-import { DropdownItem } from "../ui/dropdown/DropdownItem";
-import { MoreDotIcon } from "@/app/(dashboard)/dashboard/icons";
+'use client'
+import React, { useState } from 'react'
+import { Dropdown } from '../ui/dropdown/Dropdown'
+import { DropdownItem } from '../ui/dropdown/DropdownItem'
+import { MoreDotIcon } from '@/app/(dashboard)/dashboard/icons'
 
 export default function TopChannel() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false)
 
   function toggleDropdown() {
-    setIsOpen(!isOpen);
+    setIsOpen(!isOpen)
   }
 
   function closeDropdown() {
-    setIsOpen(false);
+    setIsOpen(false)
   }
+
   return (
     <div className="rounded-2xl border border-gray-200 bg-white p-4 dark:border-gray-800 dark:bg-white/[0.03] md:p-6">
       <div className="flex items-start justify-between">
@@ -49,8 +50,8 @@ export default function TopChannel() {
         <div className="flex items-center justify-between pb-4 border-b border-gray-100 dark:border-gray-800">
           <span className="text-gray-400 text-theme-xs"> Source </span>
           <span className="text-right text-gray-400 text-theme-xs">
-            {" "}
-            Visitors{" "}
+            {' '}
+            Visitors{' '}
           </span>
         </div>
 
@@ -113,5 +114,5 @@ export default function TopChannel() {
         </svg>
       </a>
     </div>
-  );
+  )
 }

@@ -1,42 +1,42 @@
-import Badge from "../ui/badge/Badge";
+import Badge from '../ui/badge/Badge'
 
 const transactions = [
   {
-    id: "#DF429",
-    date: "April 28, 2016",
-    user: "Jenny Wilson",
-    amount: "$473.85",
-    status: "Complete" as const,
+    id: '#DF429',
+    date: 'April 28, 2016',
+    user: 'Jenny Wilson',
+    amount: '$473.85',
+    status: 'Complete' as const,
   },
   {
-    id: "#HTY274",
-    date: "October 30, 2017",
-    user: "Wade Warren",
-    amount: "$293.01",
-    status: "Complete" as const,
+    id: '#HTY274',
+    date: 'October 30, 2017',
+    user: 'Wade Warren',
+    amount: '$293.01',
+    status: 'Complete' as const,
   },
   {
-    id: "#LKE600",
-    date: "May 29, 2017",
-    user: "Darlene Robertson",
-    amount: "$782.01",
-    status: "Pending" as const,
+    id: '#LKE600',
+    date: 'May 29, 2017',
+    user: 'Darlene Robertson',
+    amount: '$782.01',
+    status: 'Pending' as const,
   },
   {
-    id: "#HRP447",
-    date: "May 20, 2015",
-    user: "Arlene McCoy",
-    amount: "$202.87",
-    status: "Cancelled" as const,
+    id: '#HRP447',
+    date: 'May 20, 2015',
+    user: 'Arlene McCoy',
+    amount: '$202.87',
+    status: 'Cancelled' as const,
   },
   {
-    id: "#WRH647",
-    date: "March 13, 2014",
-    user: "Bessie Cooper",
-    amount: "$490.51",
-    status: "Complete" as const,
+    id: '#WRH647',
+    date: 'March 13, 2014',
+    user: 'Bessie Cooper',
+    amount: '$490.51',
+    status: 'Complete' as const,
   },
-];
+]
 
 export default function SaasInvoiceTable() {
   return (
@@ -49,26 +49,26 @@ export default function SaasInvoiceTable() {
       <div className="custom-scrollbar overflow-x-auto">
         <table className="min-w-full">
           <thead>
-            <tr className="bg-gray-50 dark:bg-gray-900">
-              <th className="px-6 py-4 text-left text-sm font-medium whitespace-nowrap text-gray-500 dark:text-gray-400">
-                Serial No:
-              </th>
-              <th className="px-6 py-4 text-left text-sm font-medium whitespace-nowrap text-gray-500 dark:text-gray-400">
-                Close Date
-              </th>
-              <th className="px-6 py-4 text-left text-sm font-medium whitespace-nowrap text-gray-500 dark:text-gray-400">
-                User
-              </th>
-              <th className="px-6 py-4 text-left text-sm font-medium whitespace-nowrap text-gray-500 dark:text-gray-400">
-                Amount
-              </th>
-              <th className="px-6 py-4 text-left text-sm font-medium whitespace-nowrap text-gray-500 dark:text-gray-400">
-                Status
-              </th>
-            </tr>
+          <tr className="bg-gray-50 dark:bg-gray-900">
+            <th className="px-6 py-4 text-left text-sm font-medium whitespace-nowrap text-gray-500 dark:text-gray-400">
+              Serial No:
+            </th>
+            <th className="px-6 py-4 text-left text-sm font-medium whitespace-nowrap text-gray-500 dark:text-gray-400">
+              Close Date
+            </th>
+            <th className="px-6 py-4 text-left text-sm font-medium whitespace-nowrap text-gray-500 dark:text-gray-400">
+              User
+            </th>
+            <th className="px-6 py-4 text-left text-sm font-medium whitespace-nowrap text-gray-500 dark:text-gray-400">
+              Amount
+            </th>
+            <th className="px-6 py-4 text-left text-sm font-medium whitespace-nowrap text-gray-500 dark:text-gray-400">
+              Status
+            </th>
+          </tr>
           </thead>
           <tbody className="divide-y divide-gray-200 dark:divide-gray-800">
-            {/* <tr>
+          {/* <tr>
               <td className="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">
                 #DF429
               </td>
@@ -163,39 +163,39 @@ export default function SaasInvoiceTable() {
                 </span>
               </td>
             </tr> */}
-            {transactions.map((transaction) => (
-              <tr key={transaction.id}>
-                <td className="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">
-                  {transaction.id}
-                </td>
-                <td className="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">
-                  {transaction.date}
-                </td>
-                <td className="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">
-                  {transaction.user}
-                </td>
-                <td className="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">
-                  {transaction.amount}
-                </td>
-                <td className="px-6 py-4 text-left">
-                  <Badge
-                    size="sm"
-                    color={
-                      transaction.status === "Complete"
-                        ? "success"
-                        : transaction.status === "Pending"
-                        ? "warning"
-                        : "error"
-                    }
-                  >
-                    {transaction.status}
-                  </Badge>
-                </td>
-              </tr>
-            ))}
+          {transactions.map((transaction) => (
+            <tr key={transaction.id}>
+              <td className="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">
+                {transaction.id}
+              </td>
+              <td className="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">
+                {transaction.date}
+              </td>
+              <td className="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">
+                {transaction.user}
+              </td>
+              <td className="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">
+                {transaction.amount}
+              </td>
+              <td className="px-6 py-4 text-left">
+                <Badge
+                  size="sm"
+                  color={
+                    transaction.status === 'Complete'
+                      ? 'success'
+                      : transaction.status === 'Pending'
+                        ? 'warning'
+                        : 'error'
+                  }
+                >
+                  {transaction.status}
+                </Badge>
+              </td>
+            </tr>
+          ))}
           </tbody>
         </table>
       </div>
     </div>
-  );
+  )
 }

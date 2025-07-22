@@ -1,27 +1,27 @@
-"use client";
-import dynamic from "next/dynamic";
+'use client'
+import dynamic from 'next/dynamic'
+import { ApexOptions } from 'apexcharts'
+import { useState } from 'react'
+import { MoreDotIcon } from '@/app/(dashboard)/dashboard/icons'
+import { Dropdown } from '../ui/dropdown/Dropdown'
+import { DropdownItem } from '../ui/dropdown/DropdownItem'
 
 // Dynamically import the ReactApexChart component
-const ReactApexChart = dynamic(() => import("react-apexcharts"), {
+const ReactApexChart = dynamic(() => import('react-apexcharts'), {
   ssr: false,
-});
-import { ApexOptions } from "apexcharts";
-import { useState } from "react";
-import { MoreDotIcon } from "@/app/(dashboard)/dashboard/icons";
-import { Dropdown } from "../ui/dropdown/Dropdown";
-import { DropdownItem } from "../ui/dropdown/DropdownItem";
+})
 
 export default function ChurnRateChart() {
   const churnSeries = [
     {
-      name: "Churn Rate",
+      name: 'Churn Rate',
       data: [4.5, 4.2, 4.6, 4.3, 4.1, 4.2, 4.26],
     },
-  ];
+  ]
 
   const churnOptions: ApexOptions = {
     chart: {
-      type: "area",
+      type: 'area',
       height: 60,
       sparkline: {
         enabled: true,
@@ -34,13 +34,13 @@ export default function ChurnRateChart() {
         show: false,
       },
     },
-    colors: ["#ef4444"],
+    colors: ['#ef4444'],
     stroke: {
-      curve: "smooth",
+      curve: 'smooth',
       width: 2,
     },
     fill: {
-      type: "gradient",
+      type: 'gradient',
       gradient: {
         shadeIntensity: 1,
         opacityFrom: 0.6,
@@ -56,24 +56,26 @@ export default function ChurnRateChart() {
         show: false,
       },
       y: {
-        formatter: (value) => value.toFixed(2) + "%",
+        formatter: (value) => value.toFixed(2) + '%',
       },
       marker: {
         show: false,
       },
     },
-  };
-  const [isOpen, setIsOpen] = useState(false);
+  }
+  const [isOpen, setIsOpen] = useState(false)
 
   function toggleDropdown() {
-    setIsOpen(!isOpen);
+    setIsOpen(!isOpen)
   }
 
   function closeDropdown() {
-    setIsOpen(false);
+    setIsOpen(false)
   }
+
   return (
-    <div className="overflow-hidden rounded-2xl border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-white/[0.03]">
+    <div
+      className="overflow-hidden rounded-2xl border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-white/[0.03]">
       <div className="mb-6 flex justify-between">
         <div>
           <h3 className="text-lg font-semibold text-gray-800 dark:text-white/90">
@@ -129,5 +131,5 @@ export default function ChurnRateChart() {
         </div>
       </div>
     </div>
-  );
+  )
 }

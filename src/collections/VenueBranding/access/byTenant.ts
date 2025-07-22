@@ -4,16 +4,16 @@ import { isSuperAdmin } from '../../../access/isSuperAdmin'
 import { getTenantAccessIDs } from '../../../utilities/getTenantAccessIDs'
 
 export const canMutateBranding: Access = ({ req }) => {
-    const superAdmin = isSuperAdmin({ req })
-    if (superAdmin) {
-        return true
-    }
+  const superAdmin = isSuperAdmin({ req })
+  if (superAdmin) {
+    return true
+  }
 
-    const userDoc = req.user?.collection === 'users' ? req.user : null;
-    const tenantIDs = userDoc ? getTenantAccessIDs(userDoc) : [];
-    return {
-        tenant: {
-            in: tenantIDs,
-        },
-    }
+  const userDoc = req.user?.collection === 'users' ? req.user : null
+  const tenantIDs = userDoc ? getTenantAccessIDs(userDoc) : []
+  return {
+    tenant: {
+      in: tenantIDs,
+    },
+  }
 }

@@ -1,8 +1,8 @@
 'use client'
 import type { FormEvent } from 'react'
+import React from 'react'
 
 import { useParams, useRouter, useSearchParams } from 'next/navigation'
-import React from 'react'
 
 import './index.scss'
 

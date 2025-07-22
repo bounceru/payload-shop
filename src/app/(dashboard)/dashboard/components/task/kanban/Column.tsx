@@ -1,10 +1,10 @@
-"use client";
-import React, { useState } from "react";
-import { Task } from "./types/types";
-import TaskItem from "./TaskItem";
-import { HorizontaLDots } from "@/app/(dashboard)/dashboard/icons";
-import { DropdownItem } from "../../ui/dropdown/DropdownItem";
-import { Dropdown } from "../../ui/dropdown/Dropdown";
+'use client'
+import React, { useState } from 'react'
+import { Task } from './types/types'
+import TaskItem from './TaskItem'
+import { HorizontaLDots } from '@/app/(dashboard)/dashboard/icons'
+import { DropdownItem } from '../../ui/dropdown/DropdownItem'
+import { Dropdown } from '../../ui/dropdown/Dropdown'
 
 interface ColumnProps {
   title: string;
@@ -15,21 +15,22 @@ interface ColumnProps {
 }
 
 const Column: React.FC<ColumnProps> = ({
-  title,
-  tasks,
-  status,
-  moveTask,
-  changeTaskStatus,
-}) => {
-  const [isOpen, setIsOpen] = useState(false);
+                                         title,
+                                         tasks,
+                                         status,
+                                         moveTask,
+                                         changeTaskStatus,
+                                       }) => {
+  const [isOpen, setIsOpen] = useState(false)
 
   function toggleDropdown() {
-    setIsOpen(!isOpen);
+    setIsOpen(!isOpen)
   }
 
   function closeDropdown() {
-    setIsOpen(false);
+    setIsOpen(false)
   }
+
   return (
     <div className="flex flex-col gap-5 p-4 swim-lane xl:p-6">
       <div className="flex items-center justify-between mb-1">
@@ -38,14 +39,14 @@ const Column: React.FC<ColumnProps> = ({
           <span
             className={`
     inline-flex rounded-full px-2 py-0.5 text-theme-xs font-medium 
-    ${status === "todo"
-                ? "bg-gray-100 text-gray-700 dark:bg-white/[0.03] dark:text-white/80 "
-                : status === "inProgress"
-                  ? "text-warning-700 bg-warning-50 dark:bg-warning-500/15 dark:text-orange-400"
-                  : status === "completed"
-                    ? "bg-success-50 text-success-700 dark:bg-success-500/15 dark:text-success-500"
-                    : ""
-              }
+    ${status === 'todo'
+              ? 'bg-gray-100 text-gray-700 dark:bg-white/[0.03] dark:text-white/80 '
+              : status === 'inProgress'
+                ? 'text-warning-700 bg-warning-50 dark:bg-warning-500/15 dark:text-orange-400'
+                : status === 'completed'
+                  ? 'bg-success-50 text-success-700 dark:bg-success-500/15 dark:text-success-500'
+                  : ''
+            }
   `}
           >
             {tasks.length}
@@ -91,7 +92,7 @@ const Column: React.FC<ColumnProps> = ({
         />
       ))}
     </div>
-  );
-};
+  )
+}
 
-export default Column;
+export default Column

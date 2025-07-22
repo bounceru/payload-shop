@@ -9,8 +9,8 @@ export const baseListFilter: BaseListFilter = (args) => {
   const cookies = parseCookies(req.headers)
   const superAdmin = isSuperAdmin(args)
   const selectedTenant = cookies.get('payload-tenant')
-  const userDoc = req.user?.collection === 'users' ? req.user : null;
-  const tenantAccessIDs = userDoc ? getTenantAccessIDs(userDoc) : [];
+  const userDoc = req.user?.collection === 'users' ? req.user : null
+  const tenantAccessIDs = userDoc ? getTenantAccessIDs(userDoc) : []
 
   // if user is super admin or has access to the selected tenant
   if (selectedTenant && (superAdmin || tenantAccessIDs.some((id) => id === selectedTenant))) {

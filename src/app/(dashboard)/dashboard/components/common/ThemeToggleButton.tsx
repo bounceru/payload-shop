@@ -1,6 +1,5 @@
-"use client";
-import React from "react";
-import { useTheme } from "../../context/ThemeContext";
+'use client'
+import React from 'react'
 
 export const ThemeToggleButton: React.FC = () => {
 
@@ -39,5 +38,5 @@ export const ThemeToggleButton: React.FC = () => {
         />
       </svg>
     </button>
-  );
-};
+  )
+}

@@ -1,17 +1,17 @@
-"use client";
-import React, { useState } from "react";
+'use client'
+import React, { useState } from 'react'
 
 export default function MailBox() {
-  const [activeItem, setActiveItem] = useState("inbox");
+  const [activeItem, setActiveItem] = useState('inbox')
 
   const menuItems = [
-    { name: "Inbox", key: "inbox", count: 3, icon: InboxIcon },
-    { name: "Sent", key: "sent", icon: SentIcon },
-    { name: "Drafts", key: "draft", icon: DraftIcon },
-    { name: "Spam", key: "spam", count: 2, icon: SpamIcon },
-    { name: "Trash", key: "trash", icon: TrashIcon },
-    { name: "Archive", key: "archive", icon: ArchiveIcon },
-  ];
+    { name: 'Inbox', key: 'inbox', count: 3, icon: InboxIcon },
+    { name: 'Sent', key: 'sent', icon: SentIcon },
+    { name: 'Drafts', key: 'draft', icon: DraftIcon },
+    { name: 'Spam', key: 'spam', count: 2, icon: SpamIcon },
+    { name: 'Trash', key: 'trash', icon: TrashIcon },
+    { name: 'Archive', key: 'archive', icon: ArchiveIcon },
+  ]
   return (
     <ul className="flex flex-col gap-1">
       {menuItems.map((item) => (
@@ -20,10 +20,10 @@ export default function MailBox() {
             onClick={() => setActiveItem(item.key)}
             className={`group flex w-full items-center justify-between gap-2 rounded-lg px-3 py-2.5 text-sm font-medium
               ${
-                activeItem === item.key
-                  ? "text-brand-500 bg-brand-50 dark:text-brand-400 dark:bg-brand-500/[0.12]"
-                  : "text-gray-500 dark:text-gray-400"
-              }
+              activeItem === item.key
+                ? 'text-brand-500 bg-brand-50 dark:text-brand-400 dark:bg-brand-500/[0.12]'
+                : 'text-gray-500 dark:text-gray-400'
+            }
               hover:bg-brand-50 hover:text-brand-500 dark:hover:bg-brand-500/[0.12] dark:hover:text-brand-400`}
           >
             <span className="flex items-center gap-3">
@@ -35,7 +35,7 @@ export default function MailBox() {
         </li>
       ))}
     </ul>
-  );
+  )
 }
 
 const InboxIcon = () => (
@@ -53,7 +53,7 @@ const InboxIcon = () => (
       fill="currentColor"
     />
   </svg>
-);
+)
 const SentIcon = () => (
   <svg
     width="20"
@@ -69,7 +69,7 @@ const SentIcon = () => (
       fill="currentColor"
     />
   </svg>
-);
+)
 const DraftIcon = () => (
   <svg
     width="20"
@@ -85,7 +85,7 @@ const DraftIcon = () => (
       fill="currentColor"
     />
   </svg>
-);
+)
 const SpamIcon = () => (
   <svg
     width="20"
@@ -101,7 +101,7 @@ const SpamIcon = () => (
       fill="currentColor"
     />
   </svg>
-);
+)
 const TrashIcon = () => (
   <svg
     width="20"
@@ -117,7 +117,7 @@ const TrashIcon = () => (
       fill="currentColor"
     />
   </svg>
-);
+)
 const ArchiveIcon = () => (
   <svg
     width="20"
@@ -133,4 +133,4 @@ const ArchiveIcon = () => (
       fill="currentColor"
     />
   </svg>
-);
+)

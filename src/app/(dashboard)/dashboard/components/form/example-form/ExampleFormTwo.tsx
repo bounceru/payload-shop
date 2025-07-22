@@ -1,53 +1,54 @@
-"use client";
+'use client'
 
-import { useState } from "react";
-import ComponentCard from "../../common/ComponentCard";
-import Label from "../Label";
-import Input from "../input/InputField";
-import Select from "../Select";
-import Radio from "../input/Radio";
-import Form from "../Form";
-import Button from "../../ui/button/Button";
-import DatePicker from "../date-picker";
+import { useState } from 'react'
+import ComponentCard from '../../common/ComponentCard'
+import Label from '../Label'
+import Input from '../input/InputField'
+import Select from '../Select'
+import Radio from '../input/Radio'
+import Form from '../Form'
+import Button from '../../ui/button/Button'
+import DatePicker from '../date-picker'
 
 export default function ExampleFormTwo() {
-  const [selectedOption, setSelectedOption] = useState<string>("Free");
+  const [selectedOption, setSelectedOption] = useState<string>('Free')
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log("Form submitted:");
-  };
+    e.preventDefault()
+    console.log('Form submitted:')
+  }
 
   const optionsGender = [
-    { value: "male", label: "Male" },
-    { value: "female", label: "Female" },
-    { value: "other", label: "Others" },
-  ];
+    { value: 'male', label: 'Male' },
+    { value: 'female', label: 'Female' },
+    { value: 'other', label: 'Others' },
+  ]
   const categoryOptions = [
-    { value: "cate1", label: "Category 1" },
-    { value: "cate2", label: "Category 2" },
-    { value: "cate3", label: "Category 3" },
-  ];
+    { value: 'cate1', label: 'Category 1' },
+    { value: 'cate2', label: 'Category 2' },
+    { value: 'cate3', label: 'Category 3' },
+  ]
   const country = [
-    { value: "bd", label: "Bangladesh" },
-    { value: "usa", label: "United States" },
-    { value: "canada", label: "Canada" },
-  ];
+    { value: 'bd', label: 'Bangladesh' },
+    { value: 'usa', label: 'United States' },
+    { value: 'canada', label: 'Canada' },
+  ]
   const handleSelectGender = (value: string) => {
-    console.log("Selected value:", value);
-  };
+    console.log('Selected value:', value)
+  }
 
   const handleRadioChange = (value: string) => {
-    setSelectedOption(value);
-    console.log("Selected:", value);
-  };
+    setSelectedOption(value)
+    console.log('Selected:', value)
+  }
 
   return (
     <ComponentCard title="Example Form">
       <Form onSubmit={handleSubmit}>
         <div className="grid gap-6 sm:grid-cols-2">
           <div className="col-span-full">
-            <h4 className="pb-4 text-base font-medium text-gray-800 border-b border-gray-200 dark:border-gray-800 dark:text-white/90">
+            <h4
+              className="pb-4 text-base font-medium text-gray-800 border-b border-gray-200 dark:border-gray-800 dark:text-white/90">
               Personal Info
             </h4>
           </div>
@@ -77,7 +78,7 @@ export default function ExampleFormTwo() {
               placeholder="Select an option"
               onChange={(dates, currentDateString) => {
                 // Handle your logic
-                console.log({ dates, currentDateString });
+                console.log({ dates, currentDateString })
               }}
             />
           </div>
@@ -93,7 +94,8 @@ export default function ExampleFormTwo() {
             />
           </div>
           <div className="col-span-2">
-            <h4 className="pb-4 text-base font-medium text-gray-800 border-b border-gray-200 dark:border-gray-800 dark:text-white/90">
+            <h4
+              className="pb-4 text-base font-medium text-gray-800 border-b border-gray-200 dark:border-gray-800 dark:text-white/90">
               Address
             </h4>
           </div>
@@ -131,7 +133,7 @@ export default function ExampleFormTwo() {
                 name="roleSelect"
                 value="Free"
                 label="Free"
-                checked={selectedOption === "Free"}
+                checked={selectedOption === 'Free'}
                 onChange={handleRadioChange}
               />
               <Radio
@@ -139,7 +141,7 @@ export default function ExampleFormTwo() {
                 name="roleSelect"
                 value="Premium"
                 label="Premium"
-                checked={selectedOption === "Premium"}
+                checked={selectedOption === 'Premium'}
                 onChange={handleRadioChange}
               />
             </div>
@@ -153,5 +155,5 @@ export default function ExampleFormTwo() {
         </div>
       </Form>
     </ComponentCard>
-  );
+  )
 }

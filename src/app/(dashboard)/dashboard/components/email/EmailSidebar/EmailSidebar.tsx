@@ -1,14 +1,16 @@
-"use client";
-import LabelList from "./LabelList";
-import MailBox from "./MailBox";
-import FilterList from "./FilterList";
-import SimpleBar from "simplebar-react";
+'use client'
+import LabelList from './LabelList'
+import MailBox from './MailBox'
+import FilterList from './FilterList'
+import SimpleBar from 'simplebar-react'
 
 export default function EmailSidebar() {
   return (
-    <div className="flex flex-col rounded-2xl border border-gray-200 bg-white p-4 dark:border-gray-800 dark:bg-white/[0.03]">
+    <div
+      className="flex flex-col rounded-2xl border border-gray-200 bg-white p-4 dark:border-gray-800 dark:bg-white/[0.03]">
       <div className="pb-5">
-        <button className="flex items-center justify-center w-full gap-2 p-3 text-sm font-medium text-white rounded-lg bg-brand-500 shadow-theme-xs hover:bg-brand-600">
+        <button
+          className="flex items-center justify-center w-full gap-2 p-3 text-sm font-medium text-white rounded-lg bg-brand-500 shadow-theme-xs hover:bg-brand-600">
           <svg
             className="fill-current"
             width="21"
@@ -60,5 +62,5 @@ export default function EmailSidebar() {
         {/* // <!--== Inbox Menu End ==--> */}
       </SimpleBar>
     </div>
-  );
+  )
 }

@@ -1,11 +1,11 @@
-"use client";
-import React from "react";
-import { ApexOptions } from "apexcharts";
-import dynamic from "next/dynamic";
+'use client'
+import React from 'react'
+import { ApexOptions } from 'apexcharts'
+import dynamic from 'next/dynamic'
 // Dynamically import the ReactApexChart component
-const ReactApexChart = dynamic(() => import("react-apexcharts"), {
+const ReactApexChart = dynamic(() => import('react-apexcharts'), {
   ssr: false,
-});
+})
 
 export default function LineChartThree() {
   const data = [
@@ -239,25 +239,25 @@ export default function LineChartThree() {
     [1774579200000, 37.49],
     [1774665600000, 38.09],
     [1774752000000, 37.87],
-  ];
+  ]
   const options: ApexOptions = {
     legend: {
       show: false,
-      position: "top",
-      horizontalAlign: "left",
+      position: 'top',
+      horizontalAlign: 'left',
     },
-    colors: ["#465FFF"],
+    colors: ['#465FFF'],
     chart: {
-      fontFamily: "Outfit, sans-serif",
+      fontFamily: 'Outfit, sans-serif',
       height: 335,
-      id: "area-datetime",
-      type: "area",
+      id: 'area-datetime',
+      type: 'area',
       toolbar: {
         show: false,
       },
     },
     stroke: {
-      curve: "straight",
+      curve: 'straight',
       width: [1], // Fixed width array
     },
     dataLabels: {
@@ -267,7 +267,7 @@ export default function LineChartThree() {
       size: 0,
     },
     xaxis: {
-      type: "datetime",
+      type: 'datetime',
       tickAmount: 10,
       axisBorder: {
         show: false,
@@ -281,11 +281,11 @@ export default function LineChartThree() {
     },
     tooltip: {
       x: {
-        format: "dd MMM yyyy",
+        format: 'dd MMM yyyy',
       },
     },
     fill: {
-      type: "gradient", // Explicitly set the type for gradient
+      type: 'gradient', // Explicitly set the type for gradient
       gradient: {
         opacityFrom: 0.55,
         opacityTo: 0,
@@ -305,20 +305,20 @@ export default function LineChartThree() {
     },
     yaxis: {
       title: {
-        text: "", // Ensure no title text
+        text: '', // Ensure no title text
         style: {
-          fontSize: "0px", // Correct style application
+          fontSize: '0px', // Correct style application
         },
       },
     },
-  };
+  }
 
   const series = [
     {
-      name: "Portfolio Performance",
+      name: 'Portfolio Performance',
       data: data,
     },
-  ];
+  ]
   return (
     <div className="max-w-full overflow-x-auto custom-scrollbar">
       <div id="chartEight" className="min-w-[1000px] xl:min-w-full">
@@ -330,5 +330,5 @@ export default function LineChartThree() {
         />
       </div>
     </div>
-  );
+  )
 }

@@ -1,23 +1,23 @@
-"use client";
-import Image from "next/image";
-import React from "react";
-import { Navigation, Autoplay } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
+'use client'
+import Image from 'next/image'
+import React from 'react'
+import { Autoplay, Navigation } from 'swiper/modules'
+import { Swiper, SwiperSlide } from 'swiper/react'
 
 const carouselData = [
   {
-    thumbnail: "/images/carousel/carousel-01.png",
+    thumbnail: '/images/carousel/carousel-01.png',
   },
   {
-    thumbnail: "/images/carousel/carousel-02.png",
+    thumbnail: '/images/carousel/carousel-02.png',
   },
   {
-    thumbnail: "/images/carousel/carousel-03.png",
+    thumbnail: '/images/carousel/carousel-03.png',
   },
   {
-    thumbnail: "/images/carousel/carousel-04.png",
+    thumbnail: '/images/carousel/carousel-04.png',
   },
-];
+]
 
 export default function WithControl() {
   const swiperOptions = {
@@ -27,10 +27,10 @@ export default function WithControl() {
       disableOnInteraction: false,
     },
     navigation: {
-      nextEl: ".next-style-one.swiper-button-next",
-      prevEl: ".prev-style-one.swiper-button-prev",
+      nextEl: '.next-style-one.swiper-button-next',
+      prevEl: '.prev-style-one.swiper-button-prev',
     },
-  };
+  }
   return (
     <div className="relative border border-gray-200 rounded-lg carouselTwo dark:border-gray-800">
       <Swiper {...swiperOptions}>
@@ -88,5 +88,5 @@ export default function WithControl() {
         </svg>
       </div>
     </div>
-  );
+  )
 }

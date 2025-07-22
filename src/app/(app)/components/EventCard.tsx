@@ -1,13 +1,13 @@
-"use client"
-import Link from "next/link"
-import { format } from "date-fns"
-import { Calendar, Clock, MapPin, ArrowRight, Star } from "lucide-react"
-import { useState } from "react"
+'use client'
+import Link from 'next/link'
+import { format } from 'date-fns'
+import { ArrowRight, Calendar, Clock, MapPin, Star } from 'lucide-react'
+import { useState } from 'react'
 
 export default function EventCard({ event, primaryColor }: { event: any; primaryColor?: string }) {
   const [imageLoaded, setImageLoaded] = useState(false)
   const [imageError, setImageError] = useState(false)
-  const resolvedColor = primaryColor?.trim() || "#ED6D38"
+  const resolvedColor = primaryColor?.trim() || '#ED6D38'
 
   const handleImageLoad = () => {
     setImageLoaded(true)
@@ -23,7 +23,8 @@ export default function EventCard({ event, primaryColor }: { event: any; primary
       href={`/${event.type}/${event.slug}`}
       className="group block h-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 rounded-xl"
     >
-      <div className="h-full flex flex-col bg-white rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden border border-gray-100 group-hover:border-gray-200">
+      <div
+        className="h-full flex flex-col bg-white rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden border border-gray-100 group-hover:border-gray-200">
         {/* Image Container */}
         <div className="relative aspect-[16/10] w-full overflow-hidden">
           {/* Loading skeleton */}
@@ -34,10 +35,10 @@ export default function EventCard({ event, primaryColor }: { event: any; primary
           {/* Image */}
           {event.image?.s3_url && !imageError ? (
             <img
-              src={event.image.s3_url || "/placeholder.svg"}
+              src={event.image.s3_url || '/placeholder.svg'}
               alt={event.title}
-              className={`object-cover w-full h-full transition-all duration-500 group-hover:scale-110 ${imageLoaded ? "opacity-100" : "opacity-0"
-                }`}
+              className={`object-cover w-full h-full transition-all duration-500 group-hover:scale-110 ${imageLoaded ? 'opacity-100' : 'opacity-0'
+              }`}
               onLoad={handleImageLoad}
               onError={handleImageError}
             />
@@ -51,12 +52,14 @@ export default function EventCard({ event, primaryColor }: { event: any; primary
           )}
 
           {/* Gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          <div
+            className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
           {/* Event type badge */}
           {event.type && (
             <div className="absolute top-4 right-4">
-              <span className="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-semibold bg-white/95 backdrop-blur-sm text-gray-700 shadow-sm border border-white/20">
+              <span
+                className="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-semibold bg-white/95 backdrop-blur-sm text-gray-700 shadow-sm border border-white/20">
                 {event.type}
               </span>
             </div>
@@ -80,7 +83,8 @@ export default function EventCard({ event, primaryColor }: { event: any; primary
         <div className="flex flex-col flex-1 p-6">
           {/* Header */}
           <div className="mb-4">
-            <h3 className="text-xl font-bold text-gray-900 leading-tight mb-2 group-hover:text-gray-700 transition-colors line-clamp-2">
+            <h3
+              className="text-xl font-bold text-gray-900 leading-tight mb-2 group-hover:text-gray-700 transition-colors line-clamp-2">
               {event.title}
             </h3>
 
@@ -95,7 +99,7 @@ export default function EventCard({ event, primaryColor }: { event: any; primary
               >
                 <Calendar className="h-4 w-4" style={{ color: resolvedColor }} />
               </div>
-              <span className="text-sm font-medium">{format(new Date(event.date), "dd MMM yyyy")}</span>
+              <span className="text-sm font-medium">{format(new Date(event.date), 'dd MMM yyyy')}</span>
             </div>
 
             <div className="flex items-center gap-3 text-gray-600">
@@ -105,7 +109,7 @@ export default function EventCard({ event, primaryColor }: { event: any; primary
               >
                 <Clock className="h-4 w-4" style={{ color: resolvedColor }} />
               </div>
-              <span className="text-sm font-medium">{format(new Date(event.date), "HH:mm")}</span>
+              <span className="text-sm font-medium">{format(new Date(event.date), 'HH:mm')}</span>
             </div>
 
             <div className="flex items-center gap-3 text-gray-600">
@@ -116,7 +120,7 @@ export default function EventCard({ event, primaryColor }: { event: any; primary
                 <MapPin className="h-4 w-4" style={{ color: resolvedColor }} />
               </div>
               <span className="text-sm font-medium line-clamp-1">
-                {event.venue?.address ?? "Locatie wordt nog bekendgemaakt"}
+                {event.venue?.address ?? 'Locatie wordt nog bekendgemaakt'}
               </span>
             </div>
           </div>
@@ -127,7 +131,7 @@ export default function EventCard({ event, primaryColor }: { event: any; primary
             <div className="flex flex-col">
               <span className="text-xs text-gray-500 font-medium uppercase tracking-wide">Vanaf</span>
               <span className="text-2xl font-bold text-gray-900">
-                {event.lowestPrice ? `€${event.lowestPrice.toFixed(2)}` : "Gratis"}
+                {event.lowestPrice ? `€${event.lowestPrice.toFixed(2)}` : 'Gratis'}
               </span>
             </div>
 

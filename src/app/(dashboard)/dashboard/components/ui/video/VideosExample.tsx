@@ -1,6 +1,6 @@
-import React from "react";
-import YouTubeEmbed from "./YouTubeEmbed";
-import ComponentCard from "../../common/ComponentCard";
+import React from 'react'
+import YouTubeEmbed from './YouTubeEmbed'
+import ComponentCard from '../../common/ComponentCard'
 
 export default function VideosExample() {
   return (
@@ -24,5 +24,5 @@ export default function VideosExample() {
         </div>
       </div>
     </div>
-  );
+  )
 }

@@ -1,30 +1,30 @@
-"use client"
-import DOMPurify from "dompurify"
-import parse from "html-react-parser"
+'use client'
+import DOMPurify from 'dompurify'
+import parse from 'html-react-parser'
 
 type Props = {
-    content: string
-    primaryColor?: string
-    variant?: "default" | "compact" | "large"
-    className?: string
+  content: string
+  primaryColor?: string
+  variant?: 'default' | 'compact' | 'large'
+  className?: string
 }
 
-export default function RichText({ content, primaryColor = "#ED6D38", variant = "default", className = "" }: Props) {
-    if (!content) return null
+export default function RichText({ content, primaryColor = '#ED6D38', variant = 'default', className = '' }: Props) {
+  if (!content) return null
 
-    const clean = DOMPurify.sanitize(content)
+  const clean = DOMPurify.sanitize(content)
 
-    // Generate color variations
-    const linkColor = primaryColor
-    const linkHoverColor = `${primaryColor}CC` // Add transparency for hover
+  // Generate color variations
+  const linkColor = primaryColor
+  const linkHoverColor = `${primaryColor}CC` // Add transparency for hover
 
-    const variantClasses = {
-        default: "prose-base",
-        compact: "prose-sm",
-        large: "prose-lg",
-    }
+  const variantClasses = {
+    default: 'prose-base',
+    compact: 'prose-sm',
+    large: 'prose-lg',
+  }
 
-    const baseClasses = `
+  const baseClasses = `
     prose prose-gray max-w-none
     ${variantClasses[variant]}
     prose-headings:font-bold prose-headings:tracking-tight prose-headings:text-gray-900
@@ -50,20 +50,20 @@ export default function RichText({ content, primaryColor = "#ED6D38", variant = 
     prose-img:rounded-lg prose-img:shadow-sm prose-img:border prose-img:border-gray-200
   `
 
-    return (
-        <div className="relative">
-            {/* Background decoration */}
-            <div
-                className="absolute inset-0 opacity-[0.015] rounded-xl pointer-events-none"
-                style={{
-                    backgroundImage: `radial-gradient(circle at 25% 25%, ${primaryColor} 2px, transparent 2px)`,
-                    backgroundSize: "32px 32px",
-                }}
-            />
+  return (
+    <div className="relative">
+      {/* Background decoration */}
+      <div
+        className="absolute inset-0 opacity-[0.015] rounded-xl pointer-events-none"
+        style={{
+          backgroundImage: `radial-gradient(circle at 25% 25%, ${primaryColor} 2px, transparent 2px)`,
+          backgroundSize: '32px 32px',
+        }}
+      />
 
-            {/* Content */}
-            <div className={`${baseClasses} ${className} relative z-10`}>
-                <style jsx>{`
+      {/* Content */}
+      <div className={`${baseClasses} ${className} relative z-10`}>
+        <style jsx>{`
           :global(.prose a) {
             color: ${linkColor};
             text-decoration: none;
@@ -134,24 +134,24 @@ export default function RichText({ content, primaryColor = "#ED6D38", variant = 
           }
         `}</style>
 
-                {parse(clean)}
-            </div>
+        {parse(clean)}
+      </div>
 
-            {/* Reading progress indicator for long content */}
-            {content.length > 1000 && (
-                <div className="mt-8 flex items-center gap-2 text-sm text-gray-500">
-                    <div className="flex-1 bg-gray-200 rounded-full h-1">
-                        <div
-                            className="h-1 rounded-full transition-all duration-300"
-                            style={{
-                                backgroundColor: primaryColor,
-                                width: "100%", // This would be dynamic in a real implementation
-                            }}
-                        />
-                    </div>
-                    <span className="text-xs">Gelezen</span>
-                </div>
-            )}
+      {/* Reading progress indicator for long content */}
+      {content.length > 1000 && (
+        <div className="mt-8 flex items-center gap-2 text-sm text-gray-500">
+          <div className="flex-1 bg-gray-200 rounded-full h-1">
+            <div
+              className="h-1 rounded-full transition-all duration-300"
+              style={{
+                backgroundColor: primaryColor,
+                width: '100%', // This would be dynamic in a real implementation
+              }}
+            />
+          </div>
+          <span className="text-xs">Gelezen</span>
         </div>
-    )
+      )}
+    </div>
+  )
 }

@@ -1,23 +1,24 @@
-"use client";
-import React, { useState } from "react";
-import { Dropdown } from "../ui/dropdown/Dropdown";
-import { DropdownItem } from "../ui/dropdown/DropdownItem";
-import { MoreDotIcon } from "@/app/(dashboard)/dashboard/icons";
-import Image from "next/image";
+'use client'
+import React, { useState } from 'react'
+import { Dropdown } from '../ui/dropdown/Dropdown'
+import { DropdownItem } from '../ui/dropdown/DropdownItem'
+import { MoreDotIcon } from '@/app/(dashboard)/dashboard/icons'
+import Image from 'next/image'
 
 export default function ChatBoxHeader() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false)
 
   function toggleDropdown() {
-    setIsOpen(!isOpen);
+    setIsOpen(!isOpen)
   }
 
   function closeDropdown() {
-    setIsOpen(false);
+    setIsOpen(false)
   }
 
   return (
-    <div className="sticky flex items-center justify-between px-5 py-4 border-b border-gray-200 dark:border-gray-800 xl:px-6">
+    <div
+      className="sticky flex items-center justify-between px-5 py-4 border-b border-gray-200 dark:border-gray-800 xl:px-6">
       <div className="flex items-center gap-3">
         <div className="relative h-12 w-full max-w-[48px] rounded-full">
           <Image
@@ -27,7 +28,8 @@ export default function ChatBoxHeader() {
             alt="profile"
             className="object-cover object-center w-full h-full overflow-hidden rounded-full"
           />
-          <span className="absolute bottom-0 right-0 block h-3 w-3 rounded-full border-[1.5px] border-white bg-success-500 dark:border-gray-900"></span>
+          <span
+            className="absolute bottom-0 right-0 block h-3 w-3 rounded-full border-[1.5px] border-white bg-success-500 dark:border-gray-900"></span>
         </div>
 
         <h5 className="text-sm font-medium text-gray-500 dark:text-gray-400">
@@ -96,5 +98,5 @@ export default function ChatBoxHeader() {
         </div>
       </div>
     </div>
-  );
+  )
 }

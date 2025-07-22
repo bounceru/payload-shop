@@ -1,5 +1,5 @@
-"use client";
-import ChatHeaderTitle from "./ChatHeaderTitle";
+'use client'
+import ChatHeaderTitle from './ChatHeaderTitle'
 
 interface ChatHeaderProps {
   onToggle: () => void;
@@ -58,7 +58,7 @@ const ChatHeader: React.FC<ChatHeaderProps> = ({ onToggle }) => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ChatHeader;
+export default ChatHeader

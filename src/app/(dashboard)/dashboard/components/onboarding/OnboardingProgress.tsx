@@ -1,26 +1,26 @@
-"use client"
+'use client'
 
-import { useTranslation } from "@/context/TranslationsContext"
-import ProgressBar from "../progress-bar/ProgressBar"
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
-import Link from "next/link"
-import { FaCheck } from "react-icons/fa"
-import { useTheme } from "@/app/(dashboard)/dashboard/context/ThemeContext"
+import { useTranslation } from '@/context/TranslationsContext'
+import ProgressBar from '../progress-bar/ProgressBar'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import Link from 'next/link'
+import { FaCheck } from 'react-icons/fa'
+import { useTheme } from '@/app/(dashboard)/dashboard/context/ThemeContext'
 import {
-  Store,
-  Calendar,
-  Ticket,
-  ShoppingBag,
-  MapPin,
   ArrowRight,
-  Sparkles,
-  Trophy,
-  Clock,
+  Calendar,
   CheckCircle2,
-} from "lucide-react"
+  Clock,
+  MapPin,
+  ShoppingBag,
+  Sparkles,
+  Store,
+  Ticket,
+  Trophy,
+} from 'lucide-react'
 
 export type OnboardingStep = {
-  key: "shop" | "event" | "ticketTypes" | "addons" | "seatmap"
+  key: 'shop' | 'event' | 'ticketTypes' | 'addons' | 'seatmap'
   completed: boolean
   href: string
 }
@@ -38,17 +38,17 @@ const stepIcons = {
 }
 
 const stepDescriptions = {
-  shop: "Stel je organisatie en branding in",
-  event: "Maak je eerste evenement aan",
-  ticketTypes: "Configureer ticket categorieën",
-  addons: "Voeg extra producten toe",
-  seatmap: "Ontwerp je zaalindeling",
+  shop: 'Stel je organisatie en branding in',
+  event: 'Maak je eerste evenement aan',
+  ticketTypes: 'Configureer ticket categorieën',
+  addons: 'Voeg extra producten toe',
+  seatmap: 'Ontwerp je zaalindeling',
 }
 
 export default function OnboardingProgress({ steps }: Props) {
   const { t } = useTranslation()
   const { branding } = useTheme()
-  const ctaColor = branding?.primaryColorCTA || "#ED6D38"
+  const ctaColor = branding?.primaryColorCTA || '#ED6D38'
 
   const completed = steps.filter((s) => s.completed).length
   const percent = Math.round((completed / steps.length) * 100)
@@ -63,7 +63,7 @@ export default function OnboardingProgress({ steps }: Props) {
           className="absolute inset-0"
           style={{
             backgroundImage: `radial-gradient(circle at 25% 25%, ${ctaColor} 2px, transparent 2px)`,
-            backgroundSize: "24px 24px",
+            backgroundSize: '24px 24px',
           }}
         />
       </div>
@@ -87,12 +87,12 @@ export default function OnboardingProgress({ steps }: Props) {
               </div>
               <div>
                 <CardTitle className="text-xl font-bold text-gray-900">
-                  {isComplete ? "Setup Voltooid! 🎉" : t("dashboard.welcome")}
+                  {isComplete ? 'Setup Voltooid! 🎉' : t('dashboard.welcome')}
                 </CardTitle>
                 <p className="text-sm text-gray-600 mt-1">
                   {isComplete
-                    ? "Je account is volledig geconfigureerd en klaar voor gebruik"
-                    : t("dashboard.getStarted")}
+                    ? 'Je account is volledig geconfigureerd en klaar voor gebruik'
+                    : t('dashboard.getStarted')}
                 </p>
               </div>
             </div>
@@ -108,7 +108,7 @@ export default function OnboardingProgress({ steps }: Props) {
               <div className="flex items-center gap-2">
                 <Clock className="h-4 w-4 text-blue-600" />
                 <span className="text-sm text-gray-600">
-                  {isComplete ? "Klaar!" : `${steps.length - completed} stappen resterend`}
+                  {isComplete ? 'Klaar!' : `${steps.length - completed} stappen resterend`}
                 </span>
               </div>
             </div>
@@ -128,7 +128,8 @@ export default function OnboardingProgress({ steps }: Props) {
           {/* Completion badge */}
           {isComplete && (
             <div className="ml-4">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-100 text-green-700 text-sm font-medium">
+              <div
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-100 text-green-700 text-sm font-medium">
                 <Trophy className="h-4 w-4" />
                 <span>Voltooid</span>
               </div>
@@ -169,22 +170,22 @@ export default function OnboardingProgress({ steps }: Props) {
               const isNext = idx === currentIndex
               const Icon = stepIcons[step.key]
 
-              const statusText = step.completed ? "Voltooid" : isCurrent ? "Huidige stap" : "Wachtend"
+              const statusText = step.completed ? 'Voltooid' : isCurrent ? 'Huidige stap' : 'Wachtend'
 
               return (
                 <div
                   key={step.key}
                   className={`group relative p-4 rounded-2xl border transition-all duration-200 ${step.completed
-                    ? "bg-green-50 border-green-200 hover:bg-green-100"
+                    ? 'bg-green-50 border-green-200 hover:bg-green-100'
                     : isCurrent
-                      ? "bg-blue-50 border-blue-200 hover:bg-blue-100"
-                      : "bg-gray-50 border-gray-200 hover:bg-gray-100"
-                    }`}
+                      ? 'bg-blue-50 border-blue-200 hover:bg-blue-100'
+                      : 'bg-gray-50 border-gray-200 hover:bg-gray-100'
+                  }`}
                 >
                   {/* Step connector line */}
                   {idx < steps.length - 1 && (
                     <div
-                      className={`absolute left-8 top-16 w-0.5 h-8 ${step.completed ? "bg-green-300" : "bg-gray-300"}`}
+                      className={`absolute left-8 top-16 w-0.5 h-8 ${step.completed ? 'bg-green-300' : 'bg-gray-300'}`}
                     />
                   )}
 
@@ -193,11 +194,11 @@ export default function OnboardingProgress({ steps }: Props) {
                     <div className="relative flex-shrink-0">
                       <div
                         className={`w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-200 ${step.completed
-                          ? "bg-green-500 text-white shadow-lg"
+                          ? 'bg-green-500 text-white shadow-lg'
                           : isCurrent
-                            ? "bg-white border-2 text-gray-700 shadow-md"
-                            : "bg-white border-2 border-gray-300 text-gray-500"
-                          }`}
+                            ? 'bg-white border-2 text-gray-700 shadow-md'
+                            : 'bg-white border-2 border-gray-300 text-gray-500'
+                        }`}
                         style={isCurrent ? { borderColor: ctaColor } : {}}
                       >
                         {step.completed ? <FaCheck className="h-5 w-5" /> : <Icon className="h-5 w-5" />}
@@ -206,11 +207,11 @@ export default function OnboardingProgress({ steps }: Props) {
                       {/* Step number badge */}
                       <div
                         className={`absolute -top-1 -right-1 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold ${step.completed
-                          ? "bg-green-600 text-white"
+                          ? 'bg-green-600 text-white'
                           : isCurrent
-                            ? "text-white"
-                            : "bg-gray-400 text-white"
-                          }`}
+                            ? 'text-white'
+                            : 'bg-gray-400 text-white'
+                        }`}
                         style={isCurrent ? { backgroundColor: ctaColor } : {}}
                       >
                         {idx + 1}
@@ -228,15 +229,15 @@ export default function OnboardingProgress({ steps }: Props) {
                           <div className="flex items-center gap-2">
                             <div
                               className={`w-2 h-2 rounded-full ${step.completed
-                                ? "bg-green-500"
+                                ? 'bg-green-500'
                                 : isCurrent
-                                  ? "bg-blue-500 animate-pulse"
-                                  : "bg-gray-400"
-                                }`}
+                                  ? 'bg-blue-500 animate-pulse'
+                                  : 'bg-gray-400'
+                              }`}
                             />
                             <span
-                              className={`text-xs font-medium ${step.completed ? "text-green-700" : isCurrent ? "text-blue-700" : "text-gray-600"
-                                }`}
+                              className={`text-xs font-medium ${step.completed ? 'text-green-700' : isCurrent ? 'text-blue-700' : 'text-gray-600'
+                              }`}
                             >
                               {statusText}
                             </span>
@@ -246,21 +247,22 @@ export default function OnboardingProgress({ steps }: Props) {
                         {/* Action button */}
                         <div className="flex-shrink-0">
                           {step.completed ? (
-                            <div className="inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-green-100 text-green-700 text-sm font-medium">
+                            <div
+                              className="inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-green-100 text-green-700 text-sm font-medium">
                               <CheckCircle2 className="h-4 w-4" />
                               <span>Klaar</span>
                             </div>
                           ) : (
                             <Link href={step.href}>
                               <button
-                                className={`group/btn inline-flex items-center gap-2 px-4 py-2 rounded-xl text-white text-sm font-semibold shadow-md hover:shadow-lg transition-all duration-200 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-offset-2 ${isCurrent ? "animate-pulse" : ""
-                                  }`}
+                                className={`group/btn inline-flex items-center gap-2 px-4 py-2 rounded-xl text-white text-sm font-semibold shadow-md hover:shadow-lg transition-all duration-200 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-offset-2 ${isCurrent ? 'animate-pulse' : ''
+                                }`}
                                 style={{
-                                  backgroundColor: isCurrent ? ctaColor : "#6B7280",
+                                  backgroundColor: isCurrent ? ctaColor : '#6B7280',
 
                                 }}
                               >
-                                <span>{isCurrent ? "Doorgaan" : "Start"}</span>
+                                <span>{isCurrent ? 'Doorgaan' : 'Start'}</span>
                                 <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-0.5" />
                               </button>
                             </Link>

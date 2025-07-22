@@ -1,5 +1,5 @@
-import Image from "next/image";
-import React from "react";
+import Image from 'next/image'
+import React from 'react'
 
 export default function InvoiceSidebar() {
   return (
@@ -33,7 +33,8 @@ export default function InvoiceSidebar() {
       </div>
 
       <div className="space-y-1">
-        <div className="flex cursor-pointer items-center gap-3 rounded-lg bg-gray-100 p-2 hover:bg-gray-100 dark:bg-white/[0.03] dark:hover:bg-white/[0.03]">
+        <div
+          className="flex cursor-pointer items-center gap-3 rounded-lg bg-gray-100 p-2 hover:bg-gray-100 dark:bg-white/[0.03] dark:hover:bg-white/[0.03]">
           <div className="w-12 h-12 overflow-hidden rounded-full">
             <Image
               width={48}
@@ -53,7 +54,8 @@ export default function InvoiceSidebar() {
           </div>
         </div>
 
-        <div className="flex cursor-pointer items-center gap-3 rounded-lg p-2 hover:bg-gray-100 dark:hover:bg-white/[0.03]">
+        <div
+          className="flex cursor-pointer items-center gap-3 rounded-lg p-2 hover:bg-gray-100 dark:hover:bg-white/[0.03]">
           <div className="w-12 h-12 overflow-hidden rounded-full">
             <Image
               width={48}
@@ -73,7 +75,8 @@ export default function InvoiceSidebar() {
           </div>
         </div>
 
-        <div className="flex cursor-pointer items-center gap-3 rounded-lg p-2 hover:bg-gray-100 dark:hover:bg-white/[0.03]">
+        <div
+          className="flex cursor-pointer items-center gap-3 rounded-lg p-2 hover:bg-gray-100 dark:hover:bg-white/[0.03]">
           <div className="w-12 h-12 overflow-hidden rounded-full">
             <Image
               width={48}
@@ -93,7 +96,8 @@ export default function InvoiceSidebar() {
           </div>
         </div>
 
-        <div className="flex cursor-pointer items-center gap-3 rounded-lg p-2 hover:bg-gray-100 dark:hover:bg-white/[0.03]">
+        <div
+          className="flex cursor-pointer items-center gap-3 rounded-lg p-2 hover:bg-gray-100 dark:hover:bg-white/[0.03]">
           <div className="w-12 h-12 overflow-hidden rounded-full">
             <Image
               width={48}
@@ -114,5 +118,5 @@ export default function InvoiceSidebar() {
         </div>
       </div>
     </div>
-  );
+  )
 }

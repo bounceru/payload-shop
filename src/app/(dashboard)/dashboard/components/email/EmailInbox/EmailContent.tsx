@@ -1,128 +1,129 @@
-"use client";
-import React, { useState } from "react";
-import EmailHeader from "./EmailHeader";
-import EmailPagination from "./EmailPagination";
-import Checkbox from "../../form/input/Checkbox";
-import SimpleBar from "simplebar-react";
+'use client'
+import React, { useState } from 'react'
+import EmailHeader from './EmailHeader'
+import EmailPagination from './EmailPagination'
+import Checkbox from '../../form/input/Checkbox'
+import SimpleBar from 'simplebar-react'
 
 interface Mail {
   subject: string;
   content: string;
   time: string;
-  badge?: "Important" | "Social" | "Promotional";
+  badge?: 'Important' | 'Social' | 'Promotional';
 }
 
 const mailData: Mail[] = [
   {
-    subject: "Material UI",
+    subject: 'Material UI',
     content:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda dolor dolore esse modi nesciunt, nobis numquam sed sequi sunt totam!",
-    time: "12:16 pm",
-    badge: "Important",
+      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda dolor dolore esse modi nesciunt, nobis numquam sed sequi sunt totam!',
+    time: '12:16 pm',
+    badge: 'Important',
   },
   {
-    subject: "Wise",
+    subject: 'Wise',
     content:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda dolor dolore esse modi nesciunt, nobis numquam sed sequi sunt totam!",
-    time: "12:16 pm",
+      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda dolor dolore esse modi nesciunt, nobis numquam sed sequi sunt totam!',
+    time: '12:16 pm',
   },
   {
-    subject: "Search Console",
+    subject: 'Search Console',
     content:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda dolor dolore esse modi nesciunt, nobis numquam sed sequi sunt totam!",
-    time: "Apr, 24",
-    badge: "Social",
+      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda dolor dolore esse modi nesciunt, nobis numquam sed sequi sunt totam!',
+    time: 'Apr, 24',
+    badge: 'Social',
   },
   {
-    subject: "Paypal",
+    subject: 'Paypal',
     content:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda dolor dolore esse modi nesciunt, nobis numquam sed sequi sunt totam!",
-    time: "Apr, 30",
+      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda dolor dolore esse modi nesciunt, nobis numquam sed sequi sunt totam!',
+    time: 'Apr, 30',
   },
   {
-    subject: "Google Meet",
+    subject: 'Google Meet',
     content:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda dolor dolore esse modi nesciunt, nobis numquam sed sequi sunt totam!",
-    time: "Apr, 16",
+      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda dolor dolore esse modi nesciunt, nobis numquam sed sequi sunt totam!',
+    time: 'Apr, 16',
   },
   {
-    subject: "Loom",
+    subject: 'Loom',
     content:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda dolor dolore esse modi nesciunt, nobis numquam sed sequi sunt totam!",
-    time: "Apr, 24",
+      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda dolor dolore esse modi nesciunt, nobis numquam sed sequi sunt totam!',
+    time: 'Apr, 24',
   },
   {
-    subject: "Airbnb",
+    subject: 'Airbnb',
     content:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda dolor dolore esse modi nesciunt, nobis numquam sed sequi sunt totam!",
-    time: "Mar, 05",
+      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda dolor dolore esse modi nesciunt, nobis numquam sed sequi sunt totam!',
+    time: 'Mar, 05',
   },
   {
-    subject: "Facebook",
+    subject: 'Facebook',
     content:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda dolor dolore esse modi nesciunt, nobis numquam sed sequi sunt totam!",
-    time: "Feb, 25",
+      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda dolor dolore esse modi nesciunt, nobis numquam sed sequi sunt totam!',
+    time: 'Feb, 25',
   },
   {
-    subject: "Instagram",
+    subject: 'Instagram',
     content:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda dolor dolore esse modi nesciunt, nobis numquam sed sequi sunt totam!",
-    time: "Feb, 20",
-    badge: "Promotional",
+      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda dolor dolore esse modi nesciunt, nobis numquam sed sequi sunt totam!',
+    time: 'Feb, 20',
+    badge: 'Promotional',
   },
   {
-    subject: "Google",
+    subject: 'Google',
     content:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda dolor dolore esse modi nesciunt, nobis numquam sed sequi sunt totam!",
-    time: "Feb, 25",
+      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda dolor dolore esse modi nesciunt, nobis numquam sed sequi sunt totam!',
+    time: 'Feb, 25',
   },
   {
-    subject: "FormBold",
+    subject: 'FormBold',
     content:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda dolor dolore esse modi nesciunt, nobis numquam sed sequi sunt totam!",
-    time: "Jan, 22",
+      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda dolor dolore esse modi nesciunt, nobis numquam sed sequi sunt totam!',
+    time: 'Jan, 22',
   },
   {
-    subject: "GrayGrids",
+    subject: 'GrayGrids',
     content:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda dolor dolore esse modi nesciunt, nobis numquam sed sequi sunt totam!",
-    time: "Feb, 25",
+      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda dolor dolore esse modi nesciunt, nobis numquam sed sequi sunt totam!',
+    time: 'Feb, 25',
   },
   {
-    subject: "UIdeck",
+    subject: 'UIdeck',
     content:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda dolor dolore esse modi nesciunt, nobis numquam sed sequi sunt totam!",
-    time: "Feb, 15",
+      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda dolor dolore esse modi nesciunt, nobis numquam sed sequi sunt totam!',
+    time: 'Feb, 15',
   },
-];
+]
 
 export default function EmailContent() {
   const [checkedItems, setCheckedItems] = useState<boolean[]>(
-    new Array(mailData.length).fill(false)
-  );
+    new Array(mailData.length).fill(false),
+  )
   const [starredItems, setStarredItems] = useState<boolean[]>(
-    new Array(mailData.length).fill(false)
-  );
+    new Array(mailData.length).fill(false),
+  )
 
   const toggleCheck = (index: number, checked: boolean) => {
-    const updated = [...checkedItems];
-    updated[index] = checked;
-    setCheckedItems(updated);
-  };
+    const updated = [...checkedItems]
+    updated[index] = checked
+    setCheckedItems(updated)
+  }
 
   const toggleStar = (index: number) => {
-    const updated = [...starredItems];
-    updated[index] = !updated[index];
-    setStarredItems(updated);
-  };
+    const updated = [...starredItems]
+    updated[index] = !updated[index]
+    setStarredItems(updated)
+  }
   const handleSelectAll = (checked: boolean) => {
-    setCheckedItems(new Array(mailData.length).fill(checked));
-  };
+    setCheckedItems(new Array(mailData.length).fill(checked))
+  }
 
-  const allChecked = checkedItems.every(Boolean);
+  const allChecked = checkedItems.every(Boolean)
 
   return (
-    <div className="rounded-2xl xl:col-span-9 w-full border border-gray-200 bg-white dark:border-gray-800 dark:bg-white/[0.03]">
+    <div
+      className="rounded-2xl xl:col-span-9 w-full border border-gray-200 bg-white dark:border-gray-800 dark:bg-white/[0.03]">
       <EmailHeader isChecked={allChecked} onSelectAll={handleSelectAll} />
       <SimpleBar className="max-h-[510px] 2xl:max-h-[630px]">
         <div className="divide-y divide-gray-200 dark:divide-gray-800">
@@ -152,7 +153,8 @@ export default function EmailContent() {
                       fill="#FDB022"
                       xmlns="http://www.w3.org/2000/svg"
                     >
-                      <path d="M9.99991 3.125L12.2337 7.65114L17.2286 8.37694L13.6142 11.9L14.4675 16.8747L9.99991 14.526L5.53235 16.8747L6.38558 11.9L2.77124 8.37694L7.76613 7.65114L9.99991 3.125Z" />
+                      <path
+                        d="M9.99991 3.125L12.2337 7.65114L17.2286 8.37694L13.6142 11.9L14.4675 16.8747L9.99991 14.526L5.53235 16.8747L6.38558 11.9L2.77124 8.37694L7.76613 7.65114L9.99991 3.125Z" />
                     </svg>
                   ) : (
                     <svg
@@ -184,11 +186,11 @@ export default function EmailContent() {
                 {mail.badge && (
                   <span
                     className={`hidden rounded-full px-2 py-0.5 text-xs font-medium sm:inline-block ${
-                      mail.badge === "Important"
-                        ? "text-red-700 bg-red-100"
-                        : mail.badge === "Social"
-                        ? "text-green-700 bg-green-100"
-                        : "text-blue-700 bg-blue-100"
+                      mail.badge === 'Important'
+                        ? 'text-red-700 bg-red-100'
+                        : mail.badge === 'Social'
+                          ? 'text-green-700 bg-green-100'
+                          : 'text-blue-700 bg-blue-100'
                     }`}
                   >
                     {mail.badge}
@@ -206,5 +208,5 @@ export default function EmailContent() {
       </SimpleBar>
       <EmailPagination />
     </div>
-  );
+  )
 }

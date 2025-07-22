@@ -1,10 +1,10 @@
 // File: src/collections/Tenants/index.ts
 
-import type { CollectionConfig } from 'payload';
+import type { CollectionConfig } from 'payload'
 
-import { isSuperAdmin } from '../../access/isSuperAdmin';
-import { filterByTenantRead } from './access/byTenant';
-import { hasPermission, hasFieldPermission } from '@/access/permissionChecker';
+import { isSuperAdmin } from '../../access/isSuperAdmin'
+import { filterByTenantRead } from './access/byTenant'
+import { hasFieldPermission, hasPermission } from '@/access/permissionChecker'
 
 export const Tenants: CollectionConfig = {
   slug: 'tenants',
@@ -23,12 +23,12 @@ export const Tenants: CollectionConfig = {
     useAsTitle: 'name',
     hidden: ({ user }) => {
       // Hide from non-superadmins with access to exactly one tenant
-      if (!user) return true;
+      if (!user) return true
       return (
         !isSuperAdmin({ req: { user } as any }) &&
         user.tenants &&
         user.tenants.length === 1
-      );
+      )
     },
   },
 
@@ -162,6 +162,6 @@ export const Tenants: CollectionConfig = {
       },
     },
   ],
-};
+}
 
-export default Tenants;
+export default Tenants

@@ -1,52 +1,53 @@
-"use client";
-import { useState } from "react";
+'use client'
+import { useState } from 'react'
 
 const VerticalTabs: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<string>("overview");
+  const [activeTab, setActiveTab] = useState<string>('overview')
 
   return (
     <div className="p-6 border border-gray-200 rounded-xl dark:border-gray-800">
       <div className="flex flex-col gap-6 sm:flex-row sm:gap-8">
         {/* Sidebar Navigation */}
-        <div className="overflow-x-auto pb-2 sm:w-[200px] [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-gray-100 dark:[&::-webkit-scrollbar-thumb]:bg-gray-600 [&::-webkit-scrollbar-track]:bg-white dark:[&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar]:h-1.5">
+        <div
+          className="overflow-x-auto pb-2 sm:w-[200px] [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-gray-100 dark:[&::-webkit-scrollbar-thumb]:bg-gray-600 [&::-webkit-scrollbar-track]:bg-white dark:[&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar]:h-1.5">
           <nav className="flex flex-row w-full sm:flex-col sm:space-y-2">
             <button
               className={`inline-flex items-center rounded-lg px-3 py-2 text-sm font-medium transition-colors duration-200 ease-in-out sm:p-3 ${
-                activeTab === "overview"
-                  ? "text-brand-500 dark:bg-brand-400/20 dark:text-brand-400 bg-brand-50"
-                  : "bg-transparent text-gray-500 border-transparent hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
+                activeTab === 'overview'
+                  ? 'text-brand-500 dark:bg-brand-400/20 dark:text-brand-400 bg-brand-50'
+                  : 'bg-transparent text-gray-500 border-transparent hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200'
               }`}
-              onClick={() => setActiveTab("overview")}
+              onClick={() => setActiveTab('overview')}
             >
               Overview
             </button>
             <button
               className={`inline-flex items-center rounded-lg px-3 py-2.5 text-sm font-medium transition-colors duration-200 ease-in-out sm:p-3 ${
-                activeTab === "notification"
-                  ? "text-brand-500 dark:bg-brand-400/20 dark:text-brand-400 bg-brand-50"
-                  : "bg-transparent text-gray-500 border-transparent hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
+                activeTab === 'notification'
+                  ? 'text-brand-500 dark:bg-brand-400/20 dark:text-brand-400 bg-brand-50'
+                  : 'bg-transparent text-gray-500 border-transparent hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200'
               }`}
-              onClick={() => setActiveTab("notification")}
+              onClick={() => setActiveTab('notification')}
             >
               Notification
             </button>
             <button
               className={`inline-flex items-center rounded-lg px-3 py-2.5 text-sm font-medium transition-colors duration-200 ease-in-out sm:p-3 ${
-                activeTab === "analytics"
-                  ? "text-brand-500 dark:bg-brand-400/20 dark:text-brand-400 bg-brand-50"
-                  : "bg-transparent text-gray-500 border-transparent hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
+                activeTab === 'analytics'
+                  ? 'text-brand-500 dark:bg-brand-400/20 dark:text-brand-400 bg-brand-50'
+                  : 'bg-transparent text-gray-500 border-transparent hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200'
               }`}
-              onClick={() => setActiveTab("analytics")}
+              onClick={() => setActiveTab('analytics')}
             >
               Analytics
             </button>
             <button
               className={`inline-flex items-center rounded-lg px-3 py-2.5 text-sm font-medium transition-colors duration-200 ease-in-out sm:p-3 ${
-                activeTab === "customers"
-                  ? "text-brand-500 dark:bg-brand-400/20 dark:text-brand-400 bg-brand-50"
-                  : "bg-transparent text-gray-500 border-transparent hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
+                activeTab === 'customers'
+                  ? 'text-brand-500 dark:bg-brand-400/20 dark:text-brand-400 bg-brand-50'
+                  : 'bg-transparent text-gray-500 border-transparent hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200'
               }`}
-              onClick={() => setActiveTab("customers")}
+              onClick={() => setActiveTab('customers')}
             >
               Customers
             </button>
@@ -55,7 +56,7 @@ const VerticalTabs: React.FC = () => {
 
         {/* Tab Content */}
         <div className="flex-1">
-          {activeTab === "overview" && (
+          {activeTab === 'overview' && (
             <div>
               <h3 className="mb-1 text-xl font-medium text-gray-800 dark:text-white/90">
                 Overview
@@ -69,7 +70,7 @@ const VerticalTabs: React.FC = () => {
               </p>
             </div>
           )}
-          {activeTab === "notification" && (
+          {activeTab === 'notification' && (
             <div>
               <h3 className="mb-1 text-xl font-medium text-gray-800 dark:text-white/90">
                 Notification
@@ -83,7 +84,7 @@ const VerticalTabs: React.FC = () => {
               </p>
             </div>
           )}
-          {activeTab === "analytics" && (
+          {activeTab === 'analytics' && (
             <div>
               <h3 className="mb-1 text-xl font-medium text-gray-800 dark:text-white/90">
                 Analytics
@@ -97,7 +98,7 @@ const VerticalTabs: React.FC = () => {
               </p>
             </div>
           )}
-          {activeTab === "customers" && (
+          {activeTab === 'customers' && (
             <div>
               <h3 className="mb-1 text-xl font-medium text-gray-800 dark:text-white/90">
                 Customers
@@ -114,7 +115,7 @@ const VerticalTabs: React.FC = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default VerticalTabs;
+export default VerticalTabs

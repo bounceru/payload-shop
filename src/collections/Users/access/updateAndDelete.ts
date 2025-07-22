@@ -14,12 +14,12 @@ export const updateAndDeleteAccess: Access = (args) => {
   }
 
   // 1) Narrow to a userDoc if collection === 'users'
-  const userDoc = req.user?.collection === 'users' ? req.user : null;
+  const userDoc = req.user?.collection === 'users' ? req.user : null
 
   // 2) Only call getTenantAdminTenantAccessIDs(userDoc) if it’s truly a user
   const adminTenantAccessIDs = userDoc
     ? getTenantAdminTenantAccessIDs(userDoc)
-    : [];
+    : []
 
   return {
     'tenants.tenant': {

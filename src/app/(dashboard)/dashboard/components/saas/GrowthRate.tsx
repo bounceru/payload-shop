@@ -1,28 +1,28 @@
-"use client";
-import { MoreDotIcon } from "@/app/(dashboard)/dashboard/icons";
-import { ApexOptions } from "apexcharts";
+'use client'
+import { MoreDotIcon } from '@/app/(dashboard)/dashboard/icons'
+import { ApexOptions } from 'apexcharts'
 
-import dynamic from "next/dynamic";
-import { useState } from "react";
-import { Dropdown } from "../ui/dropdown/Dropdown";
-import { DropdownItem } from "../ui/dropdown/DropdownItem";
+import dynamic from 'next/dynamic'
+import { useState } from 'react'
+import { Dropdown } from '../ui/dropdown/Dropdown'
+import { DropdownItem } from '../ui/dropdown/DropdownItem'
 
 // Dynamically import the ReactApexChart component
-const ReactApexChart = dynamic(() => import("react-apexcharts"), {
+const ReactApexChart = dynamic(() => import('react-apexcharts'), {
   ssr: false,
-});
+})
 
 export default function GrowthChart() {
   const growthSeries = [
     {
-      name: "Revenue",
+      name: 'Revenue',
       data: [12500, 14000, 15500, 14800, 16200, 17500, 18200],
     },
-  ];
+  ]
 
   const growthOptions: ApexOptions = {
     chart: {
-      type: "area",
+      type: 'area',
       height: 60,
       sparkline: {
         enabled: true,
@@ -35,13 +35,13 @@ export default function GrowthChart() {
         show: false,
       },
     },
-    colors: ["#10b981"],
+    colors: ['#10b981'],
     stroke: {
-      curve: "smooth",
+      curve: 'smooth',
       width: 2,
     },
     fill: {
-      type: "gradient",
+      type: 'gradient',
       gradient: {
         shadeIntensity: 1,
         opacityFrom: 0.6,
@@ -57,24 +57,26 @@ export default function GrowthChart() {
         show: false,
       },
       y: {
-        formatter: (value) => "$" + value.toLocaleString(),
+        formatter: (value) => '$' + value.toLocaleString(),
       },
       marker: {
         show: false,
       },
     },
-  };
-  const [isOpen, setIsOpen] = useState(false);
+  }
+  const [isOpen, setIsOpen] = useState(false)
 
   function toggleDropdown() {
-    setIsOpen(!isOpen);
+    setIsOpen(!isOpen)
   }
 
   function closeDropdown() {
-    setIsOpen(false);
+    setIsOpen(false)
   }
+
   return (
-    <div className="overflow-hidden rounded-2xl border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-white/[0.03]">
+    <div
+      className="overflow-hidden rounded-2xl border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-white/[0.03]">
       <div className="mb-6 flex justify-between">
         <div>
           <h3 className="text-lg font-semibold text-gray-800 dark:text-white/90">
@@ -130,5 +132,5 @@ export default function GrowthChart() {
         </div>
       </div>
     </div>
-  );
+  )
 }

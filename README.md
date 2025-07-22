@@ -27,8 +27,8 @@ Go to: [http://localhost:3000/admin](http://localhost:3000/admin)
 When running the seed migration, the following user is created:
 
 - **Super Admin**
-  - Email: `jonas@covonet.be`
-  - Password: `test1234`
+  - Email: `lyan@uswap.at`
+  - Password: `test12345`
   - Role: `Super Admin` (can manage everything)
 
 ---
@@ -51,7 +51,7 @@ When running the seed migration, the following user is created:
 Email delivery is handled by `nodemailer`.  
 You can customize SMTP settings per tenant via the admin panel.
 
-> Default from: `no-reply@stagepass.io`
+> Default from: `no-reply@uswap.at`
 
 ---
 

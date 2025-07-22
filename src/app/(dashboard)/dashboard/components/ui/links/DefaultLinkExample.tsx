@@ -1,6 +1,6 @@
-import ComponentCard from "../../common/ComponentCard";
-import React from "react";
-import CustomLink from "./Link";
+import ComponentCard from '../../common/ComponentCard'
+import React from 'react'
+import CustomLink from './Link'
 
 export default function DefaultLinkExample() {
   return (
@@ -32,5 +32,5 @@ export default function DefaultLinkExample() {
         </CustomLink>
       </div>
     </ComponentCard>
-  );
+  )
 }

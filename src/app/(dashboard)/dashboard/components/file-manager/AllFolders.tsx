@@ -1,5 +1,5 @@
-import React from "react";
-import FolderCard from "./FolderCard";
+import React from 'react'
+import FolderCard from './FolderCard'
 
 export default function AllFolders() {
   return (
@@ -42,5 +42,5 @@ export default function AllFolders() {
         </div>
       </div>
     </div>
-  );
+  )
 }

@@ -1,31 +1,31 @@
-import Badge from "../ui/badge/Badge";
+import Badge from '../ui/badge/Badge'
 
 const mockData = [
   {
     id: 1,
-    title: "Active Deal",
-    value: "$120,369",
-    change: "+20%",
-    direction: "up",
-    comparisonText: "last month",
+    title: 'Active Deal',
+    value: '$120,369',
+    change: '+20%',
+    direction: 'up',
+    comparisonText: 'last month',
   },
   {
     id: 2,
-    title: "Revenue Total",
-    value: "$234,210",
-    change: "+9.0%",
-    direction: "up",
-    comparisonText: "last month",
+    title: 'Revenue Total',
+    value: '$234,210',
+    change: '+9.0%',
+    direction: 'up',
+    comparisonText: 'last month',
   },
   {
     id: 3,
-    title: "Closed Deals",
-    value: "874",
-    change: "-4.5%",
-    direction: "down",
-    comparisonText: "last month",
+    title: 'Closed Deals',
+    value: '874',
+    change: '-4.5%',
+    direction: 'down',
+    comparisonText: 'last month',
   },
-];
+]
 
 export default function CrmMetrics() {
   return (
@@ -51,14 +51,14 @@ export default function CrmMetrics() {
               <Badge
                 size="sm"
                 color={
-                  item.direction === "up"
-                    ? "success"
-                    : item.direction === "down"
-                    ? "error"
-                    : "warning"
+                  item.direction === 'up'
+                    ? 'success'
+                    : item.direction === 'down'
+                      ? 'error'
+                      : 'warning'
                 }
               >
-                {" "}
+                {' '}
                 {item.change}
               </Badge>
               <span className="text-gray-500 text-theme-xs dark:text-gray-400">
@@ -70,5 +70,5 @@ export default function CrmMetrics() {
       ))}
       {/* <!-- Metric Item End --> */}
     </div>
-  );
+  )
 }

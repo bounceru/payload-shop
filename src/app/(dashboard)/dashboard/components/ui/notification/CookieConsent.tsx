@@ -1,6 +1,6 @@
-"use client";
-import React, { useState } from "react";
-import { CloseIcon } from "../../../icons";
+'use client'
+import React, { useState } from 'react'
+import { CloseIcon } from '../../../icons'
 
 interface CookieConsentProps {
   message: string;
@@ -10,21 +10,22 @@ interface CookieConsentProps {
 }
 
 const CookieConsent: React.FC<CookieConsentProps> = ({
-  message,
-  onCookieSettings,
-  onDenyAll,
-  onAcceptAll,
-}) => {
-  const [isVisible, setIsVisible] = useState(true); // Local state to handle visibility
+                                                       message,
+                                                       onCookieSettings,
+                                                       onDenyAll,
+                                                       onAcceptAll,
+                                                     }) => {
+  const [isVisible, setIsVisible] = useState(true) // Local state to handle visibility
 
   // Hide the component
-  const handleClose = () => setIsVisible(false);
+  const handleClose = () => setIsVisible(false)
 
   // Don't render if not visible
-  if (!isVisible) return null;
+  if (!isVisible) return null
 
   return (
-    <div className="relative w-full max-w-[577px] rounded-xl border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-[#1E2634]">
+    <div
+      className="relative w-full max-w-[577px] rounded-xl border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-[#1E2634]">
       {/* Close Button */}
       <button
         className="absolute text-gray-400 right-3 top-3 hover:text-gray-800 dark:hover:text-white/90"
@@ -56,8 +57,8 @@ const CookieConsent: React.FC<CookieConsentProps> = ({
             type="button"
             className="flex w-full sm:w-auto justify-center rounded-lg border border-gray-300 bg-white px-4 py-3 text-sm font-medium text-gray-700 shadow-theme-xs hover:bg-gray-50 hover:text-gray-800 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-white/[0.03] dark:hover:text-gray-200"
             onClick={() => {
-              onDenyAll?.(); // Optional callback
-              handleClose();
+              onDenyAll?.() // Optional callback
+              handleClose()
             }}
           >
             Deny All
@@ -66,8 +67,8 @@ const CookieConsent: React.FC<CookieConsentProps> = ({
             type="button"
             className="flex justify-center w-full px-4 py-3 text-sm font-medium text-white rounded-lg sm:w-auto bg-brand-500 shadow-theme-xs hover:bg-brand-600"
             onClick={() => {
-              onAcceptAll?.(); // Optional callback
-              handleClose();
+              onAcceptAll?.() // Optional callback
+              handleClose()
             }}
           >
             Accept All
@@ -75,7 +76,7 @@ const CookieConsent: React.FC<CookieConsentProps> = ({
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default CookieConsent;
+export default CookieConsent

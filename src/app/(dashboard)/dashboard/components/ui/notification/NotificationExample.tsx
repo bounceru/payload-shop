@@ -1,30 +1,30 @@
-"use client";
-import React from "react";
-import ComponentCard from "../../common/ComponentCard";
-import CookieConsent from "./CookieConsent";
-import UpdateNotification from "./UpdateNotification";
-import Notification from "./Notification";
+'use client'
+import React from 'react'
+import ComponentCard from '../../common/ComponentCard'
+import CookieConsent from './CookieConsent'
+import UpdateNotification from './UpdateNotification'
+import Notification from './Notification'
 
 export default function NotificationExample() {
   const handleLater = () => {
-    alert("Later button clicked");
-  };
+    alert('Later button clicked')
+  }
 
   const handleUpdate = () => {
-    alert("Update Now button clicked");
-  };
+    alert('Update Now button clicked')
+  }
 
   const handleCookieSettings = () => {
-    alert("Cookie Settings clicked");
-  };
+    alert('Cookie Settings clicked')
+  }
 
   const handleDenyAll = () => {
-    alert("Deny All clicked");
-  };
+    alert('Deny All clicked')
+  }
 
   const handleAcceptAll = () => {
-    alert("Accept All clicked");
-  };
+    alert('Accept All clicked')
+  }
   return (
     <div className="space-y-5 sm:space-y-6">
       {/* Announcement Banner */}
@@ -62,5 +62,5 @@ export default function NotificationExample() {
         <Notification variant="error" title="Something Went Wrong" />
       </ComponentCard>
     </div>
-  );
+  )
 }

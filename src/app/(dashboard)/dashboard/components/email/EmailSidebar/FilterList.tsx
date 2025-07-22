@@ -1,13 +1,13 @@
-"use client";
-import React, { useState } from "react";
+'use client'
+import React, { useState } from 'react'
 
 export default function FilterList() {
-  const [activeItem, setActiveItem] = useState("");
+  const [activeItem, setActiveItem] = useState('')
 
   const filterItems = [
-    { name: "Starred", key: "starred", icon: StarredIcon },
-    { name: "Important", key: "important", icon: InboxIcon },
-  ];
+    { name: 'Starred', key: 'starred', icon: StarredIcon },
+    { name: 'Important', key: 'important', icon: InboxIcon },
+  ]
   return (
     <ul className="flex flex-col gap-1">
       {filterItems.map((item) => (
@@ -16,10 +16,10 @@ export default function FilterList() {
             onClick={() => setActiveItem(item.key)}
             className={`group flex w-full items-center justify-between gap-2 rounded-lg px-3 py-2.5 text-sm font-medium
               ${
-                activeItem === item.key
-                  ? "text-brand-500 bg-brand-50 dark:text-brand-400 dark:bg-brand-500/[0.12]"
-                  : "text-gray-500 dark:text-gray-400"
-              }
+              activeItem === item.key
+                ? 'text-brand-500 bg-brand-50 dark:text-brand-400 dark:bg-brand-500/[0.12]'
+                : 'text-gray-500 dark:text-gray-400'
+            }
               hover:bg-brand-50 hover:text-brand-500 dark:hover:bg-brand-500/[0.12] dark:hover:text-brand-400`}
           >
             <span className="flex items-center gap-3">
@@ -30,7 +30,7 @@ export default function FilterList() {
         </li>
       ))}
     </ul>
-  );
+  )
 }
 
 const InboxIcon = () => (
@@ -48,7 +48,7 @@ const InboxIcon = () => (
       fill="currentColor"
     />
   </svg>
-);
+)
 
 const StarredIcon = () => (
   <svg
@@ -65,4 +65,4 @@ const StarredIcon = () => (
       fill="currentColor"
     />
   </svg>
-);
+)

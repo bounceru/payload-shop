@@ -83,7 +83,7 @@ export const externalUsersLogin: Endpoint = {
         if (loginAttempt?.token) {
           const collection: Collection = (req.payload.collections as { [key: string]: Collection })[
             'users'
-          ]
+            ]
           const cookie = generatePayloadCookie({
             collectionAuthConfig: collection.config.auth,
             cookiePrefix: req.payload.config.cookiePrefix,

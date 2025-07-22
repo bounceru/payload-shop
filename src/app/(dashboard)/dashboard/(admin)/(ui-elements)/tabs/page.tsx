@@ -1,18 +1,18 @@
-import ComponentCard from "../../../components/common/ComponentCard";
-import DefaultTab from "../../../components/ui/tabs/DefaultTab";
-import TabWithBadge from "../../../components/ui/tabs/TabWithBadge";
-import TabWithUnderline from "../../../components/ui/tabs/TabWithUnderline";
-import TabWithUnderlineAndIcon from "../../../components/ui/tabs/TabWithUnderlineAndIcon";
-import VerticalTabs from "../../../components/ui/tabs/VerticalTabs";
-import { Metadata } from "next";
-import React from "react";
+import ComponentCard from '../../../components/common/ComponentCard'
+import DefaultTab from '../../../components/ui/tabs/DefaultTab'
+import TabWithBadge from '../../../components/ui/tabs/TabWithBadge'
+import TabWithUnderline from '../../../components/ui/tabs/TabWithUnderline'
+import TabWithUnderlineAndIcon from '../../../components/ui/tabs/TabWithUnderlineAndIcon'
+import VerticalTabs from '../../../components/ui/tabs/VerticalTabs'
+import { Metadata } from 'next'
+import React from 'react'
 
 export const metadata: Metadata = {
-  title: "Next.js Tabs | TailAdmin - Next.js Dashboard Template",
+  title: 'Next.js Tabs | TailAdmin - Next.js Dashboard Template',
   description:
-    "This is Next.js Tabs page for TailAdmin - Next.js Tailwind CSS Admin Dashboard Template",
+    'This is Next.js Tabs page for TailAdmin - Next.js Tailwind CSS Admin Dashboard Template',
   // other metadata
-};
+}
 
 export default function Tabs() {
   return (
@@ -35,5 +35,5 @@ export default function Tabs() {
         </ComponentCard>
       </div>
     </div>
-  );
+  )
 }

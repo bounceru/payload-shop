@@ -1,15 +1,15 @@
-"use client";
-import React from "react";
-import ComponentCard from "../../common/ComponentCard";
-import PaginationWithTextWithIcon from "../pagination/PaginationWithTextWitIcon";
-import PaginationWithText from "./PaginationWithText";
-import PaginationWithIcon from "./PaginationWitIcon";
+'use client'
+import React from 'react'
+import ComponentCard from '../../common/ComponentCard'
+import PaginationWithTextWithIcon from '../pagination/PaginationWithTextWitIcon'
+import PaginationWithText from './PaginationWithText'
+import PaginationWithIcon from './PaginationWitIcon'
 
 export default function PaginationExample() {
   const handlePageChange = (page: number) => {
-    console.log(`Page changed to ${page}`);
+    console.log(`Page changed to ${page}`)
     // Here you would typically fetch data for the new page
-  };
+  }
   return (
     <div className="space-y-5 sm:space-y-6">
       <ComponentCard title="Pagination with Text">
@@ -34,5 +34,5 @@ export default function PaginationExample() {
         />
       </ComponentCard>
     </div>
-  );
+  )
 }

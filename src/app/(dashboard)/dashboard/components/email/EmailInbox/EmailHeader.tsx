@@ -1,9 +1,9 @@
-"use client";
-import React, { useState } from "react";
-import Checkbox from "../../form/input/Checkbox";
-import { Dropdown } from "../../ui/dropdown/Dropdown";
-import { DropdownItem } from "../../ui/dropdown/DropdownItem";
-import { MoreDotIcon } from "@/app/(dashboard)/dashboard/icons";
+'use client'
+import React, { useState } from 'react'
+import Checkbox from '../../form/input/Checkbox'
+import { Dropdown } from '../../ui/dropdown/Dropdown'
+import { DropdownItem } from '../../ui/dropdown/DropdownItem'
+import { MoreDotIcon } from '@/app/(dashboard)/dashboard/icons'
 
 interface EmailHeaderProps {
   isChecked: boolean;
@@ -11,39 +11,40 @@ interface EmailHeaderProps {
 }
 
 export default function EmailHeader({
-  isChecked,
-  onSelectAll,
-}: EmailHeaderProps) {
-  const [isOpen, setIsOpen] = useState(false);
+                                      isChecked,
+                                      onSelectAll,
+                                    }: EmailHeaderProps) {
+  const [isOpen, setIsOpen] = useState(false)
 
   function toggleDropdown() {
-    setIsOpen(!isOpen);
+    setIsOpen(!isOpen)
   }
 
   function closeDropdown() {
-    setIsOpen(false);
+    setIsOpen(false)
   }
 
-  const [isOpenTwo, setIsOpenTwo] = useState(false);
+  const [isOpenTwo, setIsOpenTwo] = useState(false)
 
   function toggleDropdownTwo() {
-    setIsOpenTwo(!isOpenTwo);
+    setIsOpenTwo(!isOpenTwo)
   }
 
   function closeDropdownTwo() {
-    setIsOpenTwo(false);
+    setIsOpenTwo(false)
   }
 
   return (
     <div className="flex flex-col justify-between gap-3 p-4 border-b border-gray-200 dark:border-gray-800 sm:flex-row">
       <div className="flex items-center w-full gap-2">
         <div className="relative w-full sm:w-auto">
-          <button className="flex items-center dropdown-toggle justify-between w-full gap-3 p-3 border border-gray-200 rounded-lg dark:border-gray-800 sm:justify-center">
+          <button
+            className="flex items-center dropdown-toggle justify-between w-full gap-3 p-3 border border-gray-200 rounded-lg dark:border-gray-800 sm:justify-center">
             <Checkbox checked={isChecked} onChange={onSelectAll} />
             <span
               onClick={toggleDropdown}
-              className={`${isOpen ? "rotate-180" : ""
-                } text-gray-500 duration-300 dropdown-toggle ease-linear dark:text-gray-40`}
+              className={`${isOpen ? 'rotate-180' : ''
+              } text-gray-500 duration-300 dropdown-toggle ease-linear dark:text-gray-40`}
             >
               <svg
                 width="16"
@@ -78,7 +79,7 @@ export default function EmailHeader({
               className="flex w-full px-3 py-2 font-medium text-left text-gray-500 rounded-lg text-theme-xs hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-white/5 dark:hover:text-gray-300"
             >
               Read
-            </DropdownItem>{" "}
+            </DropdownItem>{' '}
             <DropdownItem
               onItemClick={closeDropdown}
               className="flex w-full px-3 py-2 font-medium text-left text-gray-500 rounded-lg text-theme-xs hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-white/5 dark:hover:text-gray-300"
@@ -88,7 +89,8 @@ export default function EmailHeader({
           </Dropdown>
         </div>
 
-        <button className="flex items-center justify-center w-full h-10 text-gray-500 transition-colors border border-gray-200 rounded-lg max-w-10 hover:bg-gray-100 hover:text-gray-700 dark:border-gray-800 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-white">
+        <button
+          className="flex items-center justify-center w-full h-10 text-gray-500 transition-colors border border-gray-200 rounded-lg max-w-10 hover:bg-gray-100 hover:text-gray-700 dark:border-gray-800 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-white">
           <svg
             width="20"
             height="20"
@@ -105,7 +107,8 @@ export default function EmailHeader({
           </svg>
         </button>
 
-        <button className="flex items-center justify-center w-full h-10 text-gray-500 transition-colors border border-gray-200 rounded-lg max-w-10 hover:bg-gray-100 hover:text-error-500 dark:border-gray-800 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-error-500">
+        <button
+          className="flex items-center justify-center w-full h-10 text-gray-500 transition-colors border border-gray-200 rounded-lg max-w-10 hover:bg-gray-100 hover:text-error-500 dark:border-gray-800 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-error-500">
           <svg
             className="fill-current"
             width="20"
@@ -123,7 +126,8 @@ export default function EmailHeader({
           </svg>
         </button>
 
-        <button className="flex items-center justify-center w-full h-10 text-gray-500 border border-gray-200 rounded-lg max-w-10 hover:bg-gray-100 hover:text-gray-700 dark:border-gray-800 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-white">
+        <button
+          className="flex items-center justify-center w-full h-10 text-gray-500 border border-gray-200 rounded-lg max-w-10 hover:bg-gray-100 hover:text-gray-700 dark:border-gray-800 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-white">
           <svg
             width="20"
             height="20"
@@ -195,5 +199,5 @@ export default function EmailHeader({
         </form>
       </div>
     </div>
-  );
+  )
 }

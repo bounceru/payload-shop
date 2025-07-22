@@ -1,6 +1,6 @@
-import Badge from "../ui/badge/Badge";
-import { ArrowDownIcon, ArrowUpIcon } from "../../icons";
-import Image from "next/image";
+import Badge from '../ui/badge/Badge'
+import { ArrowDownIcon, ArrowUpIcon } from '../../icons'
+import Image from 'next/image'
 
 type StockCardProps = {
   imgUrl: string;
@@ -8,20 +8,21 @@ type StockCardProps = {
   companyName: string;
   price: string;
   change: string;
-  changeDirection: "up" | "down"; // Direction of the price change
+  changeDirection: 'up' | 'down'; // Direction of the price change
 };
 
 // Component rendering
 const StockCard: React.FC<StockCardProps> = ({
-  imgUrl,
+                                               imgUrl,
 
-  companyName,
-  price,
-  change,
-  changeDirection,
-}) => {
+                                               companyName,
+                                               price,
+                                               change,
+                                               changeDirection,
+                                             }) => {
   return (
-    <div className="rounded-2xl border border-gray-200 bg-white px-6 pb-5 pt-6 dark:border-gray-800 dark:bg-white/[0.03]">
+    <div
+      className="rounded-2xl border border-gray-200 bg-white px-6 pb-5 pt-6 dark:border-gray-800 dark:bg-white/[0.03]">
       <div className="flex items-center gap-3 mb-6">
         <div className="w-10 h-10">
           <Image
@@ -49,16 +50,16 @@ const StockCard: React.FC<StockCardProps> = ({
         </div>
         <Badge
           variant="light"
-          color={changeDirection === "up" ? "success" : "error"}
+          color={changeDirection === 'up' ? 'success' : 'error'}
           startIcon={
-            changeDirection === "up" ? <ArrowUpIcon /> : <ArrowDownIcon />
+            changeDirection === 'up' ? <ArrowUpIcon /> : <ArrowDownIcon />
           }
         >
           {change}
         </Badge>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default StockCard;
+export default StockCard

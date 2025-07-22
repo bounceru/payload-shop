@@ -1,7 +1,7 @@
-import ComponentCard from "../../common/ComponentCard";
+import ComponentCard from '../../common/ComponentCard'
 
-import React from "react";
-import CustomLink from "./Link";
+import React from 'react'
+import CustomLink from './Link'
 
 export default function CustomLinkOpacityExample() {
   return (
@@ -24,5 +24,5 @@ export default function CustomLinkOpacityExample() {
         </CustomLink>
       </div>
     </ComponentCard>
-  );
+  )
 }

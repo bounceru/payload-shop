@@ -1,17 +1,17 @@
-import React from "react";
-import ComponentCard from "../../common/ComponentCard";
-import Breadcrumb from "./Breadcrumb";
+import React from 'react'
+import ComponentCard from '../../common/ComponentCard'
+import Breadcrumb from './Breadcrumb'
 
 export default function DefaultBreadCrumbExample() {
   // Two-layer breadcrumb items
-  const twoLayerItems = [{ label: "Home", href: "/" }, { label: "UI Kits" }];
+  const twoLayerItems = [{ label: 'Home', href: '/' }, { label: 'UI Kits' }]
 
   // Three-layer breadcrumb items
   const threeLayerItems = [
-    { label: "Home", href: "/" },
-    { label: "UI Kits", href: "/ui-kits" },
-    { label: "Avatar" },
-  ];
+    { label: 'Home', href: '/' },
+    { label: 'UI Kits', href: '/ui-kits' },
+    { label: 'Avatar' },
+  ]
   return (
     <ComponentCard title="Default Breadcrumb">
       <div className="space-y-5">
@@ -26,5 +26,5 @@ export default function DefaultBreadCrumbExample() {
         </div>
       </div>
     </ComponentCard>
-  );
+  )
 }

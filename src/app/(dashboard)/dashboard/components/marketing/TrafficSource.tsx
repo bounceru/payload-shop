@@ -1,20 +1,21 @@
-"use client";
-import React, { useState } from "react";
-import { Dropdown } from "../ui/dropdown/Dropdown";
-import { DropdownItem } from "../ui/dropdown/DropdownItem";
-import { MoreDotIcon } from "@/app/(dashboard)/dashboard/icons";
-import Image from "next/image";
+'use client'
+import React, { useState } from 'react'
+import { Dropdown } from '../ui/dropdown/Dropdown'
+import { DropdownItem } from '../ui/dropdown/DropdownItem'
+import { MoreDotIcon } from '@/app/(dashboard)/dashboard/icons'
+import Image from 'next/image'
 
 export default function TrafficSource() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false)
 
   function toggleDropdown() {
-    setIsOpen(!isOpen);
+    setIsOpen(!isOpen)
   }
 
   function closeDropdown() {
-    setIsOpen(false);
+    setIsOpen(false)
   }
+
   return (
     <div className="rounded-2xl border border-gray-200 bg-white p-5 dark:border-gray-800 dark:bg-white/[0.03] sm:p-6">
       <div className="flex items-center justify-between gap-2 mb-6">
@@ -49,7 +50,8 @@ export default function TrafficSource() {
       </div>
 
       <div>
-        <div className="flex items-center justify-between py-3 border-b border-gray-100 last:border-b-0 dark:border-gray-800">
+        <div
+          className="flex items-center justify-between py-3 border-b border-gray-100 last:border-b-0 dark:border-gray-800">
           <div className="flex items-center gap-4">
             <div className="items-center w-full rounded-full max-w-8">
               <Image
@@ -69,7 +71,8 @@ export default function TrafficSource() {
 
           <div className="flex w-full max-w-[140px] items-center gap-3">
             <div className="relative block h-2 w-full max-w-[100px] rounded-sm bg-gray-200 dark:bg-gray-800">
-              <div className="absolute left-0 top-0 flex h-full w-[79%] items-center justify-center rounded-sm bg-brand-500 text-xs font-medium text-white"></div>
+              <div
+                className="absolute left-0 top-0 flex h-full w-[79%] items-center justify-center rounded-sm bg-brand-500 text-xs font-medium text-white"></div>
             </div>
             <p className="font-medium text-gray-700 text-theme-sm dark:text-gray-400">
               79%
@@ -77,7 +80,8 @@ export default function TrafficSource() {
           </div>
         </div>
 
-        <div className="flex items-center justify-between py-3 border-b border-gray-100 last:border-b-0 dark:border-gray-800">
+        <div
+          className="flex items-center justify-between py-3 border-b border-gray-100 last:border-b-0 dark:border-gray-800">
           <div className="flex items-center gap-4">
             <div className="items-center w-full rounded-full max-w-8">
               <Image
@@ -96,7 +100,8 @@ export default function TrafficSource() {
 
           <div className="flex w-full max-w-[140px] items-center gap-3">
             <div className="relative block h-2 w-full max-w-[100px] rounded-sm bg-gray-200 dark:bg-gray-800">
-              <div className="absolute left-0 top-0 flex h-full w-[55%] items-center justify-center rounded-sm bg-brand-500 text-xs font-medium text-white"></div>
+              <div
+                className="absolute left-0 top-0 flex h-full w-[55%] items-center justify-center rounded-sm bg-brand-500 text-xs font-medium text-white"></div>
             </div>
             <p className="font-medium text-gray-700 text-theme-sm dark:text-gray-400">
               55%
@@ -104,7 +109,8 @@ export default function TrafficSource() {
           </div>
         </div>
 
-        <div className="flex items-center justify-between py-3 border-b border-gray-100 last:border-b-0 dark:border-gray-800">
+        <div
+          className="flex items-center justify-between py-3 border-b border-gray-100 last:border-b-0 dark:border-gray-800">
           <div className="flex items-center gap-4">
             <div className="items-center w-full rounded-full max-w-8">
               <Image
@@ -123,7 +129,8 @@ export default function TrafficSource() {
 
           <div className="flex w-full max-w-[140px] items-center gap-3">
             <div className="relative block h-2 w-full max-w-[100px] rounded-sm bg-gray-200 dark:bg-gray-800">
-              <div className="absolute left-0 top-0 flex h-full w-[48%] items-center justify-center rounded-sm bg-brand-500 text-xs font-medium text-white"></div>
+              <div
+                className="absolute left-0 top-0 flex h-full w-[48%] items-center justify-center rounded-sm bg-brand-500 text-xs font-medium text-white"></div>
             </div>
             <p className="font-medium text-gray-700 text-theme-sm dark:text-gray-400">
               48%
@@ -131,7 +138,8 @@ export default function TrafficSource() {
           </div>
         </div>
 
-        <div className="flex items-center justify-between py-3 border-b border-gray-100 last:border-b-0 dark:border-gray-800">
+        <div
+          className="flex items-center justify-between py-3 border-b border-gray-100 last:border-b-0 dark:border-gray-800">
           <div className="flex items-center gap-4">
             <div className="items-center w-full rounded-full max-w-8">
               <Image
@@ -150,7 +158,8 @@ export default function TrafficSource() {
 
           <div className="flex w-full max-w-[140px] items-center gap-3">
             <div className="relative block h-2 w-full max-w-[100px] rounded-sm bg-gray-200 dark:bg-gray-800">
-              <div className="absolute left-0 top-0 flex h-full w-[48%] items-center justify-center rounded-sm bg-brand-500 text-xs font-medium text-white"></div>
+              <div
+                className="absolute left-0 top-0 flex h-full w-[48%] items-center justify-center rounded-sm bg-brand-500 text-xs font-medium text-white"></div>
             </div>
             <p className="font-medium text-gray-700 text-theme-sm dark:text-gray-400">
               48%
@@ -166,5 +175,5 @@ export default function TrafficSource() {
         View All
       </a>
     </div>
-  );
+  )
 }

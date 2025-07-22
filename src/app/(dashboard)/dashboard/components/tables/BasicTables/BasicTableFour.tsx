@@ -1,17 +1,11 @@
-"use client";
-import React, { useState } from "react";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHeader,
-  TableRow,
-} from "../../ui/table";
-import Badge from "../../ui/badge/Badge";
-import Image from "next/image";
-import { MoreDotIcon } from "@/app/(dashboard)/dashboard/icons";
-import { Dropdown } from "../../ui/dropdown/Dropdown";
-import { DropdownItem } from "../../ui/dropdown/DropdownItem";
+'use client'
+import React, { useState } from 'react'
+import { Table, TableBody, TableCell, TableHeader, TableRow } from '../../ui/table'
+import Badge from '../../ui/badge/Badge'
+import Image from 'next/image'
+import { MoreDotIcon } from '@/app/(dashboard)/dashboard/icons'
+import { Dropdown } from '../../ui/dropdown/Dropdown'
+import { DropdownItem } from '../../ui/dropdown/DropdownItem'
 
 interface Campaign {
   id: number;
@@ -31,95 +25,97 @@ const campaigns: Campaign[] = [
   {
     id: 1,
     creator: {
-      image: "/images/user/user-01.jpg",
-      name: "Wilson Gouse",
+      image: '/images/user/user-01.jpg',
+      name: 'Wilson Gouse',
     },
     campaign: {
-      image: "/images/brand/brand-01.svg",
-      name: "Grow your brand by...",
-      type: "Ads campaign",
+      image: '/images/brand/brand-01.svg',
+      name: 'Grow your brand by...',
+      type: 'Ads campaign',
     },
-    status: "Success",
+    status: 'Success',
   },
   {
     id: 2,
     creator: {
-      image: "/images/user/user-02.jpg",
-      name: "Wilson Gouse",
+      image: '/images/user/user-02.jpg',
+      name: 'Wilson Gouse',
     },
     campaign: {
-      image: "/images/brand/brand-02.svg",
-      name: "Make Better Ideas...",
-      type: "Ads campaign",
+      image: '/images/brand/brand-02.svg',
+      name: 'Make Better Ideas...',
+      type: 'Ads campaign',
     },
-    status: "Pending",
+    status: 'Pending',
   },
   {
     id: 3,
     creator: {
-      image: "/images/user/user-03.jpg",
-      name: "Wilson Gouse",
+      image: '/images/user/user-03.jpg',
+      name: 'Wilson Gouse',
     },
     campaign: {
-      image: "/images/brand/brand-03.svg",
-      name: "Increase your website tra...",
-      type: "Ads campaign",
+      image: '/images/brand/brand-03.svg',
+      name: 'Increase your website tra...',
+      type: 'Ads campaign',
     },
-    status: "Success",
+    status: 'Success',
   },
   {
     id: 4,
     creator: {
-      image: "/images/user/user-04.jpg",
-      name: "Wilson Gouse",
+      image: '/images/user/user-04.jpg',
+      name: 'Wilson Gouse',
     },
     campaign: {
-      image: "/images/brand/brand-04.svg",
-      name: "Grow your brand by...",
-      type: "Ads campaign",
+      image: '/images/brand/brand-04.svg',
+      name: 'Grow your brand by...',
+      type: 'Ads campaign',
     },
-    status: "Failed",
+    status: 'Failed',
   },
   {
     id: 5,
     creator: {
-      image: "/images/user/user-05.jpg",
-      name: "Wilson Gouse",
+      image: '/images/user/user-05.jpg',
+      name: 'Wilson Gouse',
     },
     campaign: {
-      image: "/images/brand/brand-05.svg",
-      name: "Grow your brand by...",
-      type: "Ads campaign",
+      image: '/images/brand/brand-05.svg',
+      name: 'Grow your brand by...',
+      type: 'Ads campaign',
     },
-    status: "Success",
+    status: 'Success',
   },
   {
     id: 6,
     creator: {
-      image: "/images/user/user-06.jpg",
-      name: "Wilson Gouse",
+      image: '/images/user/user-06.jpg',
+      name: 'Wilson Gouse',
     },
     campaign: {
-      image: "/images/brand/brand-06.svg",
-      name: "Grow your brand by...",
-      type: "Ads campaign",
+      image: '/images/brand/brand-06.svg',
+      name: 'Grow your brand by...',
+      type: 'Ads campaign',
     },
-    status: "Success",
+    status: 'Success',
   },
-];
+]
 
 export default function BasicTableFour() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false)
 
   function toggleDropdown() {
-    setIsOpen(!isOpen);
+    setIsOpen(!isOpen)
   }
 
   function closeDropdown() {
-    setIsOpen(false);
+    setIsOpen(false)
   }
+
   return (
-    <div className="overflow-hidden rounded-2xl border border-gray-200 bg-white px-5 pb-3 pt-4 dark:border-white/[0.05] dark:bg-white/[0.03] sm:px-6">
+    <div
+      className="overflow-hidden rounded-2xl border border-gray-200 bg-white px-5 pb-3 pt-4 dark:border-white/[0.05] dark:bg-white/[0.03] sm:px-6">
       <div className="flex justify-between gap-2 mb-4 sm:items-center">
         <div>
           <h3 className="text-lg font-semibold text-gray-800 dark:text-white/90">
@@ -223,11 +219,11 @@ export default function BasicTableFour() {
                   <Badge
                     size="sm"
                     color={
-                      item.status === "Success"
-                        ? "success"
-                        : item.status === "Pending"
-                          ? "warning"
-                          : "error"
+                      item.status === 'Success'
+                        ? 'success'
+                        : item.status === 'Pending'
+                          ? 'warning'
+                          : 'error'
                     }
                   >
                     {item.status}
@@ -239,5 +235,5 @@ export default function BasicTableFour() {
         </Table>
       </div>
     </div>
-  );
+  )
 }

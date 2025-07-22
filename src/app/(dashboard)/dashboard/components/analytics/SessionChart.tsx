@@ -1,32 +1,32 @@
-"use client";
-import React, { useState } from "react";
+'use client'
+import React, { useState } from 'react'
 // import Chart from "react-apexcharts";
-import { ApexOptions } from "apexcharts";
-import { Dropdown } from "../ui/dropdown/Dropdown";
-import { DropdownItem } from "../ui/dropdown/DropdownItem";
-import { MoreDotIcon } from "@/app/(dashboard)/dashboard/icons";
+import { ApexOptions } from 'apexcharts'
+import { Dropdown } from '../ui/dropdown/Dropdown'
+import { DropdownItem } from '../ui/dropdown/DropdownItem'
+import { MoreDotIcon } from '@/app/(dashboard)/dashboard/icons'
 
-import dynamic from "next/dynamic";
+import dynamic from 'next/dynamic'
 
-const ReactApexChart = dynamic(() => import("react-apexcharts"), {
+const ReactApexChart = dynamic(() => import('react-apexcharts'), {
   ssr: false,
-});
+})
 
 export default function SessionChart() {
   const options: ApexOptions = {
-    colors: ["#3641f5", "#7592ff", "#dde9ff"],
-    labels: ["Desktop", "Mobile", "Tablet"],
+    colors: ['#3641f5', '#7592ff', '#dde9ff'],
+    labels: ['Desktop', 'Mobile', 'Tablet'],
     chart: {
-      fontFamily: "Outfit, sans-serif",
-      type: "donut",
+      fontFamily: 'Outfit, sans-serif',
+      type: 'donut',
       width: 445,
       height: 290,
     },
     plotOptions: {
       pie: {
         donut: {
-          size: "65%",
-          background: "transparent",
+          size: '65%',
+          background: 'transparent',
           labels: {
             show: true,
             value: {
@@ -40,13 +40,13 @@ export default function SessionChart() {
     states: {
       hover: {
         filter: {
-          type: "none",
+          type: 'none',
         },
       },
       active: {
         allowMultipleDataPointsSelection: false,
         filter: {
-          type: "darken",
+          type: 'darken',
         },
       },
     },
@@ -63,14 +63,14 @@ export default function SessionChart() {
 
     legend: {
       show: true,
-      position: "bottom",
-      horizontalAlign: "center",
-      fontFamily: "Outfit",
-      fontSize: "14px",
+      position: 'bottom',
+      horizontalAlign: 'center',
+      fontFamily: 'Outfit',
+      fontSize: '14px',
       fontWeight: 400,
       markers: {
         size: 4,
-        shape: "circle",
+        shape: 'circle',
         strokeWidth: 0,
       },
       itemMargin: {
@@ -93,17 +93,18 @@ export default function SessionChart() {
         },
       },
     ],
-  };
-  const series = [45, 65, 25];
-  const [isOpen, setIsOpen] = useState(false);
+  }
+  const series = [45, 65, 25]
+  const [isOpen, setIsOpen] = useState(false)
 
   function toggleDropdown() {
-    setIsOpen(!isOpen);
+    setIsOpen(!isOpen)
   }
 
   function closeDropdown() {
-    setIsOpen(false);
+    setIsOpen(false)
   }
+
   return (
     <div className="rounded-2xl border border-gray-200 bg-white p-5 dark:border-gray-800 dark:bg-white/[0.03] sm:p-6">
       <div className="flex items-center justify-between mb-9">
@@ -145,5 +146,5 @@ export default function SessionChart() {
         </div>
       </div>
     </div>
-  );
+  )
 }

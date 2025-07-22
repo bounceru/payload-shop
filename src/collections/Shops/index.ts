@@ -1,12 +1,12 @@
-import type { CollectionConfig } from 'payload';
+import type { CollectionConfig } from 'payload'
 
-import { tenantField } from '../../fields/TenantField';
-import { hasPermission, hasFieldPermission } from '@/access/permissionChecker';
-import CustomAPIError from '@/errors/CustomAPIError';
-import { baseListFilter } from './access/baseListFilter';
+import { tenantField } from '../../fields/TenantField'
+import { hasPermission, hasFieldPermission } from '@/access/permissionChecker'
+import CustomAPIError from '@/errors/CustomAPIError'
+import { baseListFilter } from './access/baseListFilter'
 
-const validateSlug = (slug: string): boolean => /^[a-z0-9]+(-[a-z0-9]+)*$/.test(slug);
-const validateDomain = (domain: string): boolean => /^https:\/\/[a-z0-9.-]+$/.test(domain);
+const validateSlug = (slug: string): boolean => /^[a-z0-9]+(-[a-z0-9]+)*$/.test(slug)
+const validateDomain = (domain: string): boolean => /^https:\/\/[a-z0-9.-]+$/.test(domain)
 
 export const Shops: CollectionConfig = {
   slug: 'shops',
@@ -37,12 +37,12 @@ export const Shops: CollectionConfig = {
     beforeValidate: [
       async ({ data, operation }) => {
         if ((operation === 'create' || operation === 'update') && data?.slug && !validateSlug(data.slug)) {
-          throw new CustomAPIError('Invalid slug. Only lowercase letters, hyphens (-), and no spaces, numbers, or special characters are allowed.');
+          throw new CustomAPIError('Invalid slug. Only lowercase letters, hyphens (-), and no spaces, numbers, or special characters are allowed.')
         }
         if ((operation === 'create' || operation === 'update') && data?.domain && !validateDomain(data.domain)) {
-          throw new CustomAPIError('Invalid domain format. Must include "https://" and a valid domain name.');
+          throw new CustomAPIError('Invalid domain format. Must include "https://" and a valid domain name.')
         }
-        return data;
+        return data
       },
     ],
   },
@@ -196,6 +196,6 @@ export const Shops: CollectionConfig = {
     // Link to tenant
     { ...tenantField },
   ],
-};
+}
 
-export default Shops;
+export default Shops

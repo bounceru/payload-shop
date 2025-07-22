@@ -1,22 +1,22 @@
-"use client";
-import React, { useState } from "react";
-import ChartTab from "../common/ChartTab";
-import { ApexOptions } from "apexcharts";
-import { Dropdown } from "../ui/dropdown/Dropdown";
-import { DropdownItem } from "../ui/dropdown/DropdownItem";
-import { MoreDotIcon } from "@/app/(dashboard)/dashboard/icons";
-import dynamic from "next/dynamic";
+'use client'
+import React, { useState } from 'react'
+import ChartTab from '../common/ChartTab'
+import { ApexOptions } from 'apexcharts'
+import { Dropdown } from '../ui/dropdown/Dropdown'
+import { DropdownItem } from '../ui/dropdown/DropdownItem'
+import { MoreDotIcon } from '@/app/(dashboard)/dashboard/icons'
+import dynamic from 'next/dynamic'
 // Dynamically import the ReactApexChart component
-const ReactApexChart = dynamic(() => import("react-apexcharts"), {
+const ReactApexChart = dynamic(() => import('react-apexcharts'), {
   ssr: false,
-});
+})
 
 export default function TrafficStats() {
   const optionsOne: ApexOptions = {
     grid: {
       show: false,
     },
-    colors: ["#12B76A"],
+    colors: ['#12B76A'],
     fill: {
       gradient: {
         opacityFrom: 0.55,
@@ -27,9 +27,9 @@ export default function TrafficStats() {
       show: false,
     },
     chart: {
-      fontFamily: "Outfit, sans-serif",
+      fontFamily: 'Outfit, sans-serif',
       height: 70,
-      type: "area",
+      type: 'area',
       parentHeightOffset: 0,
 
       toolbar: {
@@ -43,25 +43,25 @@ export default function TrafficStats() {
       enabled: false,
     },
     stroke: {
-      curve: "smooth",
+      curve: 'smooth',
       width: 1,
     },
     xaxis: {
-      type: "datetime",
+      type: 'datetime',
       categories: [
-        "2018-09-19T00:00:00.000Z",
-        "2018-09-19T01:30:00.000Z",
-        "2018-09-19T02:30:00.000Z",
-        "2018-09-19T03:30:00.000Z",
-        "2018-09-19T04:30:00.000Z",
-        "2018-09-19T05:30:00.000Z",
-        "2018-09-19T06:30:00.000Z",
-        "2018-09-19T07:30:00.000Z",
-        "2018-09-19T08:30:00.000Z",
-        "2018-09-19T09:30:00.000Z",
-        "2018-09-19T10:30:00.000Z",
-        "2018-09-19T11:30:00.000Z",
-        "2018-09-19T12:30:00.000Z",
+        '2018-09-19T00:00:00.000Z',
+        '2018-09-19T01:30:00.000Z',
+        '2018-09-19T02:30:00.000Z',
+        '2018-09-19T03:30:00.000Z',
+        '2018-09-19T04:30:00.000Z',
+        '2018-09-19T05:30:00.000Z',
+        '2018-09-19T06:30:00.000Z',
+        '2018-09-19T07:30:00.000Z',
+        '2018-09-19T08:30:00.000Z',
+        '2018-09-19T09:30:00.000Z',
+        '2018-09-19T10:30:00.000Z',
+        '2018-09-19T11:30:00.000Z',
+        '2018-09-19T12:30:00.000Z',
       ],
       labels: {
         show: false,
@@ -81,26 +81,28 @@ export default function TrafficStats() {
         show: false,
       },
     },
-  };
+  }
 
   const series = [
     {
-      name: "New Sales",
+      name: 'New Sales',
       data: [300, 350, 310, 370, 248, 187, 295, 191, 269, 201, 185, 252, 151],
     },
-  ];
+  ]
 
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false)
 
   function toggleDropdown() {
-    setIsOpen(!isOpen);
+    setIsOpen(!isOpen)
   }
 
   function closeDropdown() {
-    setIsOpen(false);
+    setIsOpen(false)
   }
+
   return (
-    <div className="rounded-2xl border border-gray-200 bg-white px-5 pb-1 pt-5 dark:border-gray-800 dark:bg-white/[0.03] sm:px-6 sm:pt-6">
+    <div
+      className="rounded-2xl border border-gray-200 bg-white px-5 pb-1 pt-5 dark:border-gray-800 dark:bg-white/[0.03] sm:px-6 sm:pt-6">
       <div className="flex items-center justify-between gap-2 mb-6">
         <div>
           <h3 className="text-lg font-semibold text-gray-800 dark:text-white/90">
@@ -218,5 +220,5 @@ export default function TrafficStats() {
         </div>
       </div>
     </div>
-  );
+  )
 }

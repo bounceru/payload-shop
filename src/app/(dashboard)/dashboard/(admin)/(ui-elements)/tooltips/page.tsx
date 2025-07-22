@@ -1,16 +1,16 @@
-import ComponentCard from "../../../components/common/ComponentCard";
-import PageBreadcrumb from "../../../components/common/PageBreadCrumb";
-import DefaultTooltip from "../../../components/ui/tooltip/DefaultTooltip";
-import TooltipPlacement from "../../../components/ui/tooltip/TooltipPlacement";
-import WhiteAndDarkTooltip from "../../../components/ui/tooltip/WhiteAndDarkTooltip";
-import { Metadata } from "next";
-import React from "react";
+import ComponentCard from '../../../components/common/ComponentCard'
+import PageBreadcrumb from '../../../components/common/PageBreadCrumb'
+import DefaultTooltip from '../../../components/ui/tooltip/DefaultTooltip'
+import TooltipPlacement from '../../../components/ui/tooltip/TooltipPlacement'
+import WhiteAndDarkTooltip from '../../../components/ui/tooltip/WhiteAndDarkTooltip'
+import { Metadata } from 'next'
+import React from 'react'
 
 export const metadata: Metadata = {
-  title: "Next.js Tooltips | TailAdmin - Next.js Dashboard Template",
+  title: 'Next.js Tooltips | TailAdmin - Next.js Dashboard Template',
   description:
-    "This is Next.js Tooltips page for TailAdmin - Next.js Tailwind CSS Admin Dashboard Template",
-};
+    'This is Next.js Tooltips page for TailAdmin - Next.js Tailwind CSS Admin Dashboard Template',
+}
 
 export default function Tooltips() {
   return (
@@ -28,5 +28,5 @@ export default function Tooltips() {
         </ComponentCard>
       </div>
     </div>
-  );
+  )
 }

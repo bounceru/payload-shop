@@ -49,26 +49,26 @@ export const dynamic = 'force-dynamic'
  * @returns A JSON response containing all fields from collections or an error message
  */
 export async function GET(_req: NextRequest) {
-    try {
-        // 1) Get an instance of Payload with your config (unsecured)
-        const payload = await getPayload({ config })
+  try {
+    // 1) Get an instance of Payload with your config (unsecured)
+    const payload = await getPayload({ config })
 
-        // 2) Access the entire Payload config (specifically the collections array)
-        const { collections } = await config
+    // 2) Access the entire Payload config (specifically the collections array)
+    const { collections } = await config
 
-        // 3) Build a serializable structure by using your flattenFields helper
-        const allFields = collections.map((collection) => ({
-            slug: collection.slug,
-            // Instead of just mapping top-level fields, flatten them recursively:
-            fields: flattenFields(collection.fields || []),
-        }))
+    // 3) Build a serializable structure by using your flattenFields helper
+    const allFields = collections.map((collection) => ({
+      slug: collection.slug,
+      // Instead of just mapping top-level fields, flatten them recursively:
+      fields: flattenFields(collection.fields || []),
+    }))
 
-        // 4) Return JSON
-        return NextResponse.json(allFields, { status: 200 })
-    } catch (err: any) {
-        return NextResponse.json(
-            { error: err?.message || 'Unknown error' },
-            { status: 500 }
-        )
-    }
+    // 4) Return JSON
+    return NextResponse.json(allFields, { status: 200 })
+  } catch (err: any) {
+    return NextResponse.json(
+      { error: err?.message || 'Unknown error' },
+      { status: 500 },
+    )
+  }
 }

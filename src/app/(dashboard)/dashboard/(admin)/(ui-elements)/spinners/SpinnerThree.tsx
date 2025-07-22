@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 
 export default function SpinnerThree() {
   return (
@@ -788,5 +788,5 @@ export default function SpinnerThree() {
         </svg>
       </div>
     </div>
-  );
+  )
 }

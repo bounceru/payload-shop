@@ -1,24 +1,24 @@
 // File: src/collections/Media/index.ts
 
-import type { CollectionConfig } from 'payload';
-import { tenantField } from '../../fields/TenantField';
-import { baseListFilter } from './access/baseListFilter';
-import { filterByTenantRead } from './access/byTenant';
-import { generateBlurhash } from './hooks/generateBlurhash'; // Updated to reflect no Base64
-import { S3 } from '@aws-sdk/client-s3';
-import CustomAPIError from '@/errors/CustomAPIError';
+import type { CollectionConfig } from 'payload'
+import { tenantField } from '../../fields/TenantField'
+import { baseListFilter } from './access/baseListFilter'
+import { filterByTenantRead } from './access/byTenant'
+import { generateBlurhash } from './hooks/generateBlurhash' // Updated to reflect no Base64
+import { S3 } from '@aws-sdk/client-s3'
+import CustomAPIError from '@/errors/CustomAPIError'
 
 import {
   hasPermission,
   hasFieldPermission,
-} from '@/access/permissionChecker';
+} from '@/access/permissionChecker'
 
 // Helper function to validate filenames
 const isFilenameValid = (filename: string): boolean => {
   // Allow only alphanumeric characters, dashes, underscores, and periods
-  const regex = /^[a-zA-Z0-9._-]+$/;
-  return regex.test(filename);
-};
+  const regex = /^[a-zA-Z0-9._-]+$/
+  return regex.test(filename)
+}
 
 export const Media: CollectionConfig = {
   slug: 'media',
@@ -67,18 +67,18 @@ export const Media: CollectionConfig = {
     beforeValidate: [
       async ({ data, operation }) => {
         if ((operation === 'create' || operation === 'update') && data?.filename && !isFilenameValid(data.filename)) {
-          throw new CustomAPIError('Invalid filename. Only alphanumeric characters, dashes (-), underscores (_), and periods (.) are allowed.');
+          throw new CustomAPIError('Invalid filename. Only alphanumeric characters, dashes (-), underscores (_), and periods (.) are allowed.')
         }
-        return data;
+        return data
       },
     ],
 
     beforeChange: [
       async ({ data, operation }) => {
         if (operation === 'create' && data.filename) {
-          data.s3_url = `${process.env.DO_CDN_URL}/${data.filename}`;
+          data.s3_url = `${process.env.DO_CDN_URL}/${data.filename}`
         }
-        return data;
+        return data
       },
     ],
     afterChange: [
@@ -93,19 +93,19 @@ export const Media: CollectionConfig = {
                   accessKeyId: process.env.DO_ACCESS_KEY!,
                   secretAccessKey: process.env.DO_SECRET_KEY!,
                 },
-              });
+              })
 
               // Step 1: Apply public-read ACL
               await s3.putObjectAcl({
                 Bucket: process.env.DO_BUCKET_NAME,
                 Key: doc.filename,
                 ACL: 'public-read',
-              });
-              console.log(`Applied public-read ACL to ${doc.filename}`);
+              })
+              console.log(`Applied public-read ACL to ${doc.filename}`)
 
               // Step 2: Generate Blurhash
-              const blurhash = await generateBlurhash({ filename: doc.filename });
-              console.log('Generated Blurhash:', blurhash);
+              const blurhash = await generateBlurhash({ filename: doc.filename })
+              console.log('Generated Blurhash:', blurhash)
 
               // Step 3: Update the document with the Blurhash
               await req.payload.update({
@@ -114,12 +114,12 @@ export const Media: CollectionConfig = {
                 data: {
                   blurhash,
                 },
-              });
-              console.log(`Updated document ${doc.id} with Blurhash.`);
+              })
+              console.log(`Updated document ${doc.id} with Blurhash.`)
             } catch (error) {
-              console.error('Error in afterChange hook:', error);
+              console.error('Error in afterChange hook:', error)
             }
-          }, 500);
+          }, 500)
         }
       },
     ],
@@ -277,6 +277,6 @@ export const Media: CollectionConfig = {
     },
 
   ],
-};
+}
 
-export default Media;
+export default Media

@@ -1,6 +1,5 @@
-"use client";
-import { useTheme } from "../../context/ThemeContext";
-import React from "react";
+'use client'
+import React from 'react'
 
 export default function ThemeTogglerTwo() {
 
@@ -38,5 +37,5 @@ export default function ThemeTogglerTwo() {
         />
       </svg>
     </button>
-  );
+  )
 }

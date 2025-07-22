@@ -1,32 +1,32 @@
-import React from "react";
-import { CheckLineIcon } from "../../icons";
+import React from 'react'
+import { CheckLineIcon } from '../../icons'
 
 const personalPack = [
-  "Unlimited Projects",
-  "Share with 5 team members",
-  "Sync across devices",
-];
+  'Unlimited Projects',
+  'Share with 5 team members',
+  'Sync across devices',
+]
 const professionalPack = [
-  "Unlimited Projects",
-  "Share with 5 team members",
-  "Sync across devices",
-  "30 days version history",
-];
+  'Unlimited Projects',
+  'Share with 5 team members',
+  'Sync across devices',
+  '30 days version history',
+]
 const teamPack = [
-  "Unlimited Projects",
-  "Share with 5 team members",
-  "Sync across devices",
-  "Sharing permissions",
-  "Admin tools",
-];
+  'Unlimited Projects',
+  'Share with 5 team members',
+  'Sync across devices',
+  'Sharing permissions',
+  'Admin tools',
+]
 const enterprisePack = [
-  "Unlimited Projects",
-  "Share with 5 team members",
-  "Sync across devices",
-  "Sharing permissions",
-  "User provisioning (SCIM)",
-  "Advanced security",
-];
+  'Unlimited Projects',
+  'Share with 5 team members',
+  'Sync across devices',
+  'Sharing permissions',
+  'User provisioning (SCIM)',
+  'Advanced security',
+]
 
 export default function PriceTableThree() {
   return (
@@ -90,7 +90,8 @@ export default function PriceTableThree() {
             /year
           </span>
 
-          <button className="flex h-11 w-full items-center justify-center rounded-lg bg-brand-500 p-3.5 text-sm font-medium text-white shadow-theme-xs hover:bg-brand-600">
+          <button
+            className="flex h-11 w-full items-center justify-center rounded-lg bg-brand-500 p-3.5 text-sm font-medium text-white shadow-theme-xs hover:bg-brand-600">
             Try for Free
           </button>
 
@@ -111,12 +112,13 @@ export default function PriceTableThree() {
       {/* <!-- Pricing item --> */}
       <div>
         <div className="relative p-6 z-1 rounded-2xl bg-brand-500">
-          <div className="absolute px-3 py-1 font-medium text-white rounded-lg right-4 top-4 -z-1 bg-white/10 text-theme-xs">
+          <div
+            className="absolute px-3 py-1 font-medium text-white rounded-lg right-4 top-4 -z-1 bg-white/10 text-theme-xs">
             Recommended
           </div>
           <span className="block font-semibold text-white text-theme-xl">
-            {" "}
-            Team{" "}
+            {' '}
+            Team{' '}
           </span>
 
           <p className="mt-1 text-sm text-white/90">
@@ -128,11 +130,12 @@ export default function PriceTableThree() {
           </h2>
 
           <span className="inline-block mb-6 text-sm text-white/90">
-            {" "}
-            /year{" "}
+            {' '}
+            /year{' '}
           </span>
 
-          <button className="flex h-11 w-full items-center justify-center rounded-lg bg-white p-3.5 text-sm font-medium text-gray-800 shadow-theme-xs hover:bg-gray-50">
+          <button
+            className="flex h-11 w-full items-center justify-center rounded-lg bg-white p-3.5 text-sm font-medium text-gray-800 shadow-theme-xs hover:bg-gray-50">
             Try for Free
           </button>
 
@@ -169,7 +172,8 @@ export default function PriceTableThree() {
             Reach out for a quote
           </span>
 
-          <button className="flex h-11 w-full items-center justify-center rounded-lg bg-brand-500 p-3.5 text-sm font-medium text-white shadow-theme-xs hover:bg-brand-600">
+          <button
+            className="flex h-11 w-full items-center justify-center rounded-lg bg-brand-500 p-3.5 text-sm font-medium text-white shadow-theme-xs hover:bg-brand-600">
             Try for Free
           </button>
 
@@ -187,5 +191,5 @@ export default function PriceTableThree() {
         </div>
       </div>
     </div>
-  );
+  )
 }

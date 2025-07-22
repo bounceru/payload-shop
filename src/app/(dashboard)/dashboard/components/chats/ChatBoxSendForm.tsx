@@ -1,11 +1,12 @@
-import React from "react";
+import React from 'react'
 
 export default function ChatBoxSendForm() {
   return (
     <div className="sticky bottom-0 p-3 border-t border-gray-200 dark:border-gray-800">
       <form className="flex items-center justify-between">
         <div className="relative w-full">
-          <button className="absolute text-gray-500 -translate-y-1/2 left-1 top-1/2 hover:text-gray-800 dark:text-gray-400 dark:hover:text-white/90 sm:left-3">
+          <button
+            className="absolute text-gray-500 -translate-y-1/2 left-1 top-1/2 hover:text-gray-800 dark:text-gray-400 dark:hover:text-white/90 sm:left-3">
             <svg
               className="fill-current"
               width="24"
@@ -111,7 +112,8 @@ export default function ChatBoxSendForm() {
             </svg>
           </button>
 
-          <button className="flex items-center justify-center ml-3 text-white rounded-lg h-9 w-9 bg-brand-500 hover:bg-brand-600 xl:ml-5">
+          <button
+            className="flex items-center justify-center ml-3 text-white rounded-lg h-9 w-9 bg-brand-500 hover:bg-brand-600 xl:ml-5">
             <svg
               width="20"
               height="20"
@@ -130,5 +132,5 @@ export default function ChatBoxSendForm() {
         </div>
       </form>
     </div>
-  );
+  )
 }

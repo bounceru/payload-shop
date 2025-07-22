@@ -1,76 +1,70 @@
-"use client";
+'use client'
 
-import React, { useEffect, useState } from "react";
-import {
-  AlertIcon,
-  CheckCircleIcon,
-  CloseIcon,
-  ErrorIcon,
-  InfoIcon,
-} from "../../../icons";
+import React, { useEffect, useState } from 'react'
+import { AlertIcon, CheckCircleIcon, CloseIcon, ErrorIcon, InfoIcon } from '../../../icons'
 
 interface NotificationProps {
-  variant: "success" | "info" | "warning" | "error"; // Notification type
+  variant: 'success' | 'info' | 'warning' | 'error'; // Notification type
   title: string; // Title text
   description?: string; // Optional description
   hideDuration?: number; // Time in ms to auto-hide the notification
 }
 
 const Notification: React.FC<NotificationProps> = ({
-  variant,
-  title,
-  description,
-  hideDuration = 10000, // Default to 10 seconds
-}) => {
-  const [isVisible, setIsVisible] = useState(true);
+                                                     variant,
+                                                     title,
+                                                     description,
+                                                     hideDuration = 10000, // Default to 10 seconds
+                                                   }) => {
+  const [isVisible, setIsVisible] = useState(true)
 
   // Styling configuration for each alert type
   const variantStyles = {
     success: {
-      borderColor: "border-success-500",
-      backgroundColor: "bg-success-50",
-      iconBg: "bg-success-50 text-success-500",
+      borderColor: 'border-success-500',
+      backgroundColor: 'bg-success-50',
+      iconBg: 'bg-success-50 text-success-500',
       icon: <CheckCircleIcon />,
     },
     info: {
-      borderColor: "border-blue-light-500",
-      backgroundColor: "bg-blue-light-50",
-      iconBg: "bg-blue-light-50 text-blue-light-500",
+      borderColor: 'border-blue-light-500',
+      backgroundColor: 'bg-blue-light-50',
+      iconBg: 'bg-blue-light-50 text-blue-light-500',
       icon: <InfoIcon />,
     },
     warning: {
-      borderColor: "border-warning-500",
-      backgroundColor: "bg-warning-50",
-      iconBg: "bg-warning-50 text-warning-500",
+      borderColor: 'border-warning-500',
+      backgroundColor: 'bg-warning-50',
+      iconBg: 'bg-warning-50 text-warning-500',
       icon: <AlertIcon />,
     },
     error: {
-      borderColor: "border-error-500",
-      backgroundColor: "bg-error-50",
-      iconBg: "bg-error-50 text-error-500",
+      borderColor: 'border-error-500',
+      backgroundColor: 'bg-error-50',
+      iconBg: 'bg-error-50 text-error-500',
       icon: <ErrorIcon />,
     },
-  };
+  }
 
-  const { borderColor, iconBg, icon, backgroundColor } = variantStyles[variant];
+  const { borderColor, iconBg, icon, backgroundColor } = variantStyles[variant]
 
   // 1) Auto-hide after `hideDuration` ms
   useEffect(() => {
     const timer = setTimeout(() => {
-      setIsVisible(false);
-    }, hideDuration);
+      setIsVisible(false)
+    }, hideDuration)
 
     return () => {
-      clearTimeout(timer); // Clear if unmounted before time’s up
-    };
-  }, [hideDuration]);
+      clearTimeout(timer) // Clear if unmounted before time’s up
+    }
+  }, [hideDuration])
 
   // 2) Manual close button
   const handleClose = () => {
-    setIsVisible(false);
-  };
+    setIsVisible(false)
+  }
 
-  if (!isVisible) return null;
+  if (!isVisible) return null
 
   return (
     <div
@@ -105,7 +99,7 @@ const Notification: React.FC<NotificationProps> = ({
         <CloseIcon />
       </button>
     </div>
-  );
-};
+  )
+}
 
-export default Notification;
+export default Notification

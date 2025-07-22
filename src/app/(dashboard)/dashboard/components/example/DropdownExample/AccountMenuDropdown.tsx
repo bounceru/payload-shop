@@ -1,17 +1,17 @@
-"use client";
-import { Dropdown } from "../../ui/dropdown/Dropdown";
-import { DropdownItem } from "../../ui/dropdown/DropdownItem";
-import React, { useState } from "react";
+'use client'
+import { Dropdown } from '../../ui/dropdown/Dropdown'
+import { DropdownItem } from '../../ui/dropdown/DropdownItem'
+import React, { useState } from 'react'
 
 const AccountMenuDropdown: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false)
 
   function toggleDropdown() {
-    setIsOpen(!isOpen);
+    setIsOpen(!isOpen)
   }
 
   function closeDropdown() {
-    setIsOpen(false);
+    setIsOpen(false)
   }
 
   return (
@@ -22,8 +22,8 @@ const AccountMenuDropdown: React.FC = () => {
       >
         Account Menu
         <svg
-          className={`duration-200 ease-in-out stroke-current ${isOpen ? "rotate-180" : ""
-            }`}
+          className={`duration-200 ease-in-out stroke-current ${isOpen ? 'rotate-180' : ''
+          }`}
           width="20"
           height="20"
           viewBox="0 0 20 20"
@@ -89,7 +89,7 @@ const AccountMenuDropdown: React.FC = () => {
         </ul>
       </Dropdown>
     </div>
-  );
-};
+  )
+}
 
-export default AccountMenuDropdown;
+export default AccountMenuDropdown

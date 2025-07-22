@@ -1,22 +1,22 @@
-import React from "react";
-import { Task } from "./types/Task";
-import Image from "next/image";
+import React from 'react'
+import { Task } from './types/Task'
+import Image from 'next/image'
 
 interface TaskItemProps extends Task {
   onDragStart: (e: React.DragEvent<HTMLDivElement>) => void;
 }
 
 const TaskItem: React.FC<TaskItemProps> = ({
-  id,
-  title,
-  isChecked,
-  dueDate,
-  commentCount,
-  category,
-  userAvatar,
-  onDragStart,
-  toggleChecked,
-}) => {
+                                             id,
+                                             title,
+                                             isChecked,
+                                             dueDate,
+                                             commentCount,
+                                             category,
+                                             userAvatar,
+                                             onDragStart,
+                                             toggleChecked,
+                                           }) => {
   return (
     <div
       id={`task-${id}`}
@@ -55,8 +55,9 @@ const TaskItem: React.FC<TaskItemProps> = ({
                 checked={isChecked}
                 onChange={toggleChecked}
               />
-              <div className="flex items-center justify-center w-full h-5 mr-3 border border-gray-300 rounded-md box max-w-5 dark:border-gray-700">
-                <span className={`opacity-${isChecked ? "100" : "0"}`}>
+              <div
+                className="flex items-center justify-center w-full h-5 mr-3 border border-gray-300 rounded-md box max-w-5 dark:border-gray-700">
+                <span className={`opacity-${isChecked ? '100' : '0'}`}>
                   <svg
                     width="14"
                     height="14"
@@ -81,9 +82,11 @@ const TaskItem: React.FC<TaskItemProps> = ({
           </label>
         </div>
 
-        <div className="flex flex-col-reverse items-start justify-end w-full gap-3 xl:flex-row xl:items-center xl:gap-5">
+        <div
+          className="flex flex-col-reverse items-start justify-end w-full gap-3 xl:flex-row xl:items-center xl:gap-5">
           {category && (
-            <span className="inline-flex rounded-full bg-brand-50 px-2 py-0.5 text-theme-xs font-medium text-brand-500 dark:bg-brand-500/15 dark:text-brand-400">
+            <span
+              className="inline-flex rounded-full bg-brand-50 px-2 py-0.5 text-theme-xs font-medium text-brand-500 dark:bg-brand-500/15 dark:text-brand-400">
               {category}
             </span>
           )}
@@ -128,14 +131,15 @@ const TaskItem: React.FC<TaskItemProps> = ({
               </span>
             </div>
 
-            <div className="h-6 w-full max-w-6 overflow-hidden rounded-full border-[0.5px] border-gray-200 dark:border-gray-800">
+            <div
+              className="h-6 w-full max-w-6 overflow-hidden rounded-full border-[0.5px] border-gray-200 dark:border-gray-800">
               <Image width={24} height={24} src={userAvatar} alt="user" />
             </div>
           </div>
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default TaskItem;
+export default TaskItem

@@ -1,6 +1,6 @@
-import React from "react";
-import ComponentCard from "../../common/ComponentCard";
-import CustomLink from "./Link";
+import React from 'react'
+import ComponentCard from '../../common/ComponentCard'
+import CustomLink from './Link'
 
 export default function LinkOpacityHover() {
   return (
@@ -23,5 +23,5 @@ export default function LinkOpacityHover() {
         </CustomLink>
       </div>
     </ComponentCard>
-  );
+  )
 }

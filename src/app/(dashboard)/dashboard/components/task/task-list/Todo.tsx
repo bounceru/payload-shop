@@ -1,5 +1,5 @@
-import Image from "next/image";
-import React from "react";
+import Image from 'next/image'
+import React from 'react'
 
 export default function Todo() {
   return (
@@ -7,7 +7,8 @@ export default function Todo() {
       <div className="flex items-center justify-between mb-2">
         <h3 className="flex items-center gap-3 text-base font-medium text-gray-800 dark:text-white/90">
           To Do
-          <span className="inline-flex rounded-full bg-gray-100 px-2 py-0.5 text-theme-xs font-medium text-gray-700 dark:bg-white/[0.03] dark:text-white/80">
+          <span
+            className="inline-flex rounded-full bg-gray-100 px-2 py-0.5 text-theme-xs font-medium text-gray-700 dark:bg-white/[0.03] dark:text-white/80">
             3
           </span>
         </h3>
@@ -65,7 +66,8 @@ export default function Todo() {
                   id="taskCheckbox1"
                   className="sr-only taskCheckbox"
                 />
-                <div className="flex items-center justify-center w-full h-5 mr-3 border border-gray-300 rounded-md box max-w-5 dark:border-gray-700">
+                <div
+                  className="flex items-center justify-center w-full h-5 mr-3 border border-gray-300 rounded-md box max-w-5 dark:border-gray-700">
                   <span className="opacity-0">
                     <svg
                       width="14"
@@ -91,8 +93,10 @@ export default function Todo() {
             </label>
           </div>
 
-          <div className="flex flex-col-reverse items-start justify-end w-full gap-3 xl:flex-row xl:items-center xl:gap-5">
-            <span className="inline-flex rounded-full bg-brand-50 px-2 py-0.5 text-theme-xs font-medium text-brand-500 dark:bg-brand-500/15 dark:text-brand-400">
+          <div
+            className="flex flex-col-reverse items-start justify-end w-full gap-3 xl:flex-row xl:items-center xl:gap-5">
+            <span
+              className="inline-flex rounded-full bg-brand-50 px-2 py-0.5 text-theme-xs font-medium text-brand-500 dark:bg-brand-500/15 dark:text-brand-400">
               Marketing
             </span>
 
@@ -137,7 +141,8 @@ export default function Todo() {
                 </span>
               </div>
 
-              <div className="h-6 w-full max-w-6 overflow-hidden rounded-full border-[0.5px] border-gray-200 dark:border-gray-800">
+              <div
+                className="h-6 w-full max-w-6 overflow-hidden rounded-full border-[0.5px] border-gray-200 dark:border-gray-800">
                 <Image
                   width={24}
                   height={24}
@@ -183,7 +188,8 @@ export default function Todo() {
                   className="sr-only taskCheckbox"
                   checked
                 />
-                <div className="flex items-center justify-center w-full h-5 mr-3 border border-gray-300 rounded-md box max-w-5 dark:border-gray-700">
+                <div
+                  className="flex items-center justify-center w-full h-5 mr-3 border border-gray-300 rounded-md box max-w-5 dark:border-gray-700">
                   <span className="opacity-0">
                     <svg
                       width="14"
@@ -209,7 +215,8 @@ export default function Todo() {
             </label>
           </div>
 
-          <div className="flex flex-col-reverse items-start justify-end w-full gap-3 xl:flex-row xl:items-center xl:gap-5">
+          <div
+            className="flex flex-col-reverse items-start justify-end w-full gap-3 xl:flex-row xl:items-center xl:gap-5">
             <div className="flex items-center justify-between w-full gap-5 xl:w-auto xl:justify-normal">
               <div className="flex items-center gap-3">
                 <span className="flex items-center gap-1 text-sm text-gray-500 cursor-pointer dark:text-gray-400">
@@ -270,7 +277,8 @@ export default function Todo() {
                 </span>
               </div>
 
-              <div className="h-6 w-full max-w-6 overflow-hidden rounded-full border-[0.5px] border-gray-200 dark:border-gray-800">
+              <div
+                className="h-6 w-full max-w-6 overflow-hidden rounded-full border-[0.5px] border-gray-200 dark:border-gray-800">
                 <Image
                   width={24}
                   height={24}
@@ -316,7 +324,8 @@ export default function Todo() {
                   className="sr-only taskCheckbox"
                   checked
                 />
-                <div className="flex items-center justify-center w-full h-5 mr-3 border border-gray-300 rounded-md box max-w-5 dark:border-gray-700">
+                <div
+                  className="flex items-center justify-center w-full h-5 mr-3 border border-gray-300 rounded-md box max-w-5 dark:border-gray-700">
                   <span className="opacity-0">
                     <svg
                       width="14"
@@ -342,8 +351,10 @@ export default function Todo() {
             </label>
           </div>
 
-          <div className="flex flex-col-reverse items-start justify-end w-full gap-3 xl:flex-row xl:items-center xl:gap-5">
-            <span className="inline-flex rounded-full bg-brand-50 px-2 py-0.5 text-theme-xs font-medium text-brand-500 dark:bg-brand-500/15 dark:text-brand-400">
+          <div
+            className="flex flex-col-reverse items-start justify-end w-full gap-3 xl:flex-row xl:items-center xl:gap-5">
+            <span
+              className="inline-flex rounded-full bg-brand-50 px-2 py-0.5 text-theme-xs font-medium text-brand-500 dark:bg-brand-500/15 dark:text-brand-400">
               Marketing
             </span>
 
@@ -387,7 +398,8 @@ export default function Todo() {
                   1
                 </span>
               </div>
-              <div className="h-6 w-full max-w-6 overflow-hidden rounded-full border-[0.5px] border-gray-200 dark:border-gray-800">
+              <div
+                className="h-6 w-full max-w-6 overflow-hidden rounded-full border-[0.5px] border-gray-200 dark:border-gray-800">
                 <Image
                   width={24}
                   height={24}
@@ -400,5 +412,5 @@ export default function Todo() {
         </div>
       </div>
     </div>
-  );
+  )
 }

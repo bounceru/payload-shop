@@ -2,9 +2,9 @@
 
 import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { Toaster, toast } from 'sonner'
+import { toast, Toaster } from 'sonner'
 import dynamic from 'next/dynamic'
-import { FaPlus, FaTrash, FaPen } from 'react-icons/fa'
+import { FaPen, FaPlus, FaTrash } from 'react-icons/fa'
 import Switch from '@/app/(dashboard)/dashboard/components/form/switch/Switch'
 
 // A shell layout with a top bar, "Save" & "Delete" buttons
@@ -15,7 +15,6 @@ import Section from '@/app/(app)/event/[slug]/components/Section'
 import SeatAssignmentEditor from './SeatAssignmentEditor'
 // Media library for uploading/picking images
 import MediaLibrary, { MediaDoc } from '../../../components/shared/MediaLibrary'
-import LoadingDots from '../../../components/shared/LoadingDots'
 
 const ClientOnlyTiptap = dynamic(() => import('../../../components/shared/ClientOnlyTiptap'), {
   ssr: false,
@@ -108,6 +107,7 @@ interface EventDoc {
 interface VenueResult {
   docs: VenueDoc[]
 }
+
 interface SeatMapResult {
   docs: SeatMapDoc[]
 }
@@ -124,10 +124,10 @@ interface EventAdminDetailProps {
  * for sponsors & performers.
  */
 export default function EventAdminDetail({
-  event,
-  primaryColor,
-  isNew = false,
-}: EventAdminDetailProps) {
+                                           event,
+                                           primaryColor,
+                                           isNew = false,
+                                         }: EventAdminDetailProps) {
   const router = useRouter()
 
   // 1) Convert the server-supplied "event" into a local copy with IDs for images
@@ -256,6 +256,7 @@ export default function EventAdminDetail({
   function setFieldValue<T extends keyof EventDoc>(field: T, value: EventDoc[T]) {
     setTempEvent((prev) => ({ ...prev, [field]: value }))
   }
+
   function toggleFieldBoolean(field: keyof EventDoc) {
     setTempEvent((prev) => ({ ...prev, [field]: !prev[field] }))
   }
@@ -267,11 +268,13 @@ export default function EventAdminDetail({
       sponsors: [...(prev.sponsors || []), { logo: null }],
     }))
   }
+
   function removeSponsor(index: number) {
     const arr = [...(tempEvent.sponsors || [])]
     arr.splice(index, 1)
     setTempEvent((prev) => ({ ...prev, sponsors: arr }))
   }
+
   function handleSelectSponsorMedia(idx: number, doc: MediaDoc) {
     setTempEvent((prev) => {
       const arr = [...(prev.sponsors || [])]
@@ -288,11 +291,13 @@ export default function EventAdminDetail({
       performers: [...(prev.performers || []), { stageName: 'New Performer', image: null }],
     }))
   }
+
   function removePerformer(index: number) {
     const arr = [...(tempEvent.performers || [])]
     arr.splice(index, 1)
     setTempEvent((prev) => ({ ...prev, performers: arr }))
   }
+
   function handleSelectPerformerMedia(idx: number, doc: MediaDoc) {
     setTempEvent((prev) => {
       const arr = [...(prev.performers || [])]
@@ -309,6 +314,7 @@ export default function EventAdminDetail({
       faqs: [...(prev.faqs || []), { question: 'Nieuwe vraag?', answer: '' }],
     }))
   }
+
   function removeFAQ(index: number) {
     const arr = [...(tempEvent.faqs || [])]
     arr.splice(index, 1)
@@ -317,6 +323,7 @@ export default function EventAdminDetail({
 
   // Ticket Types array
   const ticketColors = ['#3b82f6', '#f97316', '#a855f7']
+
   function addTicketType() {
     setTempEvent((prev) => {
       const count = prev.ticketTypes?.length || 0
@@ -328,11 +335,13 @@ export default function EventAdminDetail({
       return { ...prev, ticketTypes: arr }
     })
   }
+
   function updateTicketType(idx: number, field: keyof EventTicketType, value: string | number) {
     const arr = [...(tempEvent.ticketTypes || [])]
     arr[idx] = { ...arr[idx], [field]: value } as EventTicketType
     setTempEvent((prev) => ({ ...prev, ticketTypes: arr }))
   }
+
   function removeTicketType(index: number) {
     const arr = [...(tempEvent.ticketTypes || [])]
     arr.splice(index, 1)
@@ -866,7 +875,8 @@ export default function EventAdminDetail({
                       className="object-cover w-20 h-20 rounded-full"
                     />
                   ) : (
-                    <div className="w-20 h-20 border-2 border-dashed rounded-full flex items-center justify-center text-gray-400 text-sm">
+                    <div
+                      className="w-20 h-20 border-2 border-dashed rounded-full flex items-center justify-center text-gray-400 text-sm">
                       No Photo
                     </div>
                   )}

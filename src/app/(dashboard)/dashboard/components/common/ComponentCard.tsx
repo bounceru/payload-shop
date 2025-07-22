@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 
 interface ComponentCardProps {
   /** Allow either a plain string or any React element */
@@ -9,11 +9,11 @@ interface ComponentCardProps {
 }
 
 const ComponentCard: React.FC<ComponentCardProps> = ({
-  title,
-  children,
-  className = "",
-  desc = "",
-}) => {
+                                                       title,
+                                                       children,
+                                                       className = '',
+                                                       desc = '',
+                                                     }) => {
   return (
     <div
       className={`rounded-2xl border border-gray-200 bg-white dark:border-gray-800 dark:bg-white/[0.03] ${className}`}
@@ -35,7 +35,7 @@ const ComponentCard: React.FC<ComponentCardProps> = ({
         <div className="space-y-6">{children}</div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ComponentCard;
+export default ComponentCard

@@ -1,7 +1,7 @@
-"use client";
-import React from "react";
-import Badge from "../ui/badge/Badge";
-import { ArrowDownIcon, ArrowUpIcon, BoxIconLine, GroupIcon } from "@/app/(dashboard)/dashboard/icons";
+'use client'
+import React from 'react'
+import Badge from '../ui/badge/Badge'
+import { ArrowDownIcon, ArrowUpIcon, BoxIconLine, GroupIcon } from '@/app/(dashboard)/dashboard/icons'
 
 export const EcommerceMetrics = () => {
   return (
@@ -52,5 +52,5 @@ export const EcommerceMetrics = () => {
       </div>
       {/* <!-- Metric Item End --> */}
     </div>
-  );
-};
+  )
+}

@@ -1,5 +1,5 @@
-"use client";
-import React, { useState } from "react";
+'use client'
+import React, { useState } from 'react'
 
 export interface TabData {
   id: string;
@@ -12,6 +12,7 @@ interface TabButtonProps extends TabData {
   isActive: boolean;
   onClick: () => void;
 }
+
 // Example SVG Icons
 const OverviewIcon: React.FC = () => (
   <svg
@@ -28,7 +29,7 @@ const OverviewIcon: React.FC = () => (
       fill="currentColor"
     />
   </svg>
-);
+)
 
 const NotificationIcon: React.FC = () => (
   <svg
@@ -45,7 +46,7 @@ const NotificationIcon: React.FC = () => (
       fill="currentColor"
     />
   </svg>
-);
+)
 
 const AnalyticsIcon: React.FC = () => (
   <svg
@@ -62,7 +63,7 @@ const AnalyticsIcon: React.FC = () => (
       fill="currentColor"
     />
   </svg>
-);
+)
 
 const CustomersIcon: React.FC = () => (
   <svg
@@ -79,59 +80,59 @@ const CustomersIcon: React.FC = () => (
       fill="currentColor"
     />
   </svg>
-);
+)
 
 const tabData: TabData[] = [
   {
-    id: "overview",
-    label: "Overview",
+    id: 'overview',
+    label: 'Overview',
     icon: <OverviewIcon />,
     content:
-      "Overview ipsum dolor sit amet consectetur. Non vitae facilisis urna tortor placerat egestas donec. Faucibus diam gravida enim elit lacus a. Tincidunt fermentum condimentum quis et a et tempus. Tristique urna nisi nulla elit sit libero scelerisque ante.",
+      'Overview ipsum dolor sit amet consectetur. Non vitae facilisis urna tortor placerat egestas donec. Faucibus diam gravida enim elit lacus a. Tincidunt fermentum condimentum quis et a et tempus. Tristique urna nisi nulla elit sit libero scelerisque ante.',
   },
   {
-    id: "notification",
-    label: "Notification",
+    id: 'notification',
+    label: 'Notification',
     icon: <NotificationIcon />,
     content:
-      "Notification ipsum dolor sit amet consectetur. Non vitae facilisis urna tortor placerat egestas donec. Faucibus diam gravida enim elit lacus a. Tincidunt fermentum condimentum quis et a et tempus. Tristique urna nisi nulla elit sit libero scelerisque ante.",
+      'Notification ipsum dolor sit amet consectetur. Non vitae facilisis urna tortor placerat egestas donec. Faucibus diam gravida enim elit lacus a. Tincidunt fermentum condimentum quis et a et tempus. Tristique urna nisi nulla elit sit libero scelerisque ante.',
   },
   {
-    id: "analytics",
-    label: "Analytics",
+    id: 'analytics',
+    label: 'Analytics',
     icon: <AnalyticsIcon />,
     content:
-      "Analytics ipsum dolor sit amet consectetur. Non vitae facilisis urna tortor placerat egestas donec. Faucibus diam gravida enim elit lacus a. Tincidunt fermentum condimentum quis et a et tempus. Tristique urna nisi nulla elit sit libero scelerisque ante.",
+      'Analytics ipsum dolor sit amet consectetur. Non vitae facilisis urna tortor placerat egestas donec. Faucibus diam gravida enim elit lacus a. Tincidunt fermentum condimentum quis et a et tempus. Tristique urna nisi nulla elit sit libero scelerisque ante.',
   },
   {
-    id: "customers",
-    label: "Customers",
+    id: 'customers',
+    label: 'Customers',
     icon: <CustomersIcon />,
     content:
-      "Customers ipsum dolor sit amet consectetur. Non vitae facilisis urna tortor placerat egestas donec. Faucibus diam gravida enim elit lacus a. Tincidunt fermentum condimentum quis et a et tempus. Tristique urna nisi nulla elit sit libero scelerisque ante.",
+      'Customers ipsum dolor sit amet consectetur. Non vitae facilisis urna tortor placerat egestas donec. Faucibus diam gravida enim elit lacus a. Tincidunt fermentum condimentum quis et a et tempus. Tristique urna nisi nulla elit sit libero scelerisque ante.',
   },
-];
+]
 
 const TabButton: React.FC<TabButtonProps> = ({
-  label,
-  icon,
-  isActive,
-  onClick,
-}) => {
+                                               label,
+                                               icon,
+                                               isActive,
+                                               onClick,
+                                             }) => {
   return (
     <button
       className={`inline-flex items-center gap-2 border-b-2 px-2.5 py-2 text-sm font-medium transition-colors duration-200 ${
         isActive
-          ? "text-brand-500 border-brand-500 dark:text-brand-400 dark:border-brand-400"
-          : "text-gray-500 border-transparent hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
+          ? 'text-brand-500 border-brand-500 dark:text-brand-400 dark:border-brand-400'
+          : 'text-gray-500 border-transparent hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200'
       }`}
       onClick={onClick}
     >
       {icon}
       {label}
     </button>
-  );
-};
+  )
+}
 
 interface TabContentProps {
   content: string;
@@ -139,22 +140,23 @@ interface TabContentProps {
 }
 
 const TabContent: React.FC<TabContentProps> = ({ content, isActive }) => {
-  if (!isActive) return null;
+  if (!isActive) return null
 
   return (
     <div>
       <p className="text-sm text-gray-500 dark:text-gray-400">{content}</p>
     </div>
-  );
-};
+  )
+}
 
 export default function TabWithUnderlineAndIcon() {
-  const [activeTab, setActiveTab] = useState<TabData["id"]>("overview");
+  const [activeTab, setActiveTab] = useState<TabData['id']>('overview')
 
   return (
     <div className="p-6 border border-gray-200 rounded-xl dark:border-gray-800">
       <div className="border-b border-gray-200 dark:border-gray-800">
-        <nav className="flex space-x-2 overflow-x-auto scrollbar-thin scrollbar-thumb-gray-200 dark:scrollbar-thumb-gray-600">
+        <nav
+          className="flex space-x-2 overflow-x-auto scrollbar-thin scrollbar-thumb-gray-200 dark:scrollbar-thumb-gray-600">
           {tabData.map((tab) => (
             <TabButton
               key={tab.id}
@@ -176,5 +178,5 @@ export default function TabWithUnderlineAndIcon() {
         ))}
       </div>
     </div>
-  );
+  )
 }

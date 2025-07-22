@@ -55,55 +55,54 @@ export const dynamic = 'force-dynamic'
  */
 
 export async function GET(request: NextRequest) {
-    try {
-        const payload = await getPayload({ config })
-        const { searchParams } = request.nextUrl
+  try {
+    const payload = await getPayload({ config })
+    const { searchParams } = request.nextUrl
 
-        const barcode = searchParams.get('barcode')
+    const barcode = searchParams.get('barcode')
 
-        // 1) Log the incoming param
-        console.log('[getCustomerByBarcode] Called with barcode:', barcode)
+    // 1) Log the incoming param
+    console.log('[getCustomerByBarcode] Called with barcode:', barcode)
 
-        if (!barcode) {
-            console.log('[getCustomerByBarcode] No barcode param provided.')
-            return NextResponse.json({ error: 'Missing barcode parameter' }, { status: 400 })
-        }
-
-        // 2) Attempt to find a Customer doc by that barcode
-        const customerResult = await payload.find({
-            collection: 'customers',
-            where: {
-                barcode: { equals: barcode },
-            },
-            depth: 3, // fetch nested relationships in the Customer doc
-            limit: 1,
-        })
-
-        // 3) Log the find result
-        console.log('[getCustomerByBarcode] Customer find result:', customerResult)
-
-        if (!customerResult?.docs?.length) {
-            console.log('[getCustomerByBarcode] No matching customer found.')
-            return NextResponse.json({ error: `No customer found for barcode: ${barcode}` }, { status: 404 })
-        }
-
-        const customerDoc = customerResult.docs[0]
-
-        // 5) Combine them into a single response
-        const responseData = {
-            customer: customerDoc,     // includes membership, etc. from depth=3
-
-        }
-
-
-
-        return NextResponse.json(responseData, { status: 200 })
-
-    } catch (error: any) {
-        console.error('[getCustomerByBarcode] Error fetching customer by barcode:', error)
-        return NextResponse.json(
-            { error: 'Failed to retrieve customer by barcode' },
-            { status: 500 }
-        )
+    if (!barcode) {
+      console.log('[getCustomerByBarcode] No barcode param provided.')
+      return NextResponse.json({ error: 'Missing barcode parameter' }, { status: 400 })
     }
+
+    // 2) Attempt to find a Customer doc by that barcode
+    const customerResult = await payload.find({
+      collection: 'customers',
+      where: {
+        barcode: { equals: barcode },
+      },
+      depth: 3, // fetch nested relationships in the Customer doc
+      limit: 1,
+    })
+
+    // 3) Log the find result
+    console.log('[getCustomerByBarcode] Customer find result:', customerResult)
+
+    if (!customerResult?.docs?.length) {
+      console.log('[getCustomerByBarcode] No matching customer found.')
+      return NextResponse.json({ error: `No customer found for barcode: ${barcode}` }, { status: 404 })
+    }
+
+    const customerDoc = customerResult.docs[0]
+
+    // 5) Combine them into a single response
+    const responseData = {
+      customer: customerDoc,     // includes membership, etc. from depth=3
+
+    }
+
+
+    return NextResponse.json(responseData, { status: 200 })
+
+  } catch (error: any) {
+    console.error('[getCustomerByBarcode] Error fetching customer by barcode:', error)
+    return NextResponse.json(
+      { error: 'Failed to retrieve customer by barcode' },
+      { status: 500 },
+    )
+  }
 }

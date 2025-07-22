@@ -1,6 +1,6 @@
-import React from "react";
-import { CardDescription, CardTitle } from "../../ui/card";
-import Link from "next/link";
+import React from 'react'
+import { CardDescription, CardTitle } from '../../ui/card'
+import Link from 'next/link'
 
 export default function CardLinkOne() {
   return (
@@ -23,5 +23,5 @@ export default function CardLinkOne() {
         </div>
       </div>
     </div>
-  );
+  )
 }

@@ -1,30 +1,30 @@
-import React from "react";
-import { CheckLineIcon, CloseLineIcon } from "../../icons";
+import React from 'react'
+import { CheckLineIcon, CloseLineIcon } from '../../icons'
 
 const personalPack = [
-  { name: "5 website", included: true },
-  { name: "500 MB Storage", included: true },
-  { name: "Unlimited Sub-Domain", included: true },
-  { name: "3 Custom Domain", included: true },
-  { name: "Free SSL Certificate", included: false },
-  { name: "Unlimited Traffic", included: false },
-];
+  { name: '5 website', included: true },
+  { name: '500 MB Storage', included: true },
+  { name: 'Unlimited Sub-Domain', included: true },
+  { name: '3 Custom Domain', included: true },
+  { name: 'Free SSL Certificate', included: false },
+  { name: 'Unlimited Traffic', included: false },
+]
 const professionalPack = [
-  { name: "10 website", included: true },
-  { name: "1GB Storage", included: true },
-  { name: "Unlimited Sub-Domain", included: true },
-  { name: "5 Custom Domain", included: true },
-  { name: "Free SSL Certificate", included: true },
-  { name: "Unlimited Traffic", included: false },
-];
+  { name: '10 website', included: true },
+  { name: '1GB Storage', included: true },
+  { name: 'Unlimited Sub-Domain', included: true },
+  { name: '5 Custom Domain', included: true },
+  { name: 'Free SSL Certificate', included: true },
+  { name: 'Unlimited Traffic', included: false },
+]
 const enterprisePack = [
-  { name: "15 website", included: true },
-  { name: "10GB Storage", included: true },
-  { name: "Unlimited Sub-Domain", included: true },
-  { name: "10 Custom Domain", included: true },
-  { name: "Free SSL Certificate", included: true },
-  { name: "Unlimited Traffic", included: true },
-];
+  { name: '15 website', included: true },
+  { name: '10GB Storage', included: true },
+  { name: 'Unlimited Sub-Domain', included: true },
+  { name: '10 Custom Domain', included: true },
+  { name: 'Free SSL Certificate', included: true },
+  { name: 'Unlimited Traffic', included: true },
+]
 
 export default function PriceTableTwo() {
   return (
@@ -36,7 +36,8 @@ export default function PriceTableTwo() {
             Personal
           </span>
 
-          <span className="flex h-[56px] w-[56px] items-center justify-center rounded-[10.5px] bg-brand-50 text-brand-500">
+          <span
+            className="flex h-[56px] w-[56px] items-center justify-center rounded-[10.5px] bg-brand-50 text-brand-500">
             <svg
               className="fill-current"
               width="29"
@@ -77,8 +78,8 @@ export default function PriceTableTwo() {
               key={index}
               className={`flex items-center gap-3 text-sm  ${
                 item.included
-                  ? "text-gray-700 dark:text-gray-400"
-                  : "text-gray-400"
+                  ? 'text-gray-700 dark:text-gray-400'
+                  : 'text-gray-400'
               }`}
             >
               {item.included ? (
@@ -91,19 +92,22 @@ export default function PriceTableTwo() {
           ))}
         </ul>
 
-        <button className="flex w-full items-center justify-center rounded-lg bg-gray-800 p-3.5 text-sm font-medium text-white shadow-theme-xs transition-colors hover:bg-brand-500 dark:bg-white/10">
+        <button
+          className="flex w-full items-center justify-center rounded-lg bg-gray-800 p-3.5 text-sm font-medium text-white shadow-theme-xs transition-colors hover:bg-brand-500 dark:bg-white/10">
           Choose Starter
         </button>
       </div>
 
       {/* <!-- Pricing item --> */}
-      <div className="rounded-2xl border-2 border-brand-500 bg-white p-6 dark:border-brand-500 dark:bg-white/[0.03] xl:p-8">
+      <div
+        className="rounded-2xl border-2 border-brand-500 bg-white p-6 dark:border-brand-500 dark:bg-white/[0.03] xl:p-8">
         <div className="flex items-start justify-between -mb-4">
           <span className="block font-semibold text-gray-800 text-theme-xl dark:text-white/90">
             Professional
           </span>
 
-          <span className="flex h-[56px] w-[56px] items-center justify-center rounded-[10.5px] bg-brand-50 text-brand-500">
+          <span
+            className="flex h-[56px] w-[56px] items-center justify-center rounded-[10.5px] bg-brand-50 text-brand-500">
             <svg
               className="fill-current"
               width="29"
@@ -144,8 +148,8 @@ export default function PriceTableTwo() {
               key={index}
               className={`flex items-center gap-3 text-sm  ${
                 item.included
-                  ? "text-gray-700 dark:text-gray-400"
-                  : "text-gray-400"
+                  ? 'text-gray-700 dark:text-gray-400'
+                  : 'text-gray-400'
               }`}
             >
               {item.included ? (
@@ -158,7 +162,8 @@ export default function PriceTableTwo() {
           ))}
         </ul>
 
-        <button className="flex w-full items-center justify-center rounded-lg bg-brand-500 p-3.5 text-sm font-medium text-white shadow-theme-xs hover:bg-brand-600">
+        <button
+          className="flex w-full items-center justify-center rounded-lg bg-brand-500 p-3.5 text-sm font-medium text-white shadow-theme-xs hover:bg-brand-600">
           Choose This Plan
         </button>
       </div>
@@ -170,7 +175,8 @@ export default function PriceTableTwo() {
             Enterprise
           </span>
 
-          <span className="flex h-[56px] w-[56px] items-center justify-center rounded-[10.5px] bg-brand-50 text-brand-500">
+          <span
+            className="flex h-[56px] w-[56px] items-center justify-center rounded-[10.5px] bg-brand-50 text-brand-500">
             <svg
               className="fill-current"
               width="28"
@@ -212,8 +218,8 @@ export default function PriceTableTwo() {
                 key={index}
                 className={`flex items-center gap-3 text-sm  ${
                   item.included
-                    ? "text-gray-700 dark:text-gray-400"
-                    : "text-gray-400"
+                    ? 'text-gray-700 dark:text-gray-400'
+                    : 'text-gray-400'
                 }`}
               >
                 {item.included ? (
@@ -227,10 +233,11 @@ export default function PriceTableTwo() {
           </ul>
         </ul>
 
-        <button className="flex w-full items-center justify-center rounded-lg bg-gray-800 p-3.5 text-sm font-medium text-white shadow-theme-xs transition-colors hover:bg-brand-500 dark:bg-white/10">
+        <button
+          className="flex w-full items-center justify-center rounded-lg bg-gray-800 p-3.5 text-sm font-medium text-white shadow-theme-xs transition-colors hover:bg-brand-500 dark:bg-white/10">
           Choose This Plan
         </button>
       </div>
     </div>
-  );
+  )
 }
